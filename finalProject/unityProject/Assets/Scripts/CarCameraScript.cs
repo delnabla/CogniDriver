@@ -4,12 +4,12 @@ using System.Collections;
 public class CarCameraScript : MonoBehaviour {
 
 	public Transform car;
-	public float distance = 50.4f;
-	public float height = 15.4f;
+	public float distance = 1.4f;
+	public float height = 2.4f;
 	public float rotationDamping = 3.0f;
 	public float heightDamping = 2.0f;
-	public float zoomRatio = 5.0f;
-	public float defaultFOV = 60;
+	public float zoomRatio = 2.5f;
+	public float defaultFOV = 7.5f;
 	private Vector3 rotationVector;
 
 	// Use this for initialization
@@ -40,7 +40,7 @@ public class CarCameraScript : MonoBehaviour {
 			rotationVector.y = car.eulerAngles.y;
 		}
 
-		float acceleration = car.rigidbody.velocity.magnitude;
-		camera.fieldOfView = defaultFOV + acceleration * zoomRatio * Time.deltaTime;
+		float speed = car.rigidbody.velocity.magnitude;
+		camera.fieldOfView = defaultFOV + speed * zoomRatio * Time.deltaTime;
 	}
 }
