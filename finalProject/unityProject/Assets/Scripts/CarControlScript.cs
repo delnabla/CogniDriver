@@ -20,9 +20,6 @@ public class CarControlScript : MonoBehaviour {
 	public float topSpeed = 150;
 	public float maxReverseSpeed = 50;
 	public GameObject backLightObject;
-	public Material idleLightMaterial;
-	public Material brakeLightMaterial;
-	public Material reverseLightMaterial;
 	
 	// Use this for initialization
 	void Start () {
@@ -74,6 +71,7 @@ public class CarControlScript : MonoBehaviour {
 		                                                WheelFR.steerAngle - WheelFRTransform.localEulerAngles.z + 90,
 		                                                WheelFRTransform.localEulerAngles.z);
 		BackLights ();
+		WheelPosition ();
 	}
 
 	void BackLights() {
@@ -89,5 +87,19 @@ public class CarControlScript : MonoBehaviour {
 		else
 			//idle
 			backLightObject.renderer.material.color = new Color(108, 4, 11, 1);
+	}
+
+	void WheelPosition() {
+		RaycastHit hit;
+		Vector3 wheelPosition;
+		WheelCollider[] wheelColliders = new WheelCollider[]{WheelFL, WheelFR, WheelBL, WheelBR};
+		Transform[] wheels = new Transform[]{WheelFLTransform, WheelFRTransform, WheelBLTransform, WheelBRTransform};
+		for (int i = 0; i < wheelColliders.Length; i++) {
+			if (Physics.Raycast (wheelColliders[i].transform.position, -wheelColliders[i].transform.up, out hit, wheelColliders[i].radius + wheelColliders[i].suspensionDistance)) 
+				wheelPosition = hit.point + wheelColliders[i].transform.up * wheelColliders[i].radius;
+			else
+				wheelPosition = wheelColliders[i].transform.position - wheelColliders[i].transform.up * wheelColliders[i].suspensionDistance;
+			wheels[i].position = wheelPosition;
+		}
 	}
 }
