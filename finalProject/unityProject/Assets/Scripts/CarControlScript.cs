@@ -18,6 +18,11 @@ public class CarControlScript : MonoBehaviour {
 	public float decelerationSpeed = 50;
 	public float currentSpeed;
 	public float topSpeed = 150;
+	public float maxReverseSpeed = 50;
+	public GameObject backLightObject;
+	public Material idleLightMaterial;
+	public Material brakeLightMaterial;
+	public Material reverseLightMaterial;
 	
 	// Use this for initialization
 	void Start () {
@@ -34,6 +39,10 @@ public class CarControlScript : MonoBehaviour {
 			WheelBR.motorTorque = maxTorque * Input.GetAxis ("Vertical");
 			WheelBL.motorTorque = maxTorque * Input.GetAxis ("Vertical");
 		} else {
+			WheelBR.motorTorque = 0;
+			WheelBL.motorTorque = 0;
+		}
+		if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > maxReverseSpeed)) {
 			WheelBR.motorTorque = 0;
 			WheelBL.motorTorque = 0;
 		}
@@ -64,5 +73,21 @@ public class CarControlScript : MonoBehaviour {
 		WheelFRTransform.localEulerAngles = new Vector3 (WheelFRTransform.localEulerAngles.x,
 		                                                WheelFR.steerAngle - WheelFRTransform.localEulerAngles.z + 90,
 		                                                WheelFRTransform.localEulerAngles.z);
+		BackLights ();
+	}
+
+	void BackLights() {
+		if (currentSpeed > 0 && Input.GetAxis ("Vertical") < 0)
+			//brake light
+			backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
+		else if (currentSpeed < 0 && Input.GetAxis ("Vertical") > 0)
+			//brake light
+			backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
+		else if (currentSpeed < 0 && Input.GetAxis ("Vertical") < 0)
+			//reverse
+			backLightObject.renderer.material.color = new Color(171, 170, 175, 1);
+		else
+			//idle
+			backLightObject.renderer.material.color = new Color(108, 4, 11, 1);
 	}
 }
