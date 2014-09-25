@@ -20,26 +20,41 @@ public class CarControlScript : MonoBehaviour {
 	public float topSpeed = 150;
 	public float maxReverseSpeed = 50;
 	public GameObject backLightObject;
-	
+	private bool braked = false;
+	public float maxBrakeTorque = 100;
+	private float sidewayFriction;
+	private float forwardFriction;
+	private float slipForwardFriction;
+	private float slipSidewayFriction;
+	public int[] gearRatio;
+
 	// Use this for initialization
 	void Start () {
 		Vector3 temp = rigidbody.centerOfMass;
 		temp.y += -1.8f;
 		rigidbody.centerOfMass = temp;
+		SetValues ();
 	}
-	
+
+	void SetValues(){
+		forwardFriction = WheelBR.forwardFriction.stiffness;
+		sidewayFriction = WheelBR.sidewaysFriction.stiffness;
+		slipForwardFriction = 0.04f;
+		slipSidewayFriction = 0.08f;
+	}
+
 	// FixedUpdate is called multiple times per frame
 	void FixedUpdate () {
 		currentSpeed = rigidbody.velocity.magnitude;
 		currentSpeed = Mathf.Round (currentSpeed);
-		if (currentSpeed < topSpeed) {
+		if (currentSpeed < topSpeed && !braked) {
 			WheelBR.motorTorque = maxTorque * Input.GetAxis ("Vertical");
 			WheelBL.motorTorque = maxTorque * Input.GetAxis ("Vertical");
 		} else {
 			WheelBR.motorTorque = 0;
 			WheelBL.motorTorque = 0;
 		}
-		if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > maxReverseSpeed)) {
+		if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > maxReverseSpeed) && !braked) {
 			WheelBR.motorTorque = 0;
 			WheelBL.motorTorque = 0;
 		}
@@ -56,6 +71,7 @@ public class CarControlScript : MonoBehaviour {
 		currentSteerAngle *= Input.GetAxis ("Horizontal");
 		WheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
 		WheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
+		HandBrake ();
 	}
 
 	//Update is called once per frame.
@@ -72,19 +88,20 @@ public class CarControlScript : MonoBehaviour {
 		                                                WheelFRTransform.localEulerAngles.z);
 		BackLights ();
 		WheelPosition ();
+		EngineSound ();
 	}
 
 	void BackLights() {
-		if (currentSpeed > 0 && Input.GetAxis ("Vertical") < 0)
+		if (currentSpeed > 0 && Input.GetAxis ("Vertical") < 0 && !braked)
 			//brake light
 			backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
-		else if (currentSpeed < 0 && Input.GetAxis ("Vertical") > 0)
+		else if (currentSpeed < 0 && Input.GetAxis ("Vertical") > 0 && !braked)
 			//brake light
 			backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
-		else if (currentSpeed < 0 && Input.GetAxis ("Vertical") < 0)
+		else if (currentSpeed < 0 && Input.GetAxis ("Vertical") < 0 && !braked)
 			//reverse
 			backLightObject.renderer.material.color = new Color(171, 170, 175, 1);
-		else
+		else if (!braked)
 			//idle
 			backLightObject.renderer.material.color = new Color(108, 4, 11, 1);
 	}
@@ -102,4 +119,71 @@ public class CarControlScript : MonoBehaviour {
 			wheels[i].position = wheelPosition;
 		}
 	}
+
+	void HandBrake() {
+		if (Input.GetButton ("Jump"))
+			braked = true;
+		else
+			braked = false;
+
+		if (braked) {
+			WheelFR.brakeTorque = maxBrakeTorque;
+			WheelFL.brakeTorque = maxBrakeTorque;
+			WheelBR.motorTorque = 0;
+			WheelBL.motorTorque = 0;
+			if (currentSpeed > 1)
+					SetSlip (slipForwardFriction, slipSidewayFriction);
+			else
+					SetSlip (1, 1);
+
+			if (currentSpeed < 5)
+				//idle
+				backLightObject.renderer.material.color = new Color (108, 4, 11, 1);
+			else
+				//brake light
+				backLightObject.renderer.material.color = new Color (248, 4, 0, 1);
+			} else {
+				WheelFR.brakeTorque = 0;
+				WheelFL.brakeTorque = 0;
+				SetSlip (forwardFriction, sidewayFriction);
+			}
+	}
+
+	void SetSlip(float currentForwardFriction, float currentSidewayFriction) {
+		var temp = WheelBR.forwardFriction;
+		temp.stiffness = currentForwardFriction;
+		WheelBR.forwardFriction = temp;
+
+		temp = WheelBL.forwardFriction;
+		temp.stiffness = currentForwardFriction;
+		WheelBL.forwardFriction = temp;
+
+		temp = WheelBR.sidewaysFriction;
+		temp.stiffness = currentSidewayFriction;
+		WheelBR.sidewaysFriction = temp;
+
+		temp = WheelBL.forwardFriction;
+		temp.stiffness = currentSidewayFriction;
+		WheelBL.sidewaysFriction = temp;
+	}
+
+	void EngineSound() {
+		int i;
+		for (i = 0; i < gearRatio.Length; i++) {
+			if (gearRatio[i] > currentSpeed){
+				break;
+			}
+		}
+		float gearMinValue = 0.00f;
+		float gearMaxValue = 0.00f;
+		if (i == 0) 
+			gearMinValue = 0;
+		else
+			gearMinValue = gearRatio[i-1];
+		gearMaxValue = gearRatio [i];
+
+		float enginePitch = ((currentSpeed - gearMinValue) / (gearMaxValue - gearMinValue)) + 1;
+		audio.pitch = enginePitch;
+	}
+
 }
