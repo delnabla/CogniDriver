@@ -27,6 +27,8 @@ public class CarControlScript : MonoBehaviour {
 	private float slipForwardFriction;
 	private float slipSidewayFriction;
 	public int[] gearRatio;
+	public Texture2D speedometerDial;
+	public Texture2D speedometerNeedle;
 
 	// Use this for initialization
 	void Start () {
@@ -184,6 +186,16 @@ public class CarControlScript : MonoBehaviour {
 
 		float enginePitch = ((currentSpeed - gearMinValue) / (gearMaxValue - gearMinValue)) + 1;
 		audio.pitch = enginePitch;
+	}
+
+	void OnGUI()
+	{
+		GUI.DrawTexture (new Rect (Screen.width - 200, Screen.height - 125, 250, 125), speedometerDial);
+		float speedFactor = currentSpeed / topSpeed;
+		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);
+		GUIUtility.RotateAroundPivot(rotationAngle, new Vector2(Screen.width - 80, Screen.height - 49));
+		GUI.DrawTexture (new Rect (Screen.width - 208, Screen.height - 155, 250, 250), speedometerNeedle);
+
 	}
 
 }

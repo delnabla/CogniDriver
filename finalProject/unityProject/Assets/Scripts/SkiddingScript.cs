@@ -12,10 +12,13 @@ public class SkiddingScript : MonoBehaviour {
 	private int skidding;
 	private Vector3[] lastPos = new Vector3[2];
 	public Material skidMaterial;
+	public GameObject skidSmoke;
+	public float smokeDepth = 0.4f;
+	public bool backWheel = false;
 
 	// Use this for initialization
 	void Start () {
-	
+		skidSmoke.transform.position = new Vector3(transform.position.x, transform.position.y - smokeDepth, transform.position.z);
 	}
 	
 	// Update is called once per frame
@@ -24,16 +27,22 @@ public class SkiddingScript : MonoBehaviour {
 		WheelCollider wheel = (WheelCollider)transform.GetComponent ("WheelCollider");
 		wheel.GetGroundHit (out hit);
 		currentFriction = Mathf.Abs (hit.sidewaysSlip);
-		if (skidAt <= currentFriction && soundWait <= 0) 
+		float rpm = transform.GetComponent<WheelCollider> ().rpm;
+		if ((skidAt <= currentFriction) || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider)) 
 		{
-			Instantiate (skidSound, hit.point, Quaternion.identity);
-			soundWait = 1;
+			if (soundWait <= 0)
+			{
+				Instantiate (skidSound, hit.point, Quaternion.identity);
+				soundWait = 1;
+			}
 		}
 		soundWait -= Time.deltaTime * soundEmition;
-		if (skidAt <= currentFriction) 
+		if (skidAt <= currentFriction || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider)) 
 		{
+			skidSmoke.particleEmitter.emit = true;
 			SkidMesh ();
 		} else {
+			skidSmoke.particleEmitter.emit = false;
 			skidding = 0;
 		}
 	}
