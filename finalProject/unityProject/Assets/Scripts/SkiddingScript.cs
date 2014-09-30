@@ -15,6 +15,7 @@ public class SkiddingScript : MonoBehaviour {
 	public GameObject skidSmoke;
 	public float smokeDepth = 0.4f;
 	public bool backWheel = false;
+	public GameObject reverseSound;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,7 @@ public class SkiddingScript : MonoBehaviour {
 				soundWait = 1;
 			}
 		}
+
 		soundWait -= Time.deltaTime * soundEmition;
 		if (skidAt <= currentFriction || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider)) 
 		{
@@ -45,6 +47,8 @@ public class SkiddingScript : MonoBehaviour {
 			skidSmoke.particleEmitter.emit = false;
 			skidding = 0;
 		}
+		if (Input.GetAxis ("Vertical") < 0) 
+			Instantiate (reverseSound, hit.point, Quaternion.identity);
 	}
 
 	void SkidMesh(){

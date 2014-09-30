@@ -15,9 +15,9 @@ public class CarControlScript : MonoBehaviour {
 	public float lowestSteerAtSpeed = 50;
 	public float lowSpeedSteerAngle = 10;
 	public float highSpeedSteerAngle = 1;
-	public float decelerationSpeed = 50;
+	public float decelerationSpeed = 500;
 	public float currentSpeed;
-	public float topSpeed = 150;
+	public float topSpeed = 320;
 	public float maxReverseSpeed = 50;
 	public GameObject backLightObject;
 	private bool braked = false;
@@ -33,7 +33,7 @@ public class CarControlScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Vector3 temp = rigidbody.centerOfMass;
-		temp.y += -1.8f;
+		temp.y += -2.5f;
 		rigidbody.centerOfMass = temp;
 		SetValues ();
 	}
@@ -74,6 +74,7 @@ public class CarControlScript : MonoBehaviour {
 		WheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
 		WheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
 		HandBrake ();
+
 	}
 
 	//Update is called once per frame.
