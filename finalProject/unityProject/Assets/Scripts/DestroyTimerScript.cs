@@ -8,9 +8,7 @@ public class DestroyTimerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timer += Time.deltaTime;
-		if (timer > liveForSeconds)
-			Destroy (gameObject);
+		Destroy (gameObject, liveForSeconds);
 	}
 	
 	// Update is called once per frame

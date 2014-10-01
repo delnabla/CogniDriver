@@ -46,7 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DistanceTool\DistanceTool.cs" />
+     <Compile Include="Assets\Scripts\AudiR8.cs" />
+     <Compile Include="Assets\Scripts\Car.cs" />
      <Compile Include="Assets\Scripts\CarCameraScript.cs" />
      <Compile Include="Assets\Scripts\CarControlScript.cs" />
      <Compile Include="Assets\Scripts\DestroyTimerScript.cs" />
