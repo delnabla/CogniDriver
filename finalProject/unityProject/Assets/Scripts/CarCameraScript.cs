@@ -4,23 +4,24 @@ using System.Collections;
 public class CarCameraScript : MonoBehaviour {
 
 	public Transform car;
-	public float distance = 10;
+	public float distance = 70;
 	public float height = 5.0f;
 	public float rotationDamping = 3.0f;
 	public float heightDamping = 2.0f;
 	public float zoomRatio = 2.5f;
 	public float defaultFOV = 7.5f;
 	private Vector3 rotationVector;
+	private float initialCarRotation;
 
 	// Use this for initialization
 	void Start () {
-	
+		initialCarRotation = car.eulerAngles.y;
 	}
 
 	// LateUpdate is called once per frame after Update.
 	void LateUpdate () {
 		// Calculate the current rotation angles
-		float wantedAngle = rotationVector.y;
+		float wantedAngle = rotationVector.y-initialCarRotation;
 		float wantedHeight = car.position.y + height;
 
 		float currentAngle = transform.eulerAngles.y;
@@ -40,15 +41,16 @@ public class CarCameraScript : MonoBehaviour {
 		transform.position -= currentRotation * Vector3.forward * distance; 
 
 		// Set the height of the camera
-		transform.position = new Vector3 (transform.position.x, currentHeight, transform.position.z-90);
+		transform.position = new Vector3 (transform.position.x, currentHeight, transform.position.z);
 
 		// Always look at the car.
 		transform.LookAt (car);
 	}
 
 	void FixedUpdate() {
+
 		Vector3 localVelocity = car.InverseTransformDirection (car.rigidbody.velocity);
-		if (localVelocity.z < -0.5f) {
+		if (Input.GetAxis ("Vertical") < 0) {
 			rotationVector.y = car.eulerAngles.y + 180;
 		} else {
 			rotationVector.y = car.eulerAngles.y;

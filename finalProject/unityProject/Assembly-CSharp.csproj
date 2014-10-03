@@ -57,6 +57,10 @@
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{63F98441-BE65-4B62-B3C3-B58466AFC1F1}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	   Other similar extension points exist, see Microsoft.Common.targets.
