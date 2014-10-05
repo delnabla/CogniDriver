@@ -26,7 +26,7 @@ public abstract class Car : MonoBehaviour {
 	{
 		maxTorque = 50;
 		lowestSteerAtSpeed = 50;
-		lowSpeedSteerAngle = 15;
+		lowSpeedSteerAngle = 14;
 		highSpeedSteerAngle = 1;
 		decelerationSpeed = 50;
 		maxReverseSpeed = 50;

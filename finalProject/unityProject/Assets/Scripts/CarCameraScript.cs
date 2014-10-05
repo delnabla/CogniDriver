@@ -4,7 +4,7 @@ using System.Collections;
 public class CarCameraScript : MonoBehaviour {
 
 	public Transform car;
-	public float distance = 70;
+	public float distance = 62;
 	public float height = 5.0f;
 	public float rotationDamping = 3.0f;
 	public float heightDamping = 2.0f;
@@ -48,8 +48,6 @@ public class CarCameraScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-
-		Vector3 localVelocity = car.InverseTransformDirection (car.rigidbody.velocity);
 		if (Input.GetAxis ("Vertical") < 0) {
 			rotationVector.y = car.eulerAngles.y + 180;
 		} else {

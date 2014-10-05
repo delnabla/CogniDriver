@@ -55,7 +55,6 @@ public class CarControlScript : MonoBehaviour {
 		chosenCar.WheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
 		chosenCar.WheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
 		HandBrake ();
-
 	}
 
 	//Update is called once per frame.
@@ -73,7 +72,6 @@ public class CarControlScript : MonoBehaviour {
 		BackLights ();
 		WheelPosition ();
 		EngineSound ();
-
 	}
 
 	void BackLights() {
@@ -173,6 +171,11 @@ public class CarControlScript : MonoBehaviour {
 	{
 		GUI.DrawTexture (new Rect (Screen.width - 200, Screen.height - 125, 250, 125), speedometerDial);
 		float speedFactor = currentSpeed / chosenCar.topSpeed;
+		GUI.Box (new Rect (Screen.width - 110, Screen.height - 30, 60, 25), currentSpeed.ToString() + " km/h");
+		float elapsedTimeSeconds = Time.time;
+		float elapsedTimeMinutes = Mathf.Floor (elapsedTimeSeconds / 60);
+		elapsedTimeSeconds = Mathf.Round(elapsedTimeSeconds - elapsedTimeMinutes * 60);
+		GUI.Label (new Rect(Screen.width - 130, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");
 		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);
 		GUIUtility.RotateAroundPivot(rotationAngle, new Vector2(Screen.width - 80, Screen.height - 49));
 		GUI.DrawTexture (new Rect (Screen.width - 208, Screen.height - 155, 250, 250), speedometerNeedle);
