@@ -18,7 +18,7 @@ public class SkiddingScript : MonoBehaviour {
 	public GameObject reverseSound;
 
 	// Use this for initialization
-	void Start () {
+	void Start () { 
 		skidSmoke.transform.position = new Vector3(transform.position.x, transform.position.y - smokeDepth, transform.position.z);
 	}
 	

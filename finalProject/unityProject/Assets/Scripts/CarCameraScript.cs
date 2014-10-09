@@ -48,6 +48,7 @@ public class CarCameraScript : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		// If the car is in reverse, move the camera to the front of the car so we can see where we drive to.
 		if (Input.GetAxis ("Vertical") < 0) {
 			rotationVector.y = car.eulerAngles.y + 180;
 		} else {
@@ -55,6 +56,8 @@ public class CarCameraScript : MonoBehaviour {
 		}
 
 		float speed = car.rigidbody.velocity.magnitude;
+
+		//Set the field of view of the camera.
 		camera.fieldOfView = defaultFOV + speed * zoomRatio * Time.deltaTime;
 	}
 }

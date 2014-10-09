@@ -30,6 +30,18 @@ public class CarControlScript : MonoBehaviour {
 	void FixedUpdate () {
 		currentSpeed = rigidbody.velocity.magnitude;
 		currentSpeed = Mathf.Round (currentSpeed);
+
+		//By making motorTorque = 0, we achieve same effect as when the user is not pressing any vertical keys.
+		//That means the car will begin to decelerate.
+
+		//If the car is in reverse and the current speed exceeds the maxReverseSpeed, make motorTorque.
+		if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {
+			chosenCar.WheelBR.motorTorque = 0;
+			chosenCar.WheelBL.motorTorque = 0;
+		}
+
+		//If current speed is less than the maximum speed achievable by the car and we are not in a braked state,
+		// multiply the current speed by the maxTorque constant.
 		if (currentSpeed < chosenCar.topSpeed && !braked) {
 			chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
 			chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
@@ -37,11 +49,8 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelBR.motorTorque = 0;
 			chosenCar.WheelBL.motorTorque = 0;
 		}
-		if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {
-			chosenCar.WheelBR.motorTorque = 0;
-			chosenCar.WheelBL.motorTorque = 0;
-		}
 
+		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
 		if (!Input.GetButton ("Vertical")) {
 			chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
 			chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
@@ -50,6 +59,7 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelBL.brakeTorque = 0;
 		}
 
+		//Deal with car steering by rotating the front wheels a certain degree.
 		float currentSteerAngle = Mathf.Lerp (chosenCar.lowSpeedSteerAngle, chosenCar.highSpeedSteerAngle, currentSpeed);
 		currentSteerAngle *= Input.GetAxis ("Horizontal");
 		chosenCar.WheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
@@ -59,10 +69,14 @@ public class CarControlScript : MonoBehaviour {
 
 	//Update is called once per frame.
 	void Update() {
+
+		//Wheel rotation while the car is moving.
 		chosenCar.WheelFLTransform.Rotate (chosenCar.WheelFL.rpm / 60 * 360 * Time.deltaTime, 0, 0);
 		chosenCar.WheelFRTransform.Rotate (chosenCar.WheelFR.rpm / 60 * 360 * Time.deltaTime, 0, 0);
 		chosenCar.WheelBLTransform.Rotate (chosenCar.WheelBL.rpm / 60 * 360 * Time.deltaTime, 0, 0);
 		chosenCar.WheelBRTransform.Rotate (chosenCar.WheelBR.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+
+		//Front wheels might be already rotated due to the steering.
 		chosenCar.WheelFLTransform.localEulerAngles = new Vector3 (chosenCar.WheelFLTransform.localEulerAngles.x, 
 		                                                           chosenCar.WheelFL.steerAngle - chosenCar.WheelFLTransform.localEulerAngles.z + 90,
 		                                                           chosenCar.WheelFLTransform.localEulerAngles.z); 
@@ -74,6 +88,7 @@ public class CarControlScript : MonoBehaviour {
 		EngineSound ();
 	}
 
+	//Method to deal with the backlights of a car in brake, reverse or idle states.
 	void BackLights() {
 		if (currentSpeed > 0 && Input.GetAxis ("Vertical") < 0 && !braked)
 			//brake light
@@ -94,6 +109,7 @@ public class CarControlScript : MonoBehaviour {
 		WheelCollider[] wheelColliders = new WheelCollider[]{chosenCar.WheelFL, chosenCar.WheelFR, chosenCar.WheelBL, chosenCar.WheelBR};
 		Transform[] wheels = new Transform[]{chosenCar.WheelFLTransform, chosenCar.WheelFRTransform, chosenCar.WheelBLTransform, chosenCar.WheelBRTransform};
 		for (int i = 0; i < wheelColliders.Length; i++) {
+			//Cast a ray starting against the collider and return information on what was hit. Then modify the wheel position to simulate suspension.
 			if (Physics.Raycast (wheelColliders[i].transform.position, -wheelColliders[i].transform.up, out hit, wheelColliders[i].radius + wheelColliders[i].suspensionDistance)) 
 				wheels[i].position = hit.point + wheelColliders[i].transform.up * wheelColliders[i].radius;
 			else
@@ -102,7 +118,7 @@ public class CarControlScript : MonoBehaviour {
 	}
 
 	void HandBrake() {
-		if (Input.GetButton ("Jump"))
+		if (Input.GetButton ("Jump")) //spacebar
 			braked = true;
 		else
 			braked = false;
@@ -169,14 +185,24 @@ public class CarControlScript : MonoBehaviour {
 
 	void OnGUI()
 	{
+		// Draw the speedometer dial.
 		GUI.DrawTexture (new Rect (Screen.width - 200, Screen.height - 125, 250, 125), speedometerDial);
-		float speedFactor = currentSpeed / chosenCar.topSpeed;
+
+		//Draw the box which gives the digital reading of the current speed.
 		GUI.Box (new Rect (Screen.width - 110, Screen.height - 30, 60, 25), currentSpeed.ToString() + " km/h");
+
+		float speedFactor = currentSpeed / chosenCar.topSpeed;
+
+		//Calculate the rotation angle of the speedometer needle.
+		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);
+
+		//Calculate the elapset time since the start of the game and display it in the right hand side corner.
 		float elapsedTimeSeconds = Time.time;
 		float elapsedTimeMinutes = Mathf.Floor (elapsedTimeSeconds / 60);
 		elapsedTimeSeconds = Mathf.Round(elapsedTimeSeconds - elapsedTimeMinutes * 60);
 		GUI.Label (new Rect(Screen.width - 130, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");
-		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);
+
+		//Rotate and draw the speedometer needle.
 		GUIUtility.RotateAroundPivot(rotationAngle, new Vector2(Screen.width - 80, Screen.height - 49));
 		GUI.DrawTexture (new Rect (Screen.width - 208, Screen.height - 155, 250, 250), speedometerNeedle);
 
