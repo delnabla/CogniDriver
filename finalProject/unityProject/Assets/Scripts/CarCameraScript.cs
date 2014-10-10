@@ -4,12 +4,12 @@ using System.Collections;
 public class CarCameraScript : MonoBehaviour {
 
 	public Transform car;
-	public float distance = 62;
+	public float distance = 31;
 	public float height = 5.0f;
 	public float rotationDamping = 3.0f;
 	public float heightDamping = 2.0f;
 	public float zoomRatio = 2.5f;
-	public float defaultFOV = 7.5f;
+	public float defaultFOV = 20.5f;
 	private Vector3 rotationVector;
 	private float initialCarRotation;
 

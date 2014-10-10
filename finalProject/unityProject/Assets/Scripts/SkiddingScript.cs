@@ -4,7 +4,7 @@ using System.Collections;
 public class SkiddingScript : MonoBehaviour {
 
 	public float currentFriction;
-	private float skidAt = 1.5f;
+	private float skidAt = 4.5f;
 	public GameObject skidSound;
 	public float soundEmition = 15;
 	private float soundWait;
@@ -29,7 +29,7 @@ public class SkiddingScript : MonoBehaviour {
 		wheel.GetGroundHit (out hit);
 		currentFriction = Mathf.Abs (hit.sidewaysSlip);
 		float rpm = transform.GetComponent<WheelCollider> ().rpm;
-		if ((skidAt <= currentFriction) || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider)) 
+		if ((skidAt <= currentFriction) || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider && (soundWait <= 0))) 
 		{
 			if (soundWait <= 0)
 			{
@@ -47,6 +47,8 @@ public class SkiddingScript : MonoBehaviour {
 			skidSmoke.particleEmitter.emit = false;
 			skidding = 0;
 		}
+
+		//Reverse sound.
 		if (Input.GetAxis ("Vertical") < 0) 
 			Instantiate (reverseSound, hit.point, Quaternion.identity);
 	}
