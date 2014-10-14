@@ -8,6 +8,7 @@ public class SkiddingScript : MonoBehaviour {
 	public GameObject skidSound;
 	public float soundEmition = 15;
 	private float soundWait;
+	private float soundWaitReverse;
 	public float markWidth = 1;
 	private int skidding;
 	private Vector3[] lastPos = new Vector3[2];
@@ -29,7 +30,7 @@ public class SkiddingScript : MonoBehaviour {
 		wheel.GetGroundHit (out hit);
 		currentFriction = Mathf.Abs (hit.sidewaysSlip);
 		float rpm = transform.GetComponent<WheelCollider> ().rpm;
-		if ((skidAt <= currentFriction) || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider && (soundWait <= 0))) 
+		if ((skidAt <= currentFriction) || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider )) 
 		{
 			if (soundWait <= 0)
 			{
@@ -38,7 +39,19 @@ public class SkiddingScript : MonoBehaviour {
 			}
 		}
 
+		//Reverse sound.
+		if (Input.GetAxis ("Vertical") < 0)
+		{
+			if (soundWaitReverse <= 0)
+			{
+				Instantiate (reverseSound, hit.point, Quaternion.identity);
+				soundWaitReverse = 10;
+			}
+		}
+
 		soundWait -= Time.deltaTime * soundEmition;
+		soundWaitReverse -= Time.deltaTime * soundEmition;
+
 		if (skidAt <= currentFriction || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider)) 
 		{
 			skidSmoke.particleEmitter.emit = true;
@@ -47,10 +60,6 @@ public class SkiddingScript : MonoBehaviour {
 			skidSmoke.particleEmitter.emit = false;
 			skidding = 0;
 		}
-
-		//Reverse sound.
-		if (Input.GetAxis ("Vertical") < 0) 
-			Instantiate (reverseSound, hit.point, Quaternion.identity);
 	}
 
 	void SkidMesh(){

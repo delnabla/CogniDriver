@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\CarCameraScript.cs" />
      <Compile Include="Assets\Scripts\CarControlScript.cs" />
      <Compile Include="Assets\Scripts\DestroyTimerScript.cs" />
+     <Compile Include="Assets\Scripts\DrawOutline.cs" />
      <Compile Include="Assets\Scripts\SkiddingScript.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />

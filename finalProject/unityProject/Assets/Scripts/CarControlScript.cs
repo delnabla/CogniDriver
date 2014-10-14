@@ -12,10 +12,12 @@ public class CarControlScript : MonoBehaviour {
 	public Texture2D speedometerDial;
 	public Texture2D speedometerNeedle;
 	public Car chosenCar;
+	private float countdown = 3.0f;
+	private bool hideLabel = false;
 
 	// Use this for initialization
 	void Start () {
-		chosenCar.setCenterOfMass (0, -2.5f, 0);
+		chosenCar.setCenterOfMass (0, -2.3f, -0.5f);
 		SetValues ();
 	}
 
@@ -23,53 +25,69 @@ public class CarControlScript : MonoBehaviour {
 		forwardFriction = chosenCar.WheelBR.forwardFriction.stiffness;
 		sidewayFriction = chosenCar.WheelBR.sidewaysFriction.stiffness;
 		slipForwardFriction = 0.04f;
-		slipSidewayFriction = 0.08f;
+		slipSidewayFriction = 0.5f;
 	}
 
+	
 	// FixedUpdate is called multiple times per frame
 	void FixedUpdate () {
-		currentSpeed = rigidbody.velocity.magnitude;
-		currentSpeed = Mathf.Round (currentSpeed);
+		if ( Mathf.Round(countdown) <= 0)
+		{
+			currentSpeed = rigidbody.velocity.magnitude;
+			currentSpeed = Mathf.Round (currentSpeed);
+	
+			//By making motorTorque = 0, we achieve same effect as when the user is not pressing any vertical keys.
+			//That means the car will begin to decelerate.
+	
+			//If current speed is less than the maximum speed achievable by the car and we are not in a braked state,
+			// multiply the current speed by the maxTorque constant.
+			if (currentSpeed < chosenCar.topSpeed && !braked) {
+				chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
+				chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
+			} else {
+				chosenCar.WheelBR.motorTorque = 0;
+				chosenCar.WheelBL.motorTorque = 0;
+			}
+	
+			//If the car is in reverse and the current speed exceeds the maxReverseSpeed, make motorTorque 0.
+			if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {
+				chosenCar.WheelBR.motorTorque = 0;
+				chosenCar.WheelBL.motorTorque = 0;
+			}
+	
+			//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
+			if (!Input.GetButton ("Vertical")) {
+				chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
+				chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
+			} else {
+				chosenCar.WheelBR.brakeTorque = 0;
+				chosenCar.WheelBL.brakeTorque = 0;
+			}
 
-		//By making motorTorque = 0, we achieve same effect as when the user is not pressing any vertical keys.
-		//That means the car will begin to decelerate.
+			//Deal with car steering by rotating the front wheels a certain degree.
+			float currentSteerAngle = Mathf.Lerp (chosenCar.lowSpeedSteerAngle, chosenCar.highSpeedSteerAngle, currentSpeed);
+			currentSteerAngle *= Input.GetAxis ("Horizontal");
+			chosenCar.WheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
+			chosenCar.WheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
 
-		//If the car is in reverse and the current speed exceeds the maxReverseSpeed, make motorTorque.
-		if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {
-			chosenCar.WheelBR.motorTorque = 0;
-			chosenCar.WheelBL.motorTorque = 0;
+			//If the car has reached the finish sign, stop.
+			if (transform.position.x >= 1850 && transform.position.z > 1770)
+			{
+				chosenCar.WheelBR.motorTorque = 0;
+				chosenCar.WheelBL.motorTorque = 0;
+				chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed/2;
+				chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed/2;
+			} 	
+
+			HandBrake ();
 		}
-
-		//If current speed is less than the maximum speed achievable by the car and we are not in a braked state,
-		// multiply the current speed by the maxTorque constant.
-		if (currentSpeed < chosenCar.topSpeed && !braked) {
-			chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
-			chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
-		} else {
-			chosenCar.WheelBR.motorTorque = 0;
-			chosenCar.WheelBL.motorTorque = 0;
-		}
-
-		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
-		if (!Input.GetButton ("Vertical")) {
-			chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
-			chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
-		} else {
-			chosenCar.WheelBR.brakeTorque = 0;
-			chosenCar.WheelBL.brakeTorque = 0;
-		}
-
-		//Deal with car steering by rotating the front wheels a certain degree.
-		float currentSteerAngle = Mathf.Lerp (chosenCar.lowSpeedSteerAngle, chosenCar.highSpeedSteerAngle, currentSpeed);
-		currentSteerAngle *= Input.GetAxis ("Horizontal");
-		chosenCar.WheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
-		chosenCar.WheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
-		HandBrake ();
 	}
 
 	//Update is called once per frame.
-	void Update() {
-
+	void Update() {	
+		
+		countdown -= Time.deltaTime;				
+	
 		//Wheel rotation while the car is moving.
 		chosenCar.WheelFLTransform.Rotate (chosenCar.WheelFL.rpm / 60 * 360 * Time.deltaTime, 0, 0);
 		chosenCar.WheelFRTransform.Rotate (chosenCar.WheelFR.rpm / 60 * 360 * Time.deltaTime, 0, 0);
@@ -82,7 +100,8 @@ public class CarControlScript : MonoBehaviour {
 		                                                           chosenCar.WheelFLTransform.localEulerAngles.z); 
 		chosenCar.WheelFRTransform.localEulerAngles = new Vector3 (chosenCar.WheelFRTransform.localEulerAngles.x,
 		                                                 chosenCar.WheelFR.steerAngle - chosenCar.WheelFRTransform.localEulerAngles.z + 90,
-		                                                 chosenCar.WheelFRTransform.localEulerAngles.z);
+		                                                 chosenCar.WheelFRTransform.localEulerAngles.z);	
+ 
 		BackLights ();
 		WheelPosition ();
 		EngineSound ();
@@ -185,6 +204,27 @@ public class CarControlScript : MonoBehaviour {
 
 	void OnGUI()
 	{
+		if (!hideLabel)
+		{
+			//Store backup values for the text style.
+			int backUpLabelFontSize = GUI.skin.label.fontSize;
+			
+			//Update skin values to desired ones.
+			GUI.skin.label.fontSize = 64;	
+			GUI.skin.label.clipping = TextClipping.Overflow;	
+			
+			if (countdown <= 3 && countdown > 0.5f)
+				DrawOutline.DrawTheOutline (new Rect (Screen.width / 2 - 10, Screen.height / 2 - 45, 125, 25), Mathf.Round(countdown).ToString(), GUI.skin.label, Color.black, Color.white, 4);
+			if (Mathf.Round(countdown) == 0)
+				DrawOutline.DrawTheOutline (new Rect (Screen.width / 2 - 10, Screen.height / 2 - 45, 125, 25), "GO!", GUI.skin.label, Color.black, Color.white, 4);
+			
+			if (countdown < 0)
+				hideLabel = true;
+	
+			//Restore to previous skin values.
+			GUI.skin.label.fontSize = backUpLabelFontSize;
+		}
+
 		// Draw the speedometer dial.
 		GUI.DrawTexture (new Rect (Screen.width - 200, Screen.height - 125, 250, 125), speedometerDial);
 

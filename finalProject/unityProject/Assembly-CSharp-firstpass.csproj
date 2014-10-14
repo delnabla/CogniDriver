@@ -46,13 +46,21 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Standard Assets\DistanceTool\DistanceTool.cs" />
-     <Compile Include="Assets\Standard Assets\DistanceTool\Editor\DistanceToolEditor.cs" />
-     <Compile Include="Assets\Standard Assets\DistanceTool\Editor\DistanceToolMenu.cs" />
+     <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D Marker.shader" />
+     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface alpha.shader" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
+     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
+     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Normal-Diffuse.shader" />
+     <None Include="Assets\EasyRoads3D Free\_readme.txt" />
+     <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Road-Edit-Mode.shader" />
+ <Reference Include="EasyRoads3D">
+ <HintPath>Assets\EasyRoads3D Free\lib\EasyRoads3D.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
