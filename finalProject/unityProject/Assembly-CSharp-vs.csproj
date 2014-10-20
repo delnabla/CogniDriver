@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\CarControlScript.cs" />
      <Compile Include="Assets\Scripts\DestroyTimerScript.cs" />
      <Compile Include="Assets\Scripts\DrawOutline.cs" />
+     <Compile Include="Assets\Scripts\EmotivHandlingScript.cs" />
      <Compile Include="Assets\Scripts\SkiddingScript.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
@@ -69,6 +70,9 @@
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Road-Edit-Mode.shader" />
  <Reference Include="EasyRoads3D">
  <HintPath>Assets\EasyRoads3D Free\lib\EasyRoads3D.dll</HintPath>
+ </Reference>
+ <Reference Include="DotNetEmotivSDK">
+ <HintPath>Assets\Scripts\DotNetEmotivSDK.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

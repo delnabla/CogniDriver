@@ -19,13 +19,14 @@ public class CarControlScript : MonoBehaviour {
 	void Start () {
 		chosenCar.setCenterOfMass (0, -2.3f, -0.5f);
 		SetValues ();
+		new EmotivHandlingScript();
 	}
 
 	void SetValues(){
 		forwardFriction = chosenCar.WheelBR.forwardFriction.stiffness;
 		sidewayFriction = chosenCar.WheelBR.sidewaysFriction.stiffness;
 		slipForwardFriction = 0.04f;
-		slipSidewayFriction = 0.5f;
+		slipSidewayFriction = 0.05f;
 	}
 
 	
@@ -49,10 +50,10 @@ public class CarControlScript : MonoBehaviour {
 				chosenCar.WheelBL.motorTorque = 0;
 			}
 	
-			//If the car is in reverse and the current speed exceeds the maxReverseSpeed, make motorTorque 0.
-			if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {
-				chosenCar.WheelBR.motorTorque = 0;
-				chosenCar.WheelBL.motorTorque = 0;
+			//If the car is in reverse and the current speed exceeds the maxReverseSpeed, apply brakes to slow down.
+			if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
+				chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
+				chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
 			}
 	
 			//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
@@ -67,8 +68,8 @@ public class CarControlScript : MonoBehaviour {
 			//Deal with car steering by rotating the front wheels a certain degree.
 			float currentSteerAngle = Mathf.Lerp (chosenCar.lowSpeedSteerAngle, chosenCar.highSpeedSteerAngle, currentSpeed);
 			currentSteerAngle *= Input.GetAxis ("Horizontal");
-			chosenCar.WheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
-			chosenCar.WheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
+			chosenCar.WheelFL.steerAngle = currentSteerAngle;
+			chosenCar.WheelFR.steerAngle = currentSteerAngle;
 
 			//If the car has reached the finish sign, stop.
 			if (transform.position.x >= 1850 && transform.position.z > 1770)
@@ -231,7 +232,7 @@ public class CarControlScript : MonoBehaviour {
 		//Draw the box which gives the digital reading of the current speed.
 		GUI.Box (new Rect (Screen.width - 110, Screen.height - 30, 60, 25), currentSpeed.ToString() + " km/h");
 
-		float speedFactor = currentSpeed / chosenCar.topSpeed;
+		float speedFactor = currentSpeed / chosenCar.topSpeed ;
 
 		//Calculate the rotation angle of the speedometer needle.
 		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);

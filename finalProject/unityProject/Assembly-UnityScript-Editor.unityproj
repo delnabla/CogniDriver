@@ -85,6 +85,9 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>D:\ProgramFiles\unity\Editor\Data\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="DotNetEmotivSDK">
+ <HintPath>Assets\Scripts\DotNetEmotivSDK.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">

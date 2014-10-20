@@ -1,14 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarControlScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarCameraScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\CarControlScript.cs" Line="68" Column="29" />
-      <File FileName="Assets\Scripts\CarCameraScript.cs" Line="58" Column="49" />
-      <File FileName="Assets\Scripts\AudiR8.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SkiddingScript.cs" Line="74" Column="15" />
-      <File FileName="Assets\Scripts\DestroyTimerScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Car.cs" Line="20" Column="29" />
-      <File FileName="Assets\Scripts\DrawOutline.cs" Line="6" Column="28" />
+      <File FileName="Assets\Scripts\CarControlScript.cs" Line="60" Column="38" />
+      <File FileName="Assets\Scripts\CarCameraScript.cs" Line="73" Column="35" />
+      <File FileName="Assets\Scripts\SkiddingScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Car.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EmotivHandlingScript.cs" Line="137" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
