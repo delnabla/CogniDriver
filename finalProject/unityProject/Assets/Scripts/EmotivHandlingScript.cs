@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading;
 using Emotiv;
 
-
-
 public class EmotivHandlingScript 
 {	
 	public EmotivHandlingScript()

@@ -10,6 +10,7 @@ public abstract class Car : MonoBehaviour {
 	public Transform WheelFRTransform;
 	public Transform WheelBLTransform;
 	public Transform WheelBRTransform;
+	public Transform SteeringWheel;
 	public float maxTorque;
 	public float lowestSteerAtSpeed;
 	public float lowSpeedSteerAngle;

@@ -13,6 +13,7 @@ public class CarControlScript : MonoBehaviour {
 	public Texture2D speedometerNeedle;
 	public Car chosenCar;
 	private float countdown = 3.0f;
+	private float startCountdown = 3.0f;
 	private bool hideLabel = false;
 
 	// Use this for initialization
@@ -71,6 +72,22 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelFL.steerAngle = currentSteerAngle;
 			chosenCar.WheelFR.steerAngle = currentSteerAngle;
 
+			//Rotate the steering wheel.
+			/*Vector3 steeringWheelRotation; 
+			if (currentSteerAngle > -0.5 && currentSteerAngle < 0.5)
+				steeringWheelRotation = Vector3.zero; 
+			else
+				steeringWheelRotation = Vector3.forward * (-90) / currentSteerAngle / 1.5f * Time.deltaTime;
+			chosenCar.SteeringWheel.Rotate(steeringWheelRotation);
+			
+			if (!Input.GetButton ("Horizontal") && steeringWheelRotation != Vector3.zero)
+			{
+				Debug.Log("before: " + chosenCar.SteeringWheel.rotation.eulerAngles);
+				chosenCar.SteeringWheel.Rotate(chosenCar.SteeringWheel.rotation.eulerAngles * (-0.1f));
+				Debug.Log ("done by: " + chosenCar.SteeringWheel.rotation.eulerAngles * (-0.1f));
+				Debug.Log("after: " + chosenCar.SteeringWheel.rotation.eulerAngles);
+			}*/
+			
 			//If the car has reached the finish sign, stop.
 			if (transform.position.x >= 1850 && transform.position.z > 1770)
 			{
@@ -214,7 +231,7 @@ public class CarControlScript : MonoBehaviour {
 			GUI.skin.label.fontSize = 64;	
 			GUI.skin.label.clipping = TextClipping.Overflow;	
 			
-			if (countdown <= 3 && countdown > 0.5f)
+			if (countdown <= startCountdown && countdown > 0.5f)
 				DrawOutline.DrawTheOutline (new Rect (Screen.width / 2 - 10, Screen.height / 2 - 45, 125, 25), Mathf.Round(countdown).ToString(), GUI.skin.label, Color.black, Color.white, 4);
 			if (Mathf.Round(countdown) == 0)
 				DrawOutline.DrawTheOutline (new Rect (Screen.width / 2 - 10, Screen.height / 2 - 45, 125, 25), "GO!", GUI.skin.label, Color.black, Color.white, 4);
@@ -238,7 +255,7 @@ public class CarControlScript : MonoBehaviour {
 		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);
 
 		//Calculate the elapset time since the start of the game and display it in the right hand side corner.
-		float elapsedTimeSeconds = Time.time;
+		float elapsedTimeSeconds = Time.time - startCountdown;
 		float elapsedTimeMinutes = Mathf.Floor (elapsedTimeSeconds / 60);
 		elapsedTimeSeconds = Mathf.Round(elapsedTimeSeconds - elapsedTimeMinutes * 60);
 		GUI.Label (new Rect(Screen.width - 130, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");

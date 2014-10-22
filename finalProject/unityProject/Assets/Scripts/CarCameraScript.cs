@@ -4,6 +4,7 @@ using System.Collections;
 public class CarCameraScript : MonoBehaviour {
 
 	public Transform car;
+	public Transform emptyObjectInFrontOfCar;
 	public float distance = 31;
 	public float height = 5.0f;
 	public float rotationDamping = 3.0f;
@@ -27,13 +28,14 @@ public class CarCameraScript : MonoBehaviour {
 		
 		if (!isTopCamera)
 		{
-			// Calculate the current rotation angle
+			// Calculate the rotation angles
 			float wantedAngle = rotationVector.y - initialCarRotation;
 			float currentAngle = transform.eulerAngles.y;
 	
 			// Damp the rotation around the y-axis
-			currentAngle = Mathf.LerpAngle (currentAngle, wantedAngle, rotationDamping * Time.deltaTime);
-			
+			if (cameraRoll == 0)
+				currentAngle = Mathf.LerpAngle (currentAngle, wantedAngle, rotationDamping * Time.deltaTime);
+
 			// Convert the angle into a rotation
 			currentRotation = Quaternion.Euler (0, currentAngle, 0); 
 
@@ -42,7 +44,23 @@ public class CarCameraScript : MonoBehaviour {
 			currentHeight = transform.position.y;
 	
 			// Damp the height
-			currentHeight = Mathf.Lerp (currentHeight, wantedHeight, heightDamping * Time.deltaTime);
+			switch(cameraRoll)
+			{
+				//back of the car view
+				case 0:
+					currentHeight = Mathf.Lerp (currentHeight, wantedHeight, heightDamping * Time.deltaTime);
+					break; 
+
+				//steering wheel view
+				case 1: 
+					currentHeight = car.position.y + 1.8f;
+					break;
+					
+					//over the board view
+				/*case 2: 
+					currentHeight = Mathf.Lerp (currentHeight, car.position.y + 1.5f, heightDamping * Time.deltaTime);
+					break;			*/			
+			}
 		}		
 
 		// Set the position of the camera on the x-z plane to 10 distance meters behind the target if this is the main camera.
@@ -57,43 +75,41 @@ public class CarCameraScript : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.C)) // if 'c' key is pressed, change camera position.
 			{
 				cameraRoll++;
-				if (cameraRoll == 3) //if we reached a bigger index than the number of camera positions, reset to 0.
+				if (cameraRoll == 2) //if we reached a bigger index than the number of camera positions, reset to 0.
 					cameraRoll = 0; 
 			}
+
 			switch(cameraRoll)
 			{
 				//back of the car view
 				case 0:
 					transform.position = car.position - currentRotation * Vector3.forward * distance; 	
-					Debug.Log ('0');
 					break; 
 
 				//steering wheel view
 				case 1: 
-					transform.position = car.position - currentRotation * Vector3.forward * 2;
-					Debug.Log('1');
+					transform.position = car.position - currentRotation * Vector3.forward * 1.5f - currentRotation * Vector3.right * 1.7f;
 					break;
 						
 				//over the board view
-				case 2: 
-					transform.position = car.position - currentRotation * Vector3.forward * 1;
-					Debug.Log ('2');
-					break;						
+				/*case 2: 
+					transform.position = car.position - currentRotation * Vector3.back * 2.5f;
+					break;	*/					
 			}
 		}
 		
-		if (cameraRoll != 0)
-			currentHeight = transform.position.y;
-
 		// Set the height of the camera
 		transform.position = new Vector3 (transform.position.x, currentHeight, transform.position.z);
 
 		// Always look at the car.
-		transform.LookAt (car);
+		if (cameraRoll == 0)
+			transform.LookAt (car); 
+		else
+			transform.LookAt(emptyObjectInFrontOfCar);
 	}
 
 	void FixedUpdate() {
-		if (!isTopCamera)
+		if (!isTopCamera && cameraRoll == 0)
 		{
 			// If the car is in reverse, move the camera to the front of the car so we can see where we drive to.
 			if (Input.GetAxis ("Vertical") < 0) {

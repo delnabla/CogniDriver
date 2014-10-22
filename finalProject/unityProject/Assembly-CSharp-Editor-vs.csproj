@@ -64,6 +64,9 @@
  <Reference Include="EasyRoads3D">
  <HintPath>Assets\EasyRoads3D Free\lib\EasyRoads3D.dll</HintPath>
  </Reference>
+ <Reference Include="DotNetEmotivSDK">
+ <HintPath>Assets\Scripts\DotNetEmotivSDK.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>D:\ProgramFiles\unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -81,9 +84,6 @@
  </Reference>
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>D:\ProgramFiles\unity\Editor\Data\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="DotNetEmotivSDK">
- <HintPath>Assets\Scripts\DotNetEmotivSDK.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
