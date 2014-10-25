@@ -15,24 +15,28 @@ public class CarControlScript : MonoBehaviour {
 	private float countdown = 3.0f;
 	private float startCountdown = 3.0f;
 	private bool hideLabel = false;
+	private Vector3 originalSteeringWheelRotation;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		chosenCar.setCenterOfMass (0, -2.3f, -0.5f);
 		SetValues ();
-		new EmotivHandlingScript();
+		originalSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles; 
+		//new EmotivHandlingScript();
 	}
 
-	void SetValues(){
+	void SetValues()
+	{
 		forwardFriction = chosenCar.WheelBR.forwardFriction.stiffness;
 		sidewayFriction = chosenCar.WheelBR.sidewaysFriction.stiffness;
 		slipForwardFriction = 0.04f;
 		slipSidewayFriction = 0.05f;
 	}
-
 	
 	// FixedUpdate is called multiple times per frame
-	void FixedUpdate () {
+	void FixedUpdate () 
+	{
 		if ( Mathf.Round(countdown) <= 0)
 		{
 			currentSpeed = rigidbody.velocity.magnitude;
@@ -72,37 +76,15 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelFL.steerAngle = currentSteerAngle;
 			chosenCar.WheelFR.steerAngle = currentSteerAngle;
 
-			//Rotate the steering wheel.
-			/*Vector3 steeringWheelRotation; 
-			if (currentSteerAngle > -0.5 && currentSteerAngle < 0.5)
-				steeringWheelRotation = Vector3.zero; 
-			else
-				steeringWheelRotation = Vector3.forward * (-90) / currentSteerAngle / 1.5f * Time.deltaTime;
-			chosenCar.SteeringWheel.Rotate(steeringWheelRotation);
-			
-			if (!Input.GetButton ("Horizontal") && steeringWheelRotation != Vector3.zero)
-			{
-				Debug.Log("before: " + chosenCar.SteeringWheel.rotation.eulerAngles);
-				chosenCar.SteeringWheel.Rotate(chosenCar.SteeringWheel.rotation.eulerAngles * (-0.1f));
-				Debug.Log ("done by: " + chosenCar.SteeringWheel.rotation.eulerAngles * (-0.1f));
-				Debug.Log("after: " + chosenCar.SteeringWheel.rotation.eulerAngles);
-			}*/
-			
-			//If the car has reached the finish sign, stop.
-			if (transform.position.x >= 1850 && transform.position.z > 1770)
-			{
-				chosenCar.WheelBR.motorTorque = 0;
-				chosenCar.WheelBL.motorTorque = 0;
-				chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed/2;
-				chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed/2;
-			} 	
-
+			SteeringWheel(currentSteerAngle);
+			StopAfterFinish();
 			HandBrake ();
 		}
 	}
 
 	//Update is called once per frame.
-	void Update() {	
+	void Update() 
+	{	
 		
 		countdown -= Time.deltaTime;				
 	
@@ -126,7 +108,8 @@ public class CarControlScript : MonoBehaviour {
 	}
 
 	//Method to deal with the backlights of a car in brake, reverse or idle states.
-	void BackLights() {
+	void BackLights() 
+	{
 		if (currentSpeed > 0 && Input.GetAxis ("Vertical") < 0 && !braked)
 			//brake light
 			chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
@@ -141,7 +124,8 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.backLightObject.renderer.material.color = new Color(108, 4, 11, 1);
 	}
 
-	void WheelPosition() {
+	void WheelPosition() 
+	{
 		RaycastHit hit;
 		WheelCollider[] wheelColliders = new WheelCollider[]{chosenCar.WheelFL, chosenCar.WheelFR, chosenCar.WheelBL, chosenCar.WheelBR};
 		Transform[] wheels = new Transform[]{chosenCar.WheelFLTransform, chosenCar.WheelFRTransform, chosenCar.WheelBLTransform, chosenCar.WheelBRTransform};
@@ -154,7 +138,31 @@ public class CarControlScript : MonoBehaviour {
 		}
 	}
 
-	void HandBrake() {
+	void SteeringWheel(float currentSteerAngle)
+	{
+		//Rotate the steering wheel.
+		chosenCar.SteeringWheel.transform.Rotate(0, 0, (-90) / currentSteerAngle / 1.5f * Time.deltaTime);			
+		
+		//Turn the steering wheel to the initial position if the left/right keys are released.
+		Vector3 currentSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles;
+		if (!Input.GetButton ("Horizontal") && currentSteeringWheelRotation != Vector3.zero)
+			chosenCar.SteeringWheel.transform.localEulerAngles = originalSteeringWheelRotation;
+	}
+
+	void StopAfterFinish()
+	{
+		//If the car has reached the finish sign, stop.
+		if (transform.position.x >= 1850 && transform.position.z > 1770)
+		{
+			chosenCar.WheelBR.motorTorque = 0;
+			chosenCar.WheelBL.motorTorque = 0;
+			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed/2;
+			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed/2;
+		} 	
+	}
+
+	void HandBrake() 
+	{
 		if (Input.GetButton ("Jump")) //spacebar
 			braked = true;
 		else
@@ -183,7 +191,8 @@ public class CarControlScript : MonoBehaviour {
 			}
 	}
 
-	void SetSlip(float currentForwardFriction, float currentSidewayFriction) {
+	void SetSlip(float currentForwardFriction, float currentSidewayFriction) 
+	{
 		var temp = chosenCar.WheelBR.forwardFriction;
 		temp.stiffness = currentForwardFriction;
 		chosenCar.WheelBR.forwardFriction = temp;
@@ -201,7 +210,8 @@ public class CarControlScript : MonoBehaviour {
 		chosenCar.WheelBL.sidewaysFriction = temp;
 	}
 
-	void EngineSound() {
+	void EngineSound() 
+	{
 		int i;
 		for (i = 0; i < chosenCar.gearRatio.Length; i++) {
 			if (chosenCar.gearRatio[i] > currentSpeed){
@@ -266,4 +276,4 @@ public class CarControlScript : MonoBehaviour {
 
 	}
 
-}
+} //class

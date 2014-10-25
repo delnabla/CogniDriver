@@ -17,12 +17,14 @@ public class CarCameraScript : MonoBehaviour {
 	private int cameraRoll = 0;	
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		initialCarRotation = car.eulerAngles.y;
 	}
 
 	// LateUpdate is called once per frame after Update.
-	void LateUpdate () {
+	void LateUpdate () 
+	{
 		float currentHeight = 0;
 		Quaternion currentRotation = Quaternion.Euler(0, 0, 0);
 		
@@ -108,7 +110,8 @@ public class CarCameraScript : MonoBehaviour {
 			transform.LookAt(emptyObjectInFrontOfCar);
 	}
 
-	void FixedUpdate() {
+	void FixedUpdate() 
+	{
 		if (!isTopCamera && cameraRoll == 0)
 		{
 			// If the car is in reverse, move the camera to the front of the car so we can see where we drive to.

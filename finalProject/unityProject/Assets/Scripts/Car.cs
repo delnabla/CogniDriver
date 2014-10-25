@@ -42,4 +42,4 @@ public abstract class Car : MonoBehaviour {
 		temp.z += z;
 		rigidbody.centerOfMass = temp;
 	}
-}
+} //class

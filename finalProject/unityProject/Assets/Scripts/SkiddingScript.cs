@@ -19,12 +19,14 @@ public class SkiddingScript : MonoBehaviour {
 	public GameObject reverseSound;
 
 	// Use this for initialization
-	void Start () { 
+	void Start () 
+	{ 
 		skidSmoke.transform.position = new Vector3(transform.position.x, transform.position.y - smokeDepth, transform.position.z);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 		WheelHit hit;
 		WheelCollider wheel = (WheelCollider)transform.GetComponent ("WheelCollider");
 		wheel.GetGroundHit (out hit);
@@ -62,7 +64,8 @@ public class SkiddingScript : MonoBehaviour {
 		}
 	}
 
-	void SkidMesh(){
+	void SkidMesh()
+	{
 		WheelHit hit;
 		WheelCollider wheel = (WheelCollider)transform.GetComponent ("WheelCollider");
 		wheel.GetGroundHit (out hit);
@@ -98,4 +101,4 @@ public class SkiddingScript : MonoBehaviour {
 		mark.AddComponent<DestroyTimerScript>();
 	}
 
-}
+} //class
