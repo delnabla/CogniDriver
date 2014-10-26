@@ -103,7 +103,6 @@ public class CarControlScript : MonoBehaviour {
 		                                                 chosenCar.WheelFRTransform.localEulerAngles.z);	
  
 		BackLights ();
-		WheelPosition ();
 		EngineSound ();
 	}
 
@@ -122,20 +121,6 @@ public class CarControlScript : MonoBehaviour {
 		else if (!braked)
 			//idle
 			chosenCar.backLightObject.renderer.material.color = new Color(108, 4, 11, 1);
-	}
-
-	void WheelPosition() 
-	{
-		RaycastHit hit;
-		WheelCollider[] wheelColliders = new WheelCollider[]{chosenCar.WheelFL, chosenCar.WheelFR, chosenCar.WheelBL, chosenCar.WheelBR};
-		Transform[] wheels = new Transform[]{chosenCar.WheelFLTransform, chosenCar.WheelFRTransform, chosenCar.WheelBLTransform, chosenCar.WheelBRTransform};
-		for (int i = 0; i < wheelColliders.Length; i++) {
-			//Cast a ray starting against the collider and return information on what was hit. Then modify the wheel position to simulate suspension.
-			if (Physics.Raycast (wheelColliders[i].transform.position, -wheelColliders[i].transform.up, out hit, wheelColliders[i].radius + wheelColliders[i].suspensionDistance)) 
-				wheels[i].position = hit.point + wheelColliders[i].transform.up * wheelColliders[i].radius;
-			else
-				wheels[i].position = wheelColliders[i].transform.position - wheelColliders[i].transform.up * wheelColliders[i].suspensionDistance;
-		}
 	}
 
 	void SteeringWheel(float currentSteerAngle)
