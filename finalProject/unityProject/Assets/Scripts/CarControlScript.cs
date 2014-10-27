@@ -16,10 +16,12 @@ public class CarControlScript : MonoBehaviour {
 	private float startCountdown = 3.0f;
 	private bool hideLabel = false;
 	private Vector3 originalSteeringWheelRotation;
+	private float initialTime;
 
 	// Use this for initialization
 	void Start () 
 	{
+		initialTime = Time.time;
 		chosenCar.setCenterOfMass (0, -2.3f, -0.5f);
 		SetValues ();
 		originalSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles; 
@@ -249,11 +251,14 @@ public class CarControlScript : MonoBehaviour {
 		//Calculate the rotation angle of the speedometer needle.
 		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);
 
-		//Calculate the elapset time since the start of the game and display it in the right hand side corner.
-		float elapsedTimeSeconds = Time.time - startCountdown;
-		float elapsedTimeMinutes = Mathf.Floor (elapsedTimeSeconds / 60);
-		elapsedTimeSeconds = Mathf.Round(elapsedTimeSeconds - elapsedTimeMinutes * 60);
-		GUI.Label (new Rect(Screen.width - 130, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");
+		//Calculate the elapsed time since the start of the game and display it in the right hand side corner.
+		float elapsedTimeSeconds = Time.time - startCountdown - initialTime;
+		if (elapsedTimeSeconds > 0)
+		{
+			float elapsedTimeMinutes = Mathf.Floor (elapsedTimeSeconds / 60);
+			elapsedTimeSeconds = Mathf.Round(elapsedTimeSeconds - elapsedTimeMinutes * 60);
+			GUI.Label (new Rect(Screen.width - 130, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");
+		}
 
 		//Rotate and draw the speedometer needle.
 		GUIUtility.RotateAroundPivot(rotationAngle, new Vector2(Screen.width - 80, Screen.height - 49));

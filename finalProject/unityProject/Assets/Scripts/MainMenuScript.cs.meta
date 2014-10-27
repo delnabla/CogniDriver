@@ -2,7 +2,8 @@ fileFormatVersion: 2
 guid: aaaebab0003bf7d42af8802940654f6b
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - questionMark: {fileID: 2800000, guid: 47688cb48a8d2084ba58c4819cd24083, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
