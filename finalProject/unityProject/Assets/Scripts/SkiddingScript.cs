@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//The credit for this class is mostly to FlatTutorials: https://www.youtube.com/watch?v=sIM2_tDGRRY&list=PL67XFC3MYQ6K0PXSad15xFrhxNL76r4Te&index=18
 public class SkiddingScript : MonoBehaviour {
 
 	public float currentFriction;

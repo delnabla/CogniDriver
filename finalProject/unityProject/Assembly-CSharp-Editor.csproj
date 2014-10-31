@@ -50,14 +50,30 @@
      <Compile Include="Assets\EasyRoads3D Free\Editor\NewEasyRoads3D.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\Scenes\test.txt" />
+     <None Include="Assets\Standard Assets\Projectors\Sources\Materials\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface.shader" />
+     <None Include="Assets\EasyRoads3D Free\Textures\test.txt" />
+     <None Include="Assets\Artwork\GUI\test.txt" />
+     <None Include="Assets\Standard Assets\Terrain Assets\Terrain Grass\test.txt" />
+     <None Include="Assets\Artwork\Cars\Materials\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\Textures\Road Textures\test.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D Marker.shader" />
+     <None Include="Assets\Prefabs\test.txt" />
+     <None Include="Assets\Scripts\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface alpha.shader" />
+     <None Include="Assets\Artwork\Landscape\Materials\test.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Normal-Diffuse.shader" />
+     <None Include="Assets\Standard Assets\Projectors\Sources\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\test.txt" />
      <None Include="Assets\EasyRoads3D Free\_readme.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\test.txt" />
+     <None Include="Assets\Artwork\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Road-Edit-Mode.shader" />
+     <None Include="Assets\Standard Assets\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\Eerie\test.txt" />
  <Reference Include="EasyRoads3DEditor">
  <HintPath>Assets\EasyRoads3D Free\Editor\EasyRoads3DEditor.dll</HintPath>
  </Reference>
@@ -87,6 +103,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{4A5FA19B-7463-CCD6-3597-11EAB36665E1}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{699BFBDD-069E-A744-7432-5E3032D3359B}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

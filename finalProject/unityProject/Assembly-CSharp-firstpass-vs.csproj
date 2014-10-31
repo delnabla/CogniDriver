@@ -46,20 +46,48 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" />
+     <Compile Include="Assets\Plugins\EdkDll.cs" />
+     <Compile Include="Assets\Plugins\EmoAffectiv.cs" />
+     <Compile Include="Assets\Plugins\EmoCognitiv.cs" />
+     <Compile Include="Assets\Plugins\EmoEngine.cs" />
+     <Compile Include="Assets\Plugins\EmoEngineInst.cs" />
+     <Compile Include="Assets\Plugins\EmoExpressiv.cs" />
+     <Compile Include="Assets\Plugins\EmoGyroData.cs" />
+     <Compile Include="Assets\Plugins\EmoProfileManagement.cs" />
+     <Compile Include="Assets\Plugins\EmoState.cs" />
+     <Compile Include="Assets\Plugins\EmoUserManagement.cs" />
+     <Compile Include="Assets\Plugins\LabelDraw.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\Scenes\test.txt" />
+     <None Include="Assets\Standard Assets\Projectors\Sources\Materials\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface.shader" />
+     <None Include="Assets\EasyRoads3D Free\Textures\test.txt" />
+     <None Include="Assets\Artwork\GUI\test.txt" />
+     <None Include="Assets\Standard Assets\Terrain Assets\Terrain Grass\test.txt" />
+     <None Include="Assets\Artwork\Cars\Materials\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\Textures\Road Textures\test.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D Marker.shader" />
+     <None Include="Assets\Prefabs\test.txt" />
+     <None Include="Assets\Scripts\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface alpha.shader" />
+     <None Include="Assets\Artwork\Landscape\Materials\test.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
-     <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Normal-Diffuse.shader" />
+     <None Include="Assets\Standard Assets\Projectors\Sources\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\test.txt" />
      <None Include="Assets\EasyRoads3D Free\_readme.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\test.txt" />
+     <None Include="Assets\Artwork\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Road-Edit-Mode.shader" />
+     <None Include="Assets\Standard Assets\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\Eerie\test.txt" />
  <Reference Include="EasyRoads3D">
  <HintPath>Assets\EasyRoads3D Free\lib\EasyRoads3D.dll</HintPath>
+ </Reference>
+ <Reference Include="DotNetEmotivSDK">
+ <HintPath>Assets\Scripts\DotNetEmotivSDK.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

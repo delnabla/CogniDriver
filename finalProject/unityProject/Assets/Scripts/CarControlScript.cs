@@ -257,7 +257,7 @@ public class CarControlScript : MonoBehaviour {
 		{
 			float elapsedTimeMinutes = Mathf.Floor (elapsedTimeSeconds / 60);
 			elapsedTimeSeconds = Mathf.Round(elapsedTimeSeconds - elapsedTimeMinutes * 60);
-			GUI.Label (new Rect(Screen.width - 130, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");
+			GUI.Label (new Rect(Screen.width - 280, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");
 		}
 
 		//Rotate and draw the speedometer needle.
