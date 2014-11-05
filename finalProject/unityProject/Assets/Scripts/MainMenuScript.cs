@@ -110,7 +110,7 @@ public class MainMenuScript : MonoBehaviour {
 		//or offers the option to create a new player profile.
 		if (showChooseProfile)
 		{
-			Rect chooseProfileWindow = new Rect(Screen.width / 2 - 100, Screen.height /2 - 78, 200, 156);
+			Rect chooseProfileWindow = new Rect(Screen.width / 2 - 100, Screen.height /2 - 78, 210, 170);
 			chooseProfileWindow = GUILayout.Window(3, chooseProfileWindow, ChooseUserProfile, "Choose player");
 		}
 	}

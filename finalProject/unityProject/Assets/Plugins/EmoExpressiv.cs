@@ -67,8 +67,7 @@ public class EmoExpressiv : MonoBehaviour
                 new EmoEngine.ExpressivTrainingRejectedEventHandler(engine_ExpressivTrainingRejected); 
             IsStarted = true;
 			Debug.Log ("started");
-        }
-        
+        }  
     }
     static void engine_ExpressivEmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
     {

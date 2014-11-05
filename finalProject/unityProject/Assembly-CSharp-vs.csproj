@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\DrawOutline.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\SkiddingScript.cs" />
+     <Compile Include="Assets\Scripts\emotiv\headsetGUIC.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Scenes\test.txt" />

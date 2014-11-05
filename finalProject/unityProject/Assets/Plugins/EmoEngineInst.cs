@@ -19,6 +19,7 @@ public class EmoEngineInst : MonoBehaviour
    
     void Start()
     {
+		Debug.Log ("in here");
         if (!IsStarted)
         {
             Cq = new int[18];
@@ -68,6 +69,7 @@ public class EmoEngineInst : MonoBehaviour
     {
         EmoState es = e.emoState;
         Int32 numCqChan = es.GetNumContactQualityChannels();
+		Debug.Log ("got here");
         EdkDll.EE_EEG_ContactQuality_t[] cq = es.GetContactQualityFromAllChannels();
         nChan = numCqChan;
         int temp = 0;

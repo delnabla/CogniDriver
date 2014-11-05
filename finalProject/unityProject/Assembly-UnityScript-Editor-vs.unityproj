@@ -77,6 +77,9 @@
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Road-Edit-Mode.shader" />
      <None Include="Assets\Standard Assets\test.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\Textures\Eerie\test.txt" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="EasyRoads3DEditor">
  <HintPath>Assets\EasyRoads3D Free\Editor\EasyRoads3DEditor.dll</HintPath>
  </Reference>
