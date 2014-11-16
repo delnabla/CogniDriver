@@ -50,30 +50,73 @@
      <Compile Include="Assets\EasyRoads3D Free\Editor\NewEasyRoads3D.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
+     <None Include="Assets\Standard Assets\Terrain Assets\test.txt" />
+     <None Include="Assets\test.txt" />
      <None Include="Assets\Scenes\test.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Materials\test.txt" />
+     <None Include="Assets\Standard Assets\Tree Creator\Trees\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface.shader" />
+     <None Include="Assets\Artwork\Landscape\test.txt" />
+     <None Include="Assets\Artwork\Materials\test.txt" />
+     <None Include="Assets\Standard Assets\Tree Creator\test.txt" />
+     <None Include="Assets\Standard Assets\Projectors\Sources\Textures\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Textures\test.txt" />
      <None Include="Assets\Artwork\GUI\test.txt" />
      <None Include="Assets\Standard Assets\Terrain Assets\Terrain Grass\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\Overcast2\test.txt" />
      <None Include="Assets\Artwork\Cars\Materials\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\StarryNight\test.txt" />
+     <None Include="Assets\Standard Assets\Tree Creator\Sources\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\lib\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\test.txt" />
+     <None Include="Assets\Standard Assets\Terrain Assets\Terrain Textures\test.txt" />
+     <None Include="Assets\Artwork\Cars\test.txt" />
+     <None Include="Assets\Standard Assets\Tree Creator\Sources\Materials\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Textures\Road Textures\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\DawnDusk\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\Sunny1\test.txt" />
+     <None Include="Assets\Artwork\Textures\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\scripts\test.txt" />
+     <None Include="Assets\Standard Assets\Terrain Assets\Trees Ambient-Occlusion\Palm\test.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
+     <None Include="Assets\Terrains\test.txt" />
+     <None Include="Assets\Artwork\GUI\Materials\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D Marker.shader" />
      <None Include="Assets\Prefabs\test.txt" />
      <None Include="Assets\Scripts\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Surface alpha.shader" />
+     <None Include="Assets\Standard Assets\Terrain Assets\Trees Ambient-Occlusion\Palm\Materials\test.txt" />
+     <None Include="Assets\Scripts\emotiv\test.txt" />
+     <None Include="Assets\Standard Assets\Projectors\test.txt" />
      <None Include="Assets\Artwork\Landscape\Materials\test.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" />
+     <None Include="Assets\Plugins\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\Sunny3\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Normal-Diffuse.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\Overcast1\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\MoonShine\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\Editor\test.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\test.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\Textures\test.txt" />
+     <None Include="Assets\Standard Assets\Tree Creator\Trees\BigTree_textures\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\materials\test.txt" />
+     <None Include="Assets\Standard Assets\Tree Creator\Sources\Textures\test.txt" />
+     <None Include="Assets\Artwork\Fonts\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\Resources\Materials\test.txt" />
      <None Include="Assets\EasyRoads3D Free\_readme.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\test.txt" />
+     <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\test.txt" />
+     <None Include="Assets\SFX\test.txt" />
      <None Include="Assets\Artwork\test.txt" />
+     <None Include="Assets\Artwork\headset\test.txt" />
      <None Include="Assets\EasyRoads3D Free\Shaders\EasyRoads3D-Road-Edit-Mode.shader" />
+     <None Include="Assets\Standard Assets\Terrain Assets\Trees Ambient-Occlusion\test.txt" />
      <None Include="Assets\Standard Assets\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\images\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\Shaders\test.txt" />
+     <None Include="Assets\Standard Assets\Skyboxes\Textures\Sunny2\test.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\Textures\Eerie\test.txt" />
+     <None Include="Assets\EasyRoads3D Free\Resources\test.txt" />
  <Reference Include="EasyRoads3DEditor">
  <HintPath>Assets\EasyRoads3D Free\Editor\EasyRoads3DEditor.dll</HintPath>
  </Reference>
@@ -107,8 +150,6 @@
       <Project>{4A5FA19B-7463-CCD6-3597-11EAB36665E1}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{699BFBDD-069E-A744-7432-5E3032D3359B}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
-    <ProjectReference Include="Assembly-UnityScript.unityproj">
-      <Project>{C7F6596E-D576-9C88-FF9F-EE5D9D53E456}</Project>      <Name>Assembly-UnityScript</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

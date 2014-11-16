@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Emotiv;
 
 public class MainMenuScript : MonoBehaviour {
 
@@ -11,9 +12,9 @@ public class MainMenuScript : MonoBehaviour {
 	public bool isHelp = false;
 	public bool isPlayerProfile = false;
 
-	public float musicVolume = 10f;
-	public float sfxVolume = 10f;
-	public bool fullscreen = true;
+	public static float musicVolume = 10f;
+	public static float sfxVolume = 10f;
+	public static bool fullscreen = true;
 	public GameObject welcomeMessage;
 
 	private static bool showExitDialog = false;
@@ -32,7 +33,9 @@ public class MainMenuScript : MonoBehaviour {
 
 	void Start()
 	{
-		//PlayerPrefs.DeleteAll();
+		//Load emotiv profiles.
+		if (isPlayerProfile)
+			EmoProfileManagement.Instance.LoadProfilesFromFile();
 		//Get the number of player profiles.
 		if (PlayerPrefs.HasKey(noOfProfilesKeyPrefix))
 			noOfPlayerProfiles = PlayerPrefs.GetInt(noOfProfilesKeyPrefix);	
@@ -71,6 +74,8 @@ public class MainMenuScript : MonoBehaviour {
 			showExitDialog = true;
 		else if (isStart)
 			Application.LoadLevel(1);
+		else if (isTrain)
+			Application.LoadLevel(2);
 		else if (isOptions)
 			showOptionsDialog = true;
 		else if (isPlayerProfile)
@@ -95,7 +100,7 @@ public class MainMenuScript : MonoBehaviour {
 		//Display options window.
 		if (showOptionsDialog)
 		{
-			Rect optionsWindow = new Rect(Screen.width / 2 - 175, Screen.height / 2 - 50, 350, 100);
+			Rect optionsWindow = new Rect(Screen.width / 2 - 175, Screen.height / 2 - 50, 350, 123);
 			optionsWindow = GUILayout.Window(1, optionsWindow, DoOptionsAction, "Options");	
 		}
 
@@ -201,8 +206,19 @@ public class MainMenuScript : MonoBehaviour {
 					PlayerPrefs.SetString(playerNameKeyPrefix + noOfPlayerProfiles.ToString(), playerName); //save player name
 					noOfPlayerProfiles++; 	
 					PlayerPrefs.SetInt(noOfProfilesKeyPrefix, noOfPlayerProfiles); //update number of player profiles
-					PlayerPrefs.Save();
-		
+					
+					//Add new user to Emotiv and set it to current user.
+					//EPOCManager.SendMessage("AddNewProfile", playerName);
+					if (isPlayerProfile)
+					{
+						EmoProfileManagement.Instance.AddNewProfile(playerName);
+				
+						//Save all changes to PlayerPrefs and Emotiv.
+						EmoProfileManagement.Instance.SaveCurrentProfile();
+						EmoProfileManagement.Instance.SaveProfilesToFile();
+					}
+					PlayerPrefs.Save();	
+					
 					//Rebuild the playerList array.
 					playerList = new string[noOfPlayerProfiles];
 					for (int i = 0; i < noOfPlayerProfiles; i++) 
@@ -237,6 +253,8 @@ public class MainMenuScript : MonoBehaviour {
 				if (GUILayout.Button("Select"))
 				{
 					showChooseProfile = false;	
+					if (isPlayerProfile)
+						EmoProfileManagement.Instance.SetUserProfile(selectedPlayer);
 				}
 				if (GUILayout.Button ("Remove"))
 				{			
@@ -256,7 +274,29 @@ public class MainMenuScript : MonoBehaviour {
 					for (int i = 0; i < noOfPlayerProfiles; i++) 
 						playerList[i] = PlayerPrefs.GetString(playerNameKeyPrefix + i); 
 					
+					if (isPlayerProfile)
+					{
+						EmoProfileManagement.Instance.DeleteProfile(selectedPlayer);
+						EmoProfileManagement.Instance.SaveProfilesToFile();
+					}
 					PlayerPrefs.Save ();
+	
+					//Delete profile file manually because Emotiv doesn't clean it.
+					string fileToDelete = System.IO.Directory.GetCurrentDirectory() + @"/EmotivUserProfile/" + selectedPlayer + ".up";
+					if (System.IO.File.Exists(fileToDelete))
+						System.IO.File.Delete(fileToDelete);
+			
+					//Set the current player to the currently last one.
+					if (noOfPlayerProfiles == 0)
+					{
+						showCreateProfile = true;
+						showChooseProfile = false;
+					}
+					else
+					{
+						selectedPlayerIndex = noOfPlayerProfiles - 1;
+						selectedPlayer = playerList[selectedPlayerIndex]; 
+					}
 				}
 				if (noOfPlayerProfiles < 10)
 					if (GUILayout.Button("Create"))
@@ -268,5 +308,4 @@ public class MainMenuScript : MonoBehaviour {
 			GUILayout.EndHorizontal();
 		GUILayout.EndVertical();
 	}
-
 }//class

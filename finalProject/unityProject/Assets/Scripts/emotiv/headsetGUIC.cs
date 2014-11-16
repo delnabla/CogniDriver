@@ -5,7 +5,6 @@ using System.Collections;
 
 public class headsetGUIC : MonoBehaviour {
 
-	EmoEngine engine = EmoEngine.Instance;
 	public float int_scale = 0.7f;
 	private Rect headArea;
 	private Rect head;
@@ -36,13 +35,11 @@ public class headsetGUIC : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		Debug.Log("Updating...");
-		Debug.Log("nChan: " + EmoEngineInst.nChan);
+	void Update () 
+	{
 		for (int i = 0 ; i< EmoEngineInst.nChan ;i++)
 		{
 			node[i] = EmoEngineInst.Cq[i];
-			Debug.Log("node[" + i + "]: " + node[i]);
 		}  
 	}
 

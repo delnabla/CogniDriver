@@ -29,6 +29,36 @@ public class EmoProfileManagement : MonoBehaviour
     public static int currentIndex = 0;
     static ArrayList userProfiles = new ArrayList();      
     //----------------------------------------
+
+	//-------Added by Daniela Florescu 15 Nov 2014: implement persistent singleton(http://unitypatterns.com/singletons/)------------------
+	private static EmoProfileManagement _instance; 
+	public static EmoProfileManagement Instance 
+	{ 
+		get
+		{
+			if (_instance == null)
+			{
+				_instance = GameObject.FindObjectOfType<EmoProfileManagement>();			
+				DontDestroyOnLoad(_instance.gameObject);
+			}
+			return _instance;
+		} 
+	}
+
+	void Awake()
+	{
+		if (_instance == null)
+		{
+			_instance = this;
+			DontDestroyOnLoad(this);
+		}
+		else 
+		{
+			if (this != _instance)	
+				Destroy (this.gameObject);
+		}
+	}
+	//--end addition------------------------------------
     
 /// <summary>
 /// Function to save byte array to a file
