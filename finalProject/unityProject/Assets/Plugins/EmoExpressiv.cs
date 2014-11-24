@@ -52,7 +52,6 @@ public class EmoExpressiv : MonoBehaviour
     }
     void Start()
     {
-		Debug.Log("entered");
         if (!IsStarted)
         {
             engine.ExpressivEmoStateUpdated +=
@@ -66,7 +65,6 @@ public class EmoExpressiv : MonoBehaviour
             engine.ExpressivTrainingRejected +=
                 new EmoEngine.ExpressivTrainingRejectedEventHandler(engine_ExpressivTrainingRejected); 
             IsStarted = true;
-			Debug.Log ("started");
         }  
     }
     static void engine_ExpressivEmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
@@ -85,13 +83,10 @@ public class EmoExpressiv : MonoBehaviour
         eyebrowExtent = es.ExpressivGetEyebrowExtent();
         smileExtent = es.ExpressivGetSmileExtent();
         clenchExtent = es.ExpressivGetClenchExtent();
-		Debug.Log ("clenchExtent: " + clenchExtent);
         upperFaceAction = es.ExpressivGetUpperFaceAction();
         upperFacePower = es.ExpressivGetUpperFaceActionPower();
         lowerFaceAction = es.ExpressivGetLowerFaceAction();
         lowerFacePower = es.ExpressivGetLowerFaceActionPower();
-		Debug.Log ("upperFaceAction: " + upperFaceAction);
-		Debug.Log ("lowerFaceAction: " + lowerFaceAction);
         for (int i = 0; i < expAlgoList.Length; ++i)
         {
             isExpActiveList[i] = es.ExpressivIsActive(expAlgoList[i]);

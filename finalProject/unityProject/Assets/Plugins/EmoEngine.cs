@@ -5,7 +5,6 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-
 /// <summary>
 /// Exception class for EmoEngine
 /// </summary>
@@ -925,6 +924,7 @@ public class EmoEngine
 	/// <param name="errorCode">error code returned from APIs from edk.dll</param>
 	public static void errorHandler(Int32 errorCode)
 	{
+		Console.Write("errorCode: " + errorCode);
 		if (errorCode == EdkDll.EDK_OK)
 			return;
 

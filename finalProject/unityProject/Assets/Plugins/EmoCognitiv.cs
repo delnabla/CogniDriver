@@ -28,6 +28,8 @@ public class EmoCognitiv : MonoBehaviour
     public static float[] CognitivActionPower = new float[cognitivActionList.Length];
     public static int cognitivActionLever = 0;//Number Of Active Action   
     public static bool IsStarted = false;
+	private static bool showTrainingCompleteDialog = false; //Added by Daniela Florescu.
+
     //----------------------------------------  
     void Start() 
     {
@@ -74,6 +76,17 @@ public class EmoCognitiv : MonoBehaviour
 		}
     }
 
+	//Method added by Daniela Florescu
+	void OnGUI()
+	{
+		//Display the window which asks whether to accept the current training.
+		if (showTrainingCompleteDialog)
+		{
+			Rect completeTrainingWindow = new Rect(Screen.width / 2 - 175, Screen.height /2 - 50, 350, 100);
+			completeTrainingWindow = GUILayout.Window(4, completeTrainingWindow, DoTrainingCompleteAction, "Training Complete");
+		}
+	}
+
     public  static bool isNotResponding = true;
     static void engine_CognitivEmoStateUpdated(object sender, EmoStateUpdatedEventArgs e)
     {
@@ -103,7 +116,8 @@ public class EmoCognitiv : MonoBehaviour
 
     static void engine_CognitivTrainingSucceeded(object sender, EmoEngineEventArgs e)
     {
-        EmoEngine.Instance.CognitivSetTrainingControl(0, EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT);
+        //EmoEngine.Instance.CognitivSetTrainingControl(0, EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT);
+		showTrainingCompleteDialog = true;
         Debug.Log("Cognitiv Training Succeeded");
     }
 
@@ -127,7 +141,7 @@ public class EmoCognitiv : MonoBehaviour
         if (cognitivAction == EdkDll.EE_CognitivAction_t.COG_NEUTRAL)
         {
             EmoEngine.Instance.CognitivSetTrainingAction((uint)EmoUserManagement.currentUser, cognitivAction);
-            EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_START);
+			EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_START);
         }
         else
             for (int i = 1; i < cognitivActionList.Length; i++)
@@ -139,8 +153,8 @@ public class EmoCognitiv : MonoBehaviour
                     {
                         Debug.Log("Action is enabled");
                         EmoEngine.Instance.CognitivSetTrainingAction((uint)EmoUserManagement.currentUser, cognitivAction);
-                        EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_START);
-                    }
+						EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_START);
+					}
                     else Debug.Log("Action is not enabled");
                 }
             }
@@ -234,4 +248,39 @@ public class EmoCognitiv : MonoBehaviour
     {
         CognitivActionPower[cognitivAction] = 0;
     }
+
+	//Method added by Daniela Florescu.
+	private static void DoTrainingCompleteAction(int windowID)
+	{
+		GUILayout.Space (2);
+		
+		//Get label and button style
+		GUIStyle labelStyle = GUI.skin.GetStyle("Label");
+		GUIStyle buttonStyle = GUI.skin.GetStyle("Button");		
+		
+		//Set alignment to center, fix the button width and set image label.
+		labelStyle.alignment = TextAnchor.MiddleCenter;
+		buttonStyle.fixedWidth = 60;
+		
+		GUILayout.Label ("Training is now complete. What would you like to do with this training?", labelStyle);
+		GUILayout.Space (5);
+		GUILayout.BeginHorizontal();
+		GUILayout.FlexibleSpace();
+		if (GUILayout.Button("Accept", buttonStyle))
+		{
+			EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT);
+			EmoProfileManagement.Instance.SaveCurrentProfile();
+			EmoProfileManagement.Instance.SaveProfilesToFile();
+			showTrainingCompleteDialog = false;
+		}
+		GUILayout.Space(15);
+		if (GUILayout.Button ("Reject", buttonStyle))
+		{
+			EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_REJECT);
+			showTrainingCompleteDialog = false;
+		}
+		GUILayout.FlexibleSpace();
+		GUILayout.EndHorizontal();
+	}
+	
 }

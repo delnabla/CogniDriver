@@ -290,7 +290,7 @@ public class EmoProfileManagement : MonoBehaviour
         uint temp;
         EdkDll.EE_CognitivGetActiveActions((uint)EmoUserManagement.currentUser,out temp);
         string test = Convert.ToString(temp, 2);
-        Debug.Log(test);
+		// Debug.Log("CheckCurrentProfile test: " + temp);
         bool[] actionLever = new bool[EmoCognitiv.cognitivActionList.Length];
         for (int i = 0; i < EmoCognitiv.cognitivActionList.Length; i++ )
         {

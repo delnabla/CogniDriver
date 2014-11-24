@@ -1,12 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\EmoProfileManagement.cs">
     <Files>
-      <File FileName="Assets\Scripts\emotiv\TrainCognitiv.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MainMenuScript.cs" Line="40" Column="24" />
-      <File FileName="Assets\Plugins\EmoProfileManagement.cs" Line="14" Column="2" />
-      <File FileName="Assets\Scripts\emotiv\headsetGUIC.cs" Line="42" Column="22" />
-      <File FileName="Assets\Plugins\EmoUserManagement.cs" Line="25" Column="50" />
+      <File FileName="Assets\Scripts\emotiv\TrainCognitiv.cs" Line="149" Column="106" />
+      <File FileName="Assets\Scripts\MainMenuScript.cs" Line="218" Column="55" />
+      <File FileName="Assets\Plugins\EmoProfileManagement.cs" Line="309" Column="10" />
+      <File FileName="Assets\Scripts\emotiv\headsetGUIC.cs" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\EmoCognitiv.cs" Line="244" Column="35" />
+      <File FileName="Assets\Plugins\EmoEngine.cs" Line="1238" Column="23" />
+      <File FileName="Assets\Plugins\EdkDll.cs" Line="301" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
