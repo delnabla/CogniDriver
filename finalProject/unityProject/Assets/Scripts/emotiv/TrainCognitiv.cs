@@ -9,26 +9,19 @@ using Emotiv;
 
 public class TrainCognitiv : MonoBehaviour {
 	
-	/*private bool isNeutralTrain = false;
-	private bool isPushTrain = false;
-	private bool isPullTrain = false;
-	private bool isLeftTrain = false;
-	private bool isRightTrain = false;
-	
-	private bool isNeutralReset = false;
-	private bool isPushReset = false;
-	private bool isPullReset = false;
-	private bool isLeftReset = false;
-	private bool isRightReset = false;*/
-	
 	private static int halfScreenHeight = Screen.height / 2;
 	private static int halfScreenWidth = Screen.width / 2;
 
-	//private static bool showTrainingCompleteDialog = false;
+	private static bool showResetTrainingDialog = false;
 	
 	void Start()
 	{
-		//showTrainingCompleteDialog = false;
+		//Set the 4 training actions.
+		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[1], true);
+		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[2], true);
+		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[5], true);
+		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[6], true);
+		EmoCognitiv.EnableCognitivActionsList();
 	}
 	
 	void Update()
@@ -43,9 +36,14 @@ public class TrainCognitiv : MonoBehaviour {
 		labelStyle.fontStyle = FontStyle.Bold;
 		labelStyle.normal.textColor = Color.white;
 
+		Single pushSkill = EmoEngine.Instance.CognitivGetActionSkillRating((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[1]);
+		Single pullSkill = EmoEngine.Instance.CognitivGetActionSkillRating((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[2]);
+		Single leftSkill = EmoEngine.Instance.CognitivGetActionSkillRating((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[5]);
+		Single rightSkill = EmoEngine.Instance.CognitivGetActionSkillRating((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[6]);
+
 		//Neutral label
 		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight - 38, 90, 25), "Neutral", labelStyle);
-		
+
 		//Train Neutral 
 		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight - 38, 90, 25), "Train"))
 			TrainNeutral();
@@ -56,7 +54,8 @@ public class TrainCognitiv : MonoBehaviour {
 
 		//Push label
 		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight - 8, 90, 25), "Push", labelStyle);
-		
+		GUI.Label (new Rect(halfScreenWidth + 120, halfScreenHeight - 8, 90, 25), Math.Round(pushSkill * 100, 2).ToString() + "%", labelStyle);				
+
 		//Train Push
 		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight - 8, 90, 25), "Train"))
 			TrainPush();
@@ -67,6 +66,7 @@ public class TrainCognitiv : MonoBehaviour {
 
 		//Pull label
 		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight + 22, 90, 25), "Pull", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 120, halfScreenHeight + 22, 90, 25), Math.Round(pullSkill * 100, 2).ToString() + "%", labelStyle);
 		
 		//Train Pull
 		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight + 22, 90, 25), "Train"))
@@ -78,6 +78,7 @@ public class TrainCognitiv : MonoBehaviour {
 		
 		//Left label
 		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight + 52, 90, 25), "Left", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 120, halfScreenHeight + 52, 90, 25), Math.Round(leftSkill * 100, 2).ToString() + "%", labelStyle);
 
 		//Train Left
 		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight + 52, 90, 25), "Train"))
@@ -89,6 +90,7 @@ public class TrainCognitiv : MonoBehaviour {
 		
 		//Right label
 		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight + 82, 90, 25), "Right", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 120, halfScreenHeight + 82, 90, 25), Math.Round(rightSkill * 100, 2).ToString() + "%", labelStyle);
 
 		//Train Right
 		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight + 82, 90, 25), "Train"))
@@ -97,12 +99,13 @@ public class TrainCognitiv : MonoBehaviour {
 		//Reset Right
 		if (GUI.Button(new Rect(halfScreenWidth + 310, halfScreenHeight + 82, 90, 25), "Reset"))
 			ResetRight();
-		//Display the window which asks whether to accept the current training.
-		/*if (showTrainingCompleteDialog)
+		
+		//Display the window which asks whether the user is sure of wishing to reset the training.
+		if (showResetTrainingDialog)
 		{
-			Rect completeTrainingWindow = new Rect(Screen.width / 2 - 100, Screen.height /2 - 78, 210, 170);
-			completeTrainingWindow = GUILayout.Window(4, completeTrainingWindow, DoTrainingCompleteAction, "Training Complete");
-		}*/
+			Rect resetTrainingWindow = new Rect(Screen.width / 2 - 175, Screen.height / 2 - 40, 350, 80);
+			resetTrainingWindow = GUILayout.Window(5, resetTrainingWindow, DoResetTrainingAction, "Reset Training");	
+		}		
 	}
 	
 	private void TrainNeutral()
@@ -112,148 +115,60 @@ public class TrainCognitiv : MonoBehaviour {
 
 	private void TrainPush()
 	{
-		//EmoCognitiv.cognitivActionsEnabled[1] = true;
-		//EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[1], true);
 		EmoCognitiv.StartTrainingCognitiv(EmoCognitiv.cognitivActionList[1]); //push()
 	}
 
 	private void TrainPull()
 	{
-		//EmoCognitiv.cognitivActionsEnabled[2] = true;
-		//EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[2], true);
 		EmoCognitiv.StartTrainingCognitiv(EmoCognitiv.cognitivActionList[2]); //pull()
 	}
 
 	private void TrainLeft()
 	{
-		//EmoCognitiv.cognitivActionsEnabled[5] = true;
-		//EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[5], true);
 		EmoCognitiv.StartTrainingCognitiv(EmoCognitiv.cognitivActionList[5]); //left()
 	}
 
 	private void TrainRight()
 	{
-		//EmoCognitiv.cognitivActionsEnabled[6] = true;
-		//EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[6], true);
 		EmoCognitiv.StartTrainingCognitiv(EmoCognitiv.cognitivActionList[6]); //right()
 	}
 
 	private void ResetNeutral()
 	{
 		EdkDll.EE_CognitivSetTrainingAction((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[0]);
-		EdkDll.EE_CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ERASE);
+		showResetTrainingDialog = true;		
 	}
 
 	private void ResetPush()
 	{
 		EdkDll.EE_CognitivSetTrainingAction((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[1]);
-		EdkDll.EE_CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ERASE);
+		showResetTrainingDialog = true;
 	}
 
 	private void ResetPull()
 	{
 		EdkDll.EE_CognitivSetTrainingAction((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[2]);
-		EdkDll.EE_CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ERASE);
+		showResetTrainingDialog = true;
 	}
 
 	private void ResetLeft()
 	{
 		EdkDll.EE_CognitivSetTrainingAction((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[5]);
-		EdkDll.EE_CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ERASE);
+		showResetTrainingDialog = true;
 	}
 
 	private void ResetRight()
 	{
 		EdkDll.EE_CognitivSetTrainingAction((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[6]);
-		EdkDll.EE_CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ERASE);
+		showResetTrainingDialog = true;
 	}
 
 	private void HandleEvents()
 	{
 		Debug.Log("Checking events");
-	
-		/*IntPtr eEvent = EdkDll.EE_EmoEngineEventCreate();
-		IntPtr eState = EdkDll.EE_EmoStateCreate();
-		
-		int state = EdkDll.EE_EngineGetNextEvent(eEvent);
-		int eventType = (int) EdkDll.EE_EmoEngineEventGetType(eEvent);
-		Debug.Log ("state: " + state);
-		Debug.Log("event type: " + eventType);
-		//if (eventType == (int) EdkDll.EE_Event_t.EE_CognitivEvent || eventType == (int) EdkDll.EE_Event_t.EE_EmoStateUpdated)
-		//{
-			//Debug.Log("Discovered cognitiv");
-		//	EdkDll.EE_EmoEngineEventGetEmoState(eEvent, eState);
-			EdkDll.EE_CognitivEvent_t cognitivEvent = EdkDll.EE_CognitivEventGetType(eEvent);
-			
-			switch (cognitivEvent) {
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivTrainingStarted:
-			{
-				Debug.Log ("Training Started");
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivTrainingSucceeded:
-			{
-				Debug.Log ("Cognitiv training succeeded");
-				showTrainingCompleteDialog = true;
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivTrainingFailed:
-			{
-				Debug.Log ("Cognitiv training failed");
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivTrainingCompleted:
-			{
-				Debug.Log ("Cognitiv training complete");	
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivTrainingDataErased:
-			{
-				Debug.Log ("Cognitiv training erased");
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivTrainingRejected:
-			{
-				Debug.Log ("Cognitiv training rejected");
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivTrainingReset:
-			{
-				Debug.Log ("Cognitiv training reset"); 
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivAutoSamplingNeutralCompleted:
-			{
-				Debug.Log ("Cognitiv auto sampling neutral completed");
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivSignatureUpdated:
-			{
-				Debug.Log("Cognitiv signature updated");
-				break;
-			}
-				
-			case EdkDll.EE_CognitivEvent_t.EE_CognitivNoEvent:
-				break;
-				
-			default:
-				Debug.Log ("Unknown cognitiv event type");
-				break;
-			}
-		//}
-		Debug.Log ("showTrainingCompleteDialog: " + showTrainingCompleteDialog);*/
 	}	
 
-	/*private static void DoTrainingCompleteAction(int windowID)
+	private static void DoResetTrainingAction(int windowID)
 	{
 		GUILayout.Space (2);
 		
@@ -265,25 +180,24 @@ public class TrainCognitiv : MonoBehaviour {
 		labelStyle.alignment = TextAnchor.MiddleCenter;
 		buttonStyle.fixedWidth = 60;
 		
-		GUILayout.Label ("Training is now complete. What would you like to do with this training?", labelStyle);
+		GUILayout.Label ("Are you sure you want to reset this action training and delete all training data?", labelStyle);
 		GUILayout.Space (5);
 		GUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
-		if (GUILayout.Button("Accept", buttonStyle))
+		if (GUILayout.Button("Yes", buttonStyle))
 		{
-			EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT);
-			showTrainingCompleteDialog = false;
+			EdkDll.EE_CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ERASE);
+			EmoProfileManagement.Instance.SaveCurrentProfile();
+			EmoProfileManagement.Instance.SaveProfilesToFile();
+			showResetTrainingDialog = false;
 		}
 		GUILayout.Space(15);
-		if (GUILayout.Button ("Reject", buttonStyle))
+		if (GUILayout.Button ("No", buttonStyle))
 		{
-			EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_REJECT);
-			showTrainingCompleteDialog = false;
+			showResetTrainingDialog = false;
 		}
 		GUILayout.FlexibleSpace();
 		GUILayout.EndHorizontal();
-	}*/
-
-//training reset
+	}
 
 }//class

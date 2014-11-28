@@ -25,7 +25,6 @@ public class CarControlScript : MonoBehaviour {
 		chosenCar.setCenterOfMass (0, -2.3f, -0.5f);
 		SetValues ();
 		originalSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles; 
-		//new EmotivHandlingScript();
 	}
 
 	void SetValues()

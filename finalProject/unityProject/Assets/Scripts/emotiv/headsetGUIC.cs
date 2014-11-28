@@ -1,7 +1,9 @@
-﻿// This code belongs to Emotiv with small modifications on how we display the data and it's been rewritten in C# from Javascript.
+﻿// The code which displays the contact quality of the sensors belongs to Emotiv with small modifications on how we display the data and it's been rewritten in C# from Javascript.
 
 using UnityEngine;
 using System.Collections;
+using Emotiv;
+using System;
 
 public class headsetGUIC : MonoBehaviour {
 
@@ -16,7 +18,6 @@ public class headsetGUIC : MonoBehaviour {
 	public Texture2D orangeButton;
 	public Texture2D yellowButton;
 	public Texture2D greenButton;
-	public bool isEnabled = true;
 
 	// Use this for initialization
 	void Start () {
@@ -45,8 +46,35 @@ public class headsetGUIC : MonoBehaviour {
 
 	void OnGUI()
 	{
-		isEnabled = GUI.Toggle(new Rect(5,5,100,50), isEnabled, "Show info");
-		if (isEnabled) DrawGUI();
+		DrawGUI();
+
+		//Store backup values for the box style.
+		GUIStyle backUpBox = GUI.skin.box;
+
+		GUI.Label(new Rect(10, 150, 300, 25), "<color=orange><b>Current Action: " + EmoCognitiv.getCurrentAction() + "</b></color>");
+
+		Texture2D myTexture = new Texture2D(1, 1);
+		Color grey = new Color(0.5f, 0.5f, 0.5f);
+		myTexture.SetPixel(1, 1, grey);
+		myTexture.Apply();
+		GUI.skin.box.normal.background = myTexture; 	
+
+		//Draw background GUI box with default values.
+		float power = (float) Math.Round(EmoCognitiv.getCurrentActionPower()*100, 2); 
+		GUI.Box(new Rect(55, 173, 101, 15), "");
+
+		//Compute green texture		
+		Color green = new Color(0, 1, 0);
+		myTexture.SetPixel(1, 1, green);
+		myTexture.Apply();
+		GUI.skin.box.normal.background = myTexture; 	
+
+		//Display power box value.
+		GUI.Box(new Rect(56, 175, power, 11), "");
+		GUI.Label(new Rect(10, 170, 300, 25), "<color=orange><b>Power: </b></color>");
+		
+		//Restore to previous skin values.
+		GUI.skin.box = backUpBox;
 	}
 
 	void DrawGUI(){
@@ -108,15 +136,5 @@ public class headsetGUIC : MonoBehaviour {
 			break;			
 		}
 		return returnButton; 
-	}
-	
-	void DisableInfo()
-	{
-		isEnabled = false;
-	}
-	
-	void EnableInfo()
-	{
-		isEnabled = true;
 	}
 } //class

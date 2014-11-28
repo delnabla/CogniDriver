@@ -28,9 +28,13 @@ public class EmoCognitiv : MonoBehaviour
     public static float[] CognitivActionPower = new float[cognitivActionList.Length];
     public static int cognitivActionLever = 0;//Number Of Active Action   
     public static bool IsStarted = false;
-	private static bool showTrainingCompleteDialog = false; //Added by Daniela Florescu.
 
-    //----------------------------------------  
+	//Variables added by Daniela Florescu
+	private static bool showTrainingCompleteDialog = false; 
+	private static EdkDll.EE_CognitivAction_t cogAction;
+	private static float power;
+    
+	//----------------------------------------  
     void Start() 
     {
         if (!IsStarted)
@@ -50,6 +54,9 @@ public class EmoCognitiv : MonoBehaviour
                 new EmoEngine.CognitivTrainingCompletedEventHandler(engine_CognitivTrainingCompleted);
             engine.CognitivTrainingRejected +=
                 new EmoEngine.CognitivTrainingRejectedEventHandler(engine_CognitivTrainingRejected);
+			engine.CognitivTrainingDataErased += 
+				new EmoEngine.CognitivTrainingDataErasedEventHandler(engine_CognitivTrainingErase); //added by Daniela Florescu
+
             IsStarted = true;
         }
     }
@@ -93,9 +100,9 @@ public class EmoCognitiv : MonoBehaviour
         //Debug.LogError("CognitivEmoStateUpdated");
         isNotResponding = false;
         EmoState es = e.emoState;
-        EdkDll.EE_CognitivAction_t cogAction = es.CognitivGetCurrentAction();
+        cogAction = es.CognitivGetCurrentAction();
         //Debug.LogError(cogAction);
-        float power = (float)es.CognitivGetCurrentActionPower();
+        power = (float)es.CognitivGetCurrentActionPower();
         //Debug.LogError(power + ":" +(uint)cogAction);
         //CognitivActionPower[(uint)cogAction] = power;
         for (int i = 1; i < cognitivActionList.Length; i++)
@@ -116,7 +123,6 @@ public class EmoCognitiv : MonoBehaviour
 
     static void engine_CognitivTrainingSucceeded(object sender, EmoEngineEventArgs e)
     {
-        //EmoEngine.Instance.CognitivSetTrainingControl(0, EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT);
 		showTrainingCompleteDialog = true;
         Debug.Log("Cognitiv Training Succeeded");
     }
@@ -132,6 +138,14 @@ public class EmoCognitiv : MonoBehaviour
         Debug.Log("Cognitiv Training Rejected");
 
     }
+
+	//Method added by Daniela Florescu
+	static void engine_CognitivTrainingErase(object sender, EmoEngineEventArgs e)
+	{
+		Debug.Log("Cognitiv Training Erased");
+		
+	}
+
     /// <summary>
     /// Start traning cognitiv action
     /// </summary>
@@ -282,5 +296,16 @@ public class EmoCognitiv : MonoBehaviour
 		GUILayout.FlexibleSpace();
 		GUILayout.EndHorizontal();
 	}
+
+	//Accessor methods to current action and power. Added by Daniela Florescu.
+	public static string getCurrentAction()
+	{
+		return cogAction.ToString();
+	}
 	
+	public static float getCurrentActionPower()
+	{
+		return power;
+	}	
+
 }
