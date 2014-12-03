@@ -13,10 +13,13 @@ public class TrainCognitiv : MonoBehaviour {
 	private static int halfScreenWidth = Screen.width / 2;
 
 	private static bool showResetTrainingDialog = false;
+
+	public Transform cubeObject;
 	
 	void Start()
 	{
 		//Set the 4 training actions.
+		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[0], true);
 		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[1], true);
 		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[2], true);
 		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[5], true);
@@ -42,62 +45,62 @@ public class TrainCognitiv : MonoBehaviour {
 		Single rightSkill = EmoEngine.Instance.CognitivGetActionSkillRating((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[6]);
 
 		//Neutral label
-		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight - 38, 90, 25), "Neutral", labelStyle);
+		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight - 10, 90, 25), "Neutral", labelStyle);
 
 		//Train Neutral 
-		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight - 38, 90, 25), "Train"))
+		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight - 10, 90, 25), "Train"))
 			TrainNeutral();
 		
 		//Reset Neutral
-		if (GUI.Button(new Rect(halfScreenWidth + 310, halfScreenHeight - 38, 90, 25), "Reset"))
+		if (GUI.Button(new Rect(halfScreenWidth + 320, halfScreenHeight - 10, 90, 25), "Reset"))
 			ResetNeutral();			
 
 		//Push label
-		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight - 8, 90, 25), "Push", labelStyle);
-		GUI.Label (new Rect(halfScreenWidth + 120, halfScreenHeight - 8, 90, 25), Math.Round(pushSkill * 100, 2).ToString() + "%", labelStyle);				
+		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight + 20, 90, 25), "Push", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 20, 90, 25), Math.Round(pushSkill * 100, 2).ToString() + "%", labelStyle);				
 
 		//Train Push
-		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight - 8, 90, 25), "Train"))
+		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight + 20, 90, 25), "Train"))
 			TrainPush();
 
 		//Reset Push
-		if (GUI.Button(new Rect(halfScreenWidth + 310, halfScreenHeight - 8, 90, 25), "Reset"))
+		if (GUI.Button(new Rect(halfScreenWidth + 320, halfScreenHeight + 20, 90, 25), "Reset"))
 			ResetPush();
 
 		//Pull label
-		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight + 22, 90, 25), "Pull", labelStyle);
-		GUI.Label (new Rect(halfScreenWidth + 120, halfScreenHeight + 22, 90, 25), Math.Round(pullSkill * 100, 2).ToString() + "%", labelStyle);
+		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight + 50, 90, 25), "Pull", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 50, 90, 25), Math.Round(pullSkill * 100, 2).ToString() + "%", labelStyle);
 		
 		//Train Pull
-		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight + 22, 90, 25), "Train"))
+		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight + 50, 90, 25), "Train"))
 			TrainPull();
 		
 		//Reset Pull
-		if (GUI.Button(new Rect(halfScreenWidth + 310, halfScreenHeight + 22, 90, 25), "Reset"))
+		if (GUI.Button(new Rect(halfScreenWidth + 320, halfScreenHeight + 50, 90, 25), "Reset"))
 			ResetPull();
 		
 		//Left label
-		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight + 52, 90, 25), "Left", labelStyle);
-		GUI.Label (new Rect(halfScreenWidth + 120, halfScreenHeight + 52, 90, 25), Math.Round(leftSkill * 100, 2).ToString() + "%", labelStyle);
+		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight + 80, 90, 25), "Left", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 80, 90, 25), Math.Round(leftSkill * 100, 2).ToString() + "%", labelStyle);
 
 		//Train Left
-		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight + 52, 90, 25), "Train"))
+		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight + 80, 90, 25), "Train"))
 			TrainLeft();
 		
 		//Reset Left
-		if (GUI.Button(new Rect(halfScreenWidth + 310, halfScreenHeight + 52, 90, 25), "Reset"))
+		if (GUI.Button(new Rect(halfScreenWidth + 320, halfScreenHeight + 80, 90, 25), "Reset"))
 			ResetLeft();
 		
 		//Right label
-		GUI.Label(new Rect(halfScreenWidth + 50, halfScreenHeight + 82, 90, 25), "Right", labelStyle);
-		GUI.Label (new Rect(halfScreenWidth + 120, halfScreenHeight + 82, 90, 25), Math.Round(rightSkill * 100, 2).ToString() + "%", labelStyle);
+		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight + 110, 90, 25), "Right", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 110, 90, 25), Math.Round(rightSkill * 100, 2).ToString() + "%", labelStyle);
 
 		//Train Right
-		if (GUI.Button(new Rect(halfScreenWidth + 200, halfScreenHeight + 82, 90, 25), "Train"))
+		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight + 110, 90, 25), "Train"))
 			TrainRight();
 		
 		//Reset Right
-		if (GUI.Button(new Rect(halfScreenWidth + 310, halfScreenHeight + 82, 90, 25), "Reset"))
+		if (GUI.Button(new Rect(halfScreenWidth + 320, halfScreenHeight + 110, 90, 25), "Reset"))
 			ResetRight();
 		
 		//Display the window which asks whether the user is sure of wishing to reset the training.
@@ -106,6 +109,45 @@ public class TrainCognitiv : MonoBehaviour {
 			Rect resetTrainingWindow = new Rect(Screen.width / 2 - 175, Screen.height / 2 - 40, 350, 80);
 			resetTrainingWindow = GUILayout.Window(5, resetTrainingWindow, DoResetTrainingAction, "Reset Training");	
 		}		
+		
+		string cogAction = EmoCognitiv.getCurrentAction();
+		float power = (float) Math.Round(EmoCognitiv.getCurrentActionPower(), 5); 
+
+		//Animate cube according to current action and its power. 
+		if (cogAction == "COG_NEUTRAL")
+		{
+			//Fix the cube to the center of the room.
+			SetDefaultCubePosition(); 
+		}
+		else if (cogAction == "COG_PUSH")
+		{
+			//Send cube to back.
+			SetDefaultCubePosition();
+			cubeObject.localScale -= new Vector3(power, power, power);
+			//cubeObject.Translate (new Vector3(-1, -1, 0) * power * 2);
+		}
+		else if (cogAction == "COG_PULL")
+		{
+			//Bring cube to front.
+			SetDefaultCubePosition();
+			cubeObject.localScale += new Vector3(power, power, power);
+			//cubeObject.Translate (new Vector3(1, 1, -1) * power * 2);
+		}
+		else if (cogAction == "COG_LEFT")
+		{
+			//Move cube to left.
+			SetDefaultCubePosition();
+			cubeObject.Translate (Vector3.left * power * 2);
+		}
+		else if (cogAction == "COG_RIGHT")
+		{
+			//Move cube to right.
+			SetDefaultCubePosition();
+			cubeObject.Translate (Vector3.right * power * 2);
+		}
+
+		if (GUI.Button (new Rect(halfScreenWidth - 20, Screen.height - 45, 50, 30), "Back"))
+			Application.LoadLevel(0);
 	}
 	
 	private void TrainNeutral()
@@ -200,4 +242,10 @@ public class TrainCognitiv : MonoBehaviour {
 		GUILayout.EndHorizontal();
 	}
 
+	private void SetDefaultCubePosition()
+	{
+		cubeObject.position = new Vector3(947.2634f, 4.680414f, 24);
+		cubeObject.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+	}
+	
 }//class

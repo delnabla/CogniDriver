@@ -2,7 +2,6 @@
 
 using UnityEngine;
 using System.Collections;
-using Emotiv;
 using System;
 
 public class headsetGUIC : MonoBehaviour {
@@ -18,6 +17,8 @@ public class headsetGUIC : MonoBehaviour {
 	public Texture2D orangeButton;
 	public Texture2D yellowButton;
 	public Texture2D greenButton;
+
+	public bool isEnabled = true;
 
 	// Use this for initialization
 	void Start () {
@@ -46,12 +47,14 @@ public class headsetGUIC : MonoBehaviour {
 
 	void OnGUI()
 	{
-		DrawGUI();
+		isEnabled = GUI.Toggle(new Rect(5,5,100,50), isEnabled, "Show info"); 
+		if (isEnabled) 
+			DrawGUI();
 
 		//Store backup values for the box style.
 		GUIStyle backUpBox = GUI.skin.box;
 
-		GUI.Label(new Rect(10, 150, 300, 25), "<color=orange><b>Current Action: " + EmoCognitiv.getCurrentAction() + "</b></color>");
+		GUI.Label(new Rect(10, 170, 300, 25), "<color=orange><b>Current Action: " + EmoCognitiv.getCurrentAction() + "</b></color>");
 
 		Texture2D myTexture = new Texture2D(1, 1);
 		Color grey = new Color(0.5f, 0.5f, 0.5f);
@@ -61,7 +64,7 @@ public class headsetGUIC : MonoBehaviour {
 
 		//Draw background GUI box with default values.
 		float power = (float) Math.Round(EmoCognitiv.getCurrentActionPower()*100, 2); 
-		GUI.Box(new Rect(55, 173, 101, 15), "");
+		GUI.Box(new Rect(55, 193, 101, 15), "");
 
 		//Compute green texture		
 		Color green = new Color(0, 1, 0);
@@ -70,8 +73,8 @@ public class headsetGUIC : MonoBehaviour {
 		GUI.skin.box.normal.background = myTexture; 	
 
 		//Display power box value.
-		GUI.Box(new Rect(56, 175, power, 11), "");
-		GUI.Label(new Rect(10, 170, 300, 25), "<color=orange><b>Power: </b></color>");
+		GUI.Box(new Rect(56, 195, power, 11), "");
+		GUI.Label(new Rect(10, 190, 300, 25), "<color=orange><b>Power: </b></color>");
 		
 		//Restore to previous skin values.
 		GUI.skin.box = backUpBox;
@@ -136,5 +139,15 @@ public class headsetGUIC : MonoBehaviour {
 			break;			
 		}
 		return returnButton; 
+	}
+
+	void DisableInfo() 	
+	{ 	
+		isEnabled = false; 	
+	} 	
+	 	
+	void EnableInfo() 	
+	{ 	
+		isEnabled = true; 	
 	}
 } //class

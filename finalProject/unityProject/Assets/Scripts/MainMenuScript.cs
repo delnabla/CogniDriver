@@ -25,7 +25,7 @@ public class MainMenuScript : MonoBehaviour {
 	private const string playerNameKeyPrefix = "PlayerName";
 	private const string noOfProfilesKeyPrefix = "NumberOfPlayerProfiles";
 
-	private string playerName = "PlayerName";
+	private static string playerName = "PlayerName";
 	private string selectedPlayer;
 	private static int selectedPlayerIndex = 0;
 	private static string[] playerList;

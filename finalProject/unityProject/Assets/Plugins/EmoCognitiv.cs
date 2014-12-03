@@ -266,35 +266,38 @@ public class EmoCognitiv : MonoBehaviour
 	//Method added by Daniela Florescu.
 	private static void DoTrainingCompleteAction(int windowID)
 	{
-		GUILayout.Space (2);
-		
-		//Get label and button style
-		GUIStyle labelStyle = GUI.skin.GetStyle("Label");
-		GUIStyle buttonStyle = GUI.skin.GetStyle("Button");		
-		
-		//Set alignment to center, fix the button width and set image label.
-		labelStyle.alignment = TextAnchor.MiddleCenter;
-		buttonStyle.fixedWidth = 60;
-		
-		GUILayout.Label ("Training is now complete. What would you like to do with this training?", labelStyle);
-		GUILayout.Space (5);
-		GUILayout.BeginHorizontal();
-		GUILayout.FlexibleSpace();
-		if (GUILayout.Button("Accept", buttonStyle))
+		if (showTrainingCompleteDialog)
 		{
-			EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT);
-			EmoProfileManagement.Instance.SaveCurrentProfile();
-			EmoProfileManagement.Instance.SaveProfilesToFile();
-			showTrainingCompleteDialog = false;
+			GUILayout.Space (2);
+			
+			//Get label and button style
+			GUIStyle labelStyle = GUI.skin.GetStyle("Label");
+			GUIStyle buttonStyle = GUI.skin.GetStyle("Button");		
+			
+			//Set alignment to center, fix the button width and set image label.
+			labelStyle.alignment = TextAnchor.MiddleCenter;
+			buttonStyle.fixedWidth = 60;
+			
+			GUILayout.Label ("Training is now complete. What would you like to do with this training?", labelStyle);
+			GUILayout.Space (5);
+			GUILayout.BeginHorizontal();
+			GUILayout.FlexibleSpace();
+			if (GUILayout.Button("Accept", buttonStyle))
+			{
+				EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_ACCEPT);
+				EmoProfileManagement.Instance.SaveCurrentProfile();
+				EmoProfileManagement.Instance.SaveProfilesToFile();
+				showTrainingCompleteDialog = false;
+			}
+			GUILayout.Space(15);
+			if (GUILayout.Button ("Reject", buttonStyle))
+			{
+				EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_REJECT);
+				showTrainingCompleteDialog = false;
+			}
+			GUILayout.FlexibleSpace();
+			GUILayout.EndHorizontal();
 		}
-		GUILayout.Space(15);
-		if (GUILayout.Button ("Reject", buttonStyle))
-		{
-			EmoEngine.Instance.CognitivSetTrainingControl((uint)EmoUserManagement.currentUser, EdkDll.EE_CognitivTrainingControl_t.COG_REJECT);
-			showTrainingCompleteDialog = false;
-		}
-		GUILayout.FlexibleSpace();
-		GUILayout.EndHorizontal();
 	}
 
 	//Accessor methods to current action and power. Added by Daniela Florescu.
