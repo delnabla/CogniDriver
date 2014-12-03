@@ -54,7 +54,10 @@ public class headsetGUIC : MonoBehaviour {
 		//Store backup values for the box style.
 		GUIStyle backUpBox = GUI.skin.box;
 
-		GUI.Label(new Rect(10, 170, 300, 25), "<color=orange><b>Current Action: " + EmoCognitiv.getCurrentAction() + "</b></color>");
+		GUIStyle labelStyle = new GUIStyle();
+		labelStyle.alignment = TextAnchor.MiddleLeft;
+
+		GUI.Label(new Rect(10, 170, 300, 25), "<color=orange><b>Current Action: " + EmoCognitiv.getCurrentAction() + "</b></color>", labelStyle);
 
 		Texture2D myTexture = new Texture2D(1, 1);
 		Color grey = new Color(0.5f, 0.5f, 0.5f);
@@ -74,7 +77,7 @@ public class headsetGUIC : MonoBehaviour {
 
 		//Display power box value.
 		GUI.Box(new Rect(56, 195, power, 11), "");
-		GUI.Label(new Rect(10, 190, 300, 25), "<color=orange><b>Power: </b></color>");
+		GUI.Label(new Rect(10, 190, 300, 25), "<color=orange><b>Power: </b></color>", labelStyle);
 		
 		//Restore to previous skin values.
 		GUI.skin.box = backUpBox;

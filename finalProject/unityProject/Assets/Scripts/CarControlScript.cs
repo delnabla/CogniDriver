@@ -243,6 +243,11 @@ public class CarControlScript : MonoBehaviour {
 		GUI.DrawTexture (new Rect (Screen.width - 200, Screen.height - 125, 250, 125), speedometerDial);
 
 		//Draw the box which gives the digital reading of the current speed.
+		Texture2D myTexture = new Texture2D(1, 1);
+		Color grey = new Color(0.5f, 0.5f, 0.5f);
+		myTexture.SetPixel(1, 1, grey);
+		myTexture.Apply();
+		GUI.skin.box.normal.background = myTexture; 	
 		GUI.Box (new Rect (Screen.width - 110, Screen.height - 30, 60, 25), currentSpeed.ToString() + " km/h");
 
 		float speedFactor = currentSpeed / chosenCar.topSpeed ;

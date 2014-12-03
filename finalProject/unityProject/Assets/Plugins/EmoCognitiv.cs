@@ -311,4 +311,9 @@ public class EmoCognitiv : MonoBehaviour
 		return power;
 	}	
 
+	public static UInt32 getTrainedActions()
+	{
+		return EmoEngine.Instance.CognitivGetTrainedSignatureActions((uint)EmoUserManagement.currentUser);
+	}
+
 }

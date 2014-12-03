@@ -15,11 +15,12 @@ public class TrainCognitiv : MonoBehaviour {
 	private static bool showResetTrainingDialog = false;
 
 	public Transform cubeObject;
+
+	private static UInt32 trainedActions;
 	
 	void Start()
 	{
 		//Set the 4 training actions.
-		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[0], true);
 		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[1], true);
 		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[2], true);
 		EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[5], true);
@@ -57,7 +58,7 @@ public class TrainCognitiv : MonoBehaviour {
 
 		//Push label
 		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight + 20, 90, 25), "Push", labelStyle);
-		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 20, 90, 25), Math.Round(pushSkill * 100, 2).ToString() + "%", labelStyle);				
+		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 20, 90, 25), Math.Round(pushSkill * 100, 0).ToString() + "%", labelStyle);				
 
 		//Train Push
 		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight + 20, 90, 25), "Train"))
@@ -69,7 +70,7 @@ public class TrainCognitiv : MonoBehaviour {
 
 		//Pull label
 		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight + 50, 90, 25), "Pull", labelStyle);
-		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 50, 90, 25), Math.Round(pullSkill * 100, 2).ToString() + "%", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 50, 90, 25), Math.Round(pullSkill * 100, 0).ToString() + "%", labelStyle);
 		
 		//Train Pull
 		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight + 50, 90, 25), "Train"))
@@ -81,7 +82,7 @@ public class TrainCognitiv : MonoBehaviour {
 		
 		//Left label
 		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight + 80, 90, 25), "Left", labelStyle);
-		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 80, 90, 25), Math.Round(leftSkill * 100, 2).ToString() + "%", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 80, 90, 25), Math.Round(leftSkill * 100, 0).ToString() + "%", labelStyle);
 
 		//Train Left
 		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight + 80, 90, 25), "Train"))
@@ -93,7 +94,7 @@ public class TrainCognitiv : MonoBehaviour {
 		
 		//Right label
 		GUI.Label(new Rect(halfScreenWidth + 60, halfScreenHeight + 110, 90, 25), "Right", labelStyle);
-		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 110, 90, 25), Math.Round(rightSkill * 100, 2).ToString() + "%", labelStyle);
+		GUI.Label (new Rect(halfScreenWidth + 130, halfScreenHeight + 110, 90, 25), Math.Round(rightSkill * 100, 0).ToString() + "%", labelStyle);
 
 		//Train Right
 		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight + 110, 90, 25), "Train"))
@@ -123,14 +124,14 @@ public class TrainCognitiv : MonoBehaviour {
 		{
 			//Send cube to back.
 			SetDefaultCubePosition();
-			cubeObject.localScale -= new Vector3(power, power, power);
+			cubeObject.localScale -= new Vector3(power * 0.5f, power * 0.5f, power * 0.5f);
 			//cubeObject.Translate (new Vector3(-1, -1, 0) * power * 2);
 		}
 		else if (cogAction == "COG_PULL")
 		{
 			//Bring cube to front.
 			SetDefaultCubePosition();
-			cubeObject.localScale += new Vector3(power, power, power);
+			cubeObject.localScale += new Vector3(power * 0.5f, power * 0.5f, power * 0.5f);
 			//cubeObject.Translate (new Vector3(1, 1, -1) * power * 2);
 		}
 		else if (cogAction == "COG_LEFT")
@@ -148,6 +149,13 @@ public class TrainCognitiv : MonoBehaviour {
 
 		if (GUI.Button (new Rect(halfScreenWidth - 20, Screen.height - 45, 50, 30), "Back"))
 			Application.LoadLevel(0);
+
+		//Display info label.
+		trainedActions = EmoCognitiv.getTrainedActions();
+		if (trainedActions != 103)
+			GUI.Label (new Rect(halfScreenWidth, halfScreenHeight - 50, 400, 50), "<color=red>You haven't trained all actions. You won't be able to see any progress in animations or skill.</color>");
+		//else
+		//	GUI.Label (new Rect(halfScreenHeight, halfScreenWidth, 300, 25), "<color=green>All actions have been trained.</color>");
 	}
 	
 	private void TrainNeutral()
@@ -208,6 +216,7 @@ public class TrainCognitiv : MonoBehaviour {
 	private void HandleEvents()
 	{
 		Debug.Log("Checking events");
+		Debug.Log (trainedActions);
 	}	
 
 	private static void DoResetTrainingAction(int windowID)
