@@ -29,11 +29,12 @@ public class SkiddingScript : MonoBehaviour {
 	void Update () 
 	{
 		WheelHit hit;
+		string currentAction = EmoCognitiv.getCurrentAction();
 		WheelCollider wheel = (WheelCollider)transform.GetComponent ("WheelCollider");
 		wheel.GetGroundHit (out hit);
 		currentFriction = Mathf.Abs (hit.sidewaysSlip);
 		float rpm = transform.GetComponent<WheelCollider> ().rpm;
-		if ((skidAt <= currentFriction) || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider )) 
+		if ((skidAt <= currentFriction) || (rpm < 300 && (Input.GetAxis("Vertical") > 0 || currentAction == "COG_PUSH") && backWheel && hit.collider )) 
 		{
 			if (soundWait <= 0)
 			{
@@ -43,7 +44,7 @@ public class SkiddingScript : MonoBehaviour {
 		}
 
 		//Reverse sound.
-		if (Input.GetAxis ("Vertical") < 0)
+		if (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL")
 		{
 			if (soundWaitReverse <= 0)
 			{
@@ -55,7 +56,7 @@ public class SkiddingScript : MonoBehaviour {
 		soundWait -= Time.deltaTime * soundEmition;
 		soundWaitReverse -= Time.deltaTime * soundEmition;
 
-		if (skidAt <= currentFriction || (rpm < 300 && Input.GetAxis("Vertical") > 0 && backWheel && hit.collider)) 
+		if (skidAt <= currentFriction || (rpm < 300 && (Input.GetAxis("Vertical") > 0 || currentAction == "COG_PUSH") && backWheel && hit.collider)) 
 		{
 			skidSmoke.particleEmitter.emit = true;
 			SkidMesh ();

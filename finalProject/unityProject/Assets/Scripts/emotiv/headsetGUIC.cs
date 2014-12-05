@@ -18,8 +18,6 @@ public class headsetGUIC : MonoBehaviour {
 	public Texture2D yellowButton;
 	public Texture2D greenButton;
 
-	public bool isEnabled = true;
-
 	// Use this for initialization
 	void Start () {
 
@@ -46,10 +44,8 @@ public class headsetGUIC : MonoBehaviour {
 	}
 
 	void OnGUI()
-	{
-		isEnabled = GUI.Toggle(new Rect(5,5,100,50), isEnabled, "Show info"); 
-		if (isEnabled) 
-			DrawGUI();
+	{		
+		DrawGUI();
 
 		//Store backup values for the box style.
 		GUIStyle backUpBox = GUI.skin.box;
@@ -142,15 +138,5 @@ public class headsetGUIC : MonoBehaviour {
 			break;			
 		}
 		return returnButton; 
-	}
-
-	void DisableInfo() 	
-	{ 	
-		isEnabled = false; 	
-	} 	
-	 	
-	void EnableInfo() 	
-	{ 	
-		isEnabled = true; 	
 	}
 } //class

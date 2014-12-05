@@ -31,8 +31,18 @@ public class MainMenuScript : MonoBehaviour {
 	private static string[] playerList;
 	private static int noOfPlayerProfiles; //Up to 10.
 
+	private static int selectionControlIndex = 1;
+	public static string selectedControlTool = "Cognitiv";
+
+	void Awake()
+	{
+		DontDestroyOnLoad(this);
+	}
+
 	void Start()
 	{
+		showChooseProfile = false;
+	
 		//Load emotiv profiles.
 		if (isPlayerProfile)
 			EmoProfileManagement.Instance.LoadProfilesFromFile();
@@ -100,7 +110,7 @@ public class MainMenuScript : MonoBehaviour {
 		//Display options window.
 		if (showOptionsDialog)
 		{
-			Rect optionsWindow = new Rect(Screen.width / 2 - 175, Screen.height / 2 - 50, 350, 123);
+			Rect optionsWindow = new Rect(Screen.width / 2 - 175, Screen.height / 2 - 75, 350, 150);
 			optionsWindow = GUILayout.Window(1, optionsWindow, DoOptionsAction, "Options");	
 		}
 
@@ -115,7 +125,7 @@ public class MainMenuScript : MonoBehaviour {
 		//or offers the option to create a new player profile.
 		if (showChooseProfile)
 		{
-			Rect chooseProfileWindow = new Rect(Screen.width / 2 - 100, Screen.height /2 - 78, 210, 170);
+			Rect chooseProfileWindow = new Rect(Screen.width / 2 - 100, Screen.height /2 - 78, 250, 170);
 			chooseProfileWindow = GUILayout.Window(3, chooseProfileWindow, ChooseUserProfile, "Choose player");
 		}
 	}
@@ -177,7 +187,20 @@ public class MainMenuScript : MonoBehaviour {
 				GUILayout.Label ("Fullscreen", labelStyle);
 				GUILayout.Space(80);
 				fullscreen = GUILayout.Toggle (fullscreen, "");
-			GUILayout.EndHorizontal();		
+			GUILayout.EndHorizontal();	
+
+			//Control game by using keyboard, gyro or cognitiv.
+			GUILayout.BeginHorizontal();
+				GUILayout.Label ("Control using ", labelStyle);
+				string[] selection = new string[]{"Keyboard", "Cognitiv", "Gyro"};
+				selectionControlIndex = GUILayout.SelectionGrid(selectionControlIndex, selection, 3, "toggle");
+				if (selectionControlIndex == 0)
+					selectedControlTool = "Keyboard";
+				else if (selectionControlIndex == 1)
+					selectedControlTool = "Cognitiv";
+				else 
+					selectedControlTool = "Gyro";
+		GUILayout.EndHorizontal();	
 
 			//Close button
 			GUILayout.BeginHorizontal();
@@ -308,4 +331,5 @@ public class MainMenuScript : MonoBehaviour {
 			GUILayout.EndHorizontal();
 		GUILayout.EndVertical();
 	}
+		
 }//class

@@ -17,6 +17,9 @@ public class CarControlScript : MonoBehaviour {
 	private bool hideLabel = false;
 	private Vector3 originalSteeringWheelRotation;
 	private float initialTime;
+	private string currentAction;
+	private float currentActionPower;
+	private string controlBy;
 
 	// Use this for initialization
 	void Start () 
@@ -35,9 +38,78 @@ public class CarControlScript : MonoBehaviour {
 		slipSidewayFriction = 0.05f;
 	}
 	
+	void CarUpdateFromKeyboard()
+	{
+		if (currentSpeed < chosenCar.topSpeed && !braked) 
+		{
+			chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
+			chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
+		} else {
+			chosenCar.WheelBR.motorTorque = 0;
+			chosenCar.WheelBL.motorTorque = 0;
+		}
+
+		//If the car is in reverse and the current speed exceeds the maxReverseSpeed, apply brakes to slow down.
+		if (Input.GetAxis ("Vertical") < 0 && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
+			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
+			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
+		}
+		
+		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
+		if (!Input.GetButton ("Vertical")) {
+			chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
+			chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
+		} else {
+			chosenCar.WheelBR.brakeTorque = 0;
+			chosenCar.WheelBL.brakeTorque = 0;
+		}
+	}
+
+	void CarUpdateFromCognitiv()
+	{
+		float multiplyBy = 1;
+		float multiplyByActionPower = currentActionPower; 
+		if (currentAction == "COG_PULL")
+			multiplyBy = -1;
+		if (currentActionPower > 0.5f)
+			multiplyByActionPower = 1;
+		Debug.Log (currentActionPower);
+		if (currentSpeed < chosenCar.topSpeed && !braked) 
+		{
+			if (currentAction == "COG_PUSH" || currentAction == "COG_PULL")
+			{
+				chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * multiplyByActionPower * multiplyBy;
+				chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * multiplyByActionPower * multiplyBy;
+			}
+		} else {
+			chosenCar.WheelBR.motorTorque = 0;
+			chosenCar.WheelBL.motorTorque = 0;
+		}
+
+		//If the car is in reverse and the current speed exceeds the maxReverseSpeed, apply brakes to slow down.
+		if (currentAction == "COG_PULL" && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
+			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
+			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
+		}
+		
+		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
+		if (currentAction != "COG_PUSH" && currentAction != "COG_PULL") {
+			chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
+			chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
+		} else {
+			chosenCar.WheelBR.brakeTorque = 0;
+			chosenCar.WheelBL.brakeTorque = 0;
+		}
+	}
+	
 	// FixedUpdate is called multiple times per frame
 	void FixedUpdate () 
 	{
+		currentAction = EmoCognitiv.getCurrentAction();
+		currentActionPower = EmoCognitiv.getCurrentActionPower();
+		controlBy = MainMenuScript.selectedControlTool;
+		float multiplyBy = 1;
+		
 		if ( Mathf.Round(countdown) <= 0)
 		{
 			currentSpeed = rigidbody.velocity.magnitude;
@@ -48,32 +120,23 @@ public class CarControlScript : MonoBehaviour {
 	
 			//If current speed is less than the maximum speed achievable by the car and we are not in a braked state,
 			// multiply the current speed by the maxTorque constant.
-			if (currentSpeed < chosenCar.topSpeed && !braked) {
-				chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
-				chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
-			} else {
-				chosenCar.WheelBR.motorTorque = 0;
-				chosenCar.WheelBL.motorTorque = 0;
-			}
-	
-			//If the car is in reverse and the current speed exceeds the maxReverseSpeed, apply brakes to slow down.
-			if ((Input.GetAxis ("Vertical") < 0) && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
-				chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
-				chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
-			}
-	
-			//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
-			if (!Input.GetButton ("Vertical")) {
-				chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
-				chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
-			} else {
-				chosenCar.WheelBR.brakeTorque = 0;
-				chosenCar.WheelBL.brakeTorque = 0;
-			}
+			if (controlBy == "Keyboard")
+				CarUpdateFromKeyboard();	
+			else if (controlBy == "Cognitiv")
+				CarUpdateFromCognitiv();
 
 			//Deal with car steering by rotating the front wheels a certain degree.
 			float currentSteerAngle = Mathf.Lerp (chosenCar.lowSpeedSteerAngle, chosenCar.highSpeedSteerAngle, currentSpeed);
-			currentSteerAngle *= Input.GetAxis ("Horizontal");
+		
+			if (controlBy == "Keyboard")
+				currentSteerAngle *= Input.GetAxis ("Horizontal");
+			else if (controlBy == "Cognitiv" && (currentAction == "COG_LEFT" || currentAction == "COG_RIGHT"))
+			{
+				if (currentAction == "COG_LEFT")
+					multiplyBy = -1;
+				currentSteerAngle *= currentActionPower * multiplyBy;
+			}
+
 			chosenCar.WheelFL.steerAngle = currentSteerAngle;
 			chosenCar.WheelFR.steerAngle = currentSteerAngle;
 
@@ -110,13 +173,13 @@ public class CarControlScript : MonoBehaviour {
 	//Method to deal with the backlights of a car in brake, reverse or idle states.
 	void BackLights() 
 	{
-		if (currentSpeed > 0 && Input.GetAxis ("Vertical") < 0 && !braked)
+		if (currentSpeed > 0 && (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") && !braked)
 			//brake light
 			chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
-		else if (currentSpeed < 0 && Input.GetAxis ("Vertical") > 0 && !braked)
+		else if (currentSpeed < 0 && (Input.GetAxis ("Vertical") > 0 || currentAction == "COG_PUSH") && !braked)
 			//brake light
 			chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
-		else if (currentSpeed < 0 && Input.GetAxis ("Vertical") < 0 && !braked)
+		else if (currentSpeed < 0 && (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") && !braked)
 			//reverse
 			chosenCar.backLightObject.renderer.material.color = new Color(171, 170, 175, 1);
 		else if (!braked)
@@ -131,7 +194,7 @@ public class CarControlScript : MonoBehaviour {
 		
 		//Turn the steering wheel to the initial position if the left/right keys are released.
 		Vector3 currentSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles;
-		if (!Input.GetButton ("Horizontal") && currentSteeringWheelRotation != Vector3.zero)
+		if ((!Input.GetButton ("Horizontal") || (currentAction != "COG_LEFT" && currentAction != "COG_RIGHT")) && currentSteeringWheelRotation != Vector3.zero)
 			chosenCar.SteeringWheel.transform.localEulerAngles = originalSteeringWheelRotation;
 	}
 

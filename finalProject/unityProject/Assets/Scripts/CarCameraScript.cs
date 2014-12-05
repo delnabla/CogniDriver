@@ -112,10 +112,11 @@ public class CarCameraScript : MonoBehaviour {
 
 	void FixedUpdate() 
 	{
+		string currentAction = EmoCognitiv.getCurrentAction();
 		if (!isTopCamera && cameraRoll == 0)
 		{
 			// If the car is in reverse, move the camera to the front of the car so we can see where we drive to.
-			if (Input.GetAxis ("Vertical") < 0) {
+			if (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") {
 				rotationVector.y = car.eulerAngles.y + 180;
 			} else {
 				rotationVector.y = car.eulerAngles.y;
