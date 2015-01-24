@@ -130,11 +130,14 @@ public class CarControlScript : MonoBehaviour {
 		
 			if (controlBy == "Keyboard")
 				currentSteerAngle *= Input.GetAxis ("Horizontal");
-			else if (controlBy == "Cognitiv" && (currentAction == "COG_LEFT" || currentAction == "COG_RIGHT"))
+			else if (controlBy == "Cognitiv")
 			{
 				if (currentAction == "COG_LEFT")
 					multiplyBy = -1;
-				currentSteerAngle *= currentActionPower * multiplyBy;
+				if (currentAction == "COG_LEFT" || currentAction == "COG_RIGHT")
+					currentSteerAngle *= currentActionPower * multiplyBy;
+				else 
+					currentSteerAngle = 0;
 			}
 
 			chosenCar.WheelFL.steerAngle = currentSteerAngle;
