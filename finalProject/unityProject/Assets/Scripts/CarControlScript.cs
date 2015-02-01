@@ -101,6 +101,42 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelBL.brakeTorque = 0;
 		}
 	}
+
+	void CarUpdateFromGyro()
+	{
+		int posX = EmoGyroData.GyroX;
+		int posY = EmoGyroData.GyroY;
+		Status headPosition = EmoGyroData.headPosition; //Center, Left, Right, Up, Down, Deny
+		
+		Debug.Log("posX: " + posX + " posY: " + posY + " headPosition: " + headPosition);		
+
+		if (currentSpeed < chosenCar.topSpeed && !braked)
+		{
+			//if (headPosition == Status.Up || headPosition == Status.Down || headPosition == Status.Center) 
+			//{
+				chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * posY / 180;
+				chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * posY / 180;
+		//	} else {
+		//		chosenCar.WheelBR.motorTorque = 0;
+		//		chosenCar.WheelBL.motorTorque = 0;
+		//	}
+		}
+		
+		//If the car is in reverse and the current speed exceeds the maxReverseSpeed, apply brakes to slow down.
+		if (/*headPosition == Status.Down && */(currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
+			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
+			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
+		}
+		
+		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
+		if (!((headPosition == Status.Up) || (headPosition == Status.Down) || (headPosition == Status.Center))) {
+			chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
+			chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
+		} else {
+			chosenCar.WheelBR.brakeTorque = 0;
+			chosenCar.WheelBL.brakeTorque = 0;
+		}
+	}
 	
 	// FixedUpdate is called multiple times per frame
 	void FixedUpdate () 
@@ -124,6 +160,8 @@ public class CarControlScript : MonoBehaviour {
 				CarUpdateFromKeyboard();	
 			else if (controlBy == "Cognitiv")
 				CarUpdateFromCognitiv();
+			else if (controlBy == "Gyro")
+				CarUpdateFromGyro();
 
 			//Deal with car steering by rotating the front wheels a certain degree.
 			float currentSteerAngle = Mathf.Lerp (chosenCar.lowSpeedSteerAngle, chosenCar.highSpeedSteerAngle, currentSpeed);
@@ -137,6 +175,14 @@ public class CarControlScript : MonoBehaviour {
 				if (currentAction == "COG_LEFT" || currentAction == "COG_RIGHT")
 					currentSteerAngle *= currentActionPower * multiplyBy;
 				else 
+					currentSteerAngle = 0;
+			}
+			else if (controlBy == "Gyro")
+			{
+				Status headPosition = EmoGyroData.headPosition; //Center, Left, Right, Up, Down, Deny
+				if (headPosition == Status.Left || headPosition == Status.Right || headPosition == Status.Center) 
+					currentSteerAngle *= EmoGyroData.GyroX / 180;
+				else
 					currentSteerAngle = 0;
 			}
 
