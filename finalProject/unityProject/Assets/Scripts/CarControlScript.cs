@@ -20,6 +20,8 @@ public class CarControlScript : MonoBehaviour {
 	private string currentAction;
 	private float currentActionPower;
 	private string controlBy;
+	private bool paused = false;
+	private bool showPauseDialog = false;
 
 	// Use this for initialization
 	void Start () 
@@ -73,7 +75,7 @@ public class CarControlScript : MonoBehaviour {
 			multiplyBy = -1;
 		if (currentActionPower > 0.5f)
 			multiplyByActionPower = 1;
-		Debug.Log (currentActionPower);
+		
 		if (currentSpeed < chosenCar.topSpeed && !braked) 
 		{
 			if (currentAction == "COG_PUSH" || currentAction == "COG_PULL")
@@ -214,9 +216,11 @@ public class CarControlScript : MonoBehaviour {
 		chosenCar.WheelFRTransform.localEulerAngles = new Vector3 (chosenCar.WheelFRTransform.localEulerAngles.x,
 		                                                 chosenCar.WheelFR.steerAngle - chosenCar.WheelFRTransform.localEulerAngles.z + 90,
 		                                                 chosenCar.WheelFRTransform.localEulerAngles.z);	
- 
+		
+		PauseGame ();
 		BackLights ();
 		EngineSound ();
+		
 	}
 
 	//Method to deal with the backlights of a car in brake, reverse or idle states.
@@ -261,8 +265,8 @@ public class CarControlScript : MonoBehaviour {
 
 	void HandBrake() 
 	{
-		if (Input.GetButton ("Jump")) //spacebar
-			braked = true;
+		if (Input.GetButton ("Jump") || (EmoExpressiv.clenchExtent > 0)) //spacebar
+			{ braked = true; Debug.Log ("braking"); }
 		else
 			braked = false;
 
@@ -328,6 +332,23 @@ public class CarControlScript : MonoBehaviour {
 		audio.pitch = enginePitch;
 	}
 
+	void PauseGame()
+	{
+		//Attach this to a different object. e.g. camera.
+		if (Input.GetKeyUp (KeyCode.P) && (paused == false))
+		{
+			paused = true;
+			Time.timeScale = 0;
+			showPauseDialog = true;
+		}
+		else if ((Input.GetKeyUp (KeyCode.P) /*|| showPauseDialog == false*/) && (paused == true))
+		{
+			paused = false;
+			Time.timeScale = 1;
+			showPauseDialog = false;
+		}
+	}
+
 	void OnGUI()
 	{
 		if (!hideLabel)
@@ -379,7 +400,42 @@ public class CarControlScript : MonoBehaviour {
 		//Rotate and draw the speedometer needle.
 		GUIUtility.RotateAroundPivot(rotationAngle, new Vector2(Screen.width - 80, Screen.height - 49));
 		GUI.DrawTexture (new Rect (Screen.width - 208, Screen.height - 155, 250, 250), speedometerNeedle);
+	
+		if (showPauseDialog)
+		{
+			Rect pauseWindow = new Rect(Screen.width / 2 - 175, Screen.height / 2 - 40, 350, 80);
+			pauseWindow = GUILayout.Window(6, pauseWindow, DoPauseAction, "Game Paused");
+		}
+	}
+	
+	//Displays game paused window. 
+	void DoPauseAction(int windowID)
+	{
+		GUILayout.Space (2);
+		
+		//Get label and button style
+		GUIStyle labelStyle = GUI.skin.GetStyle("Label");
+		GUIStyle buttonStyle = GUI.skin.GetStyle("Button");		
+		
+		//Set alignment to center, fix the button width and set image label.
+		labelStyle.alignment = TextAnchor.MiddleCenter;
+		buttonStyle.fixedWidth = 60;
+		
+		GUILayout.BeginHorizontal();
+		GUILayout.FlexibleSpace();
+		
+		if (GUILayout.Button("Resume", buttonStyle))
+		{
+			showPauseDialog = false;			
+		}
+		if (GUILayout.Button("Exit", buttonStyle))
+		{
+			//Display are you sure you want to exit? Your game progress will not be saved.
+			
+		}
 
+		GUILayout.FlexibleSpace();
+		GUILayout.EndHorizontal();
 	}
 
 } //class

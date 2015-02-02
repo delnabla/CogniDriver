@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\CarControlScript.cs" />
      <Compile Include="Assets\Scripts\DestroyTimerScript.cs" />
      <Compile Include="Assets\Scripts\DrawOutline.cs" />
+     <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\SkiddingScript.cs" />
      <Compile Include="Assets\Scripts\emotiv\TrainCognitiv.cs" />

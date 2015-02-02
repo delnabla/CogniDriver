@@ -74,7 +74,7 @@ public class CarCameraScript : MonoBehaviour {
 		}
 		else
 		{
-			if (Input.GetKeyDown (KeyCode.C)) // if 'c' key is pressed, change camera position.
+			if (Input.GetKeyDown (KeyCode.C) || EmoExpressiv.isLeftWink) // if 'c' key is pressed, change camera position.
 			{
 				cameraRoll++;
 				if (cameraRoll == 2) //if we reached a bigger index than the number of camera positions, reset to 0.
