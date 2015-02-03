@@ -257,13 +257,16 @@ public class MainMenuScript : MonoBehaviour {
 
 	void ChooseUserProfile(int windowID)
 	{
+		GUIStyle buttonStyle = GUI.skin.GetStyle("Button");	
+		buttonStyle.fixedWidth = 105;
+
 		//Pop up list to choose player name or enter a new one.
 		GUILayout.BeginVertical();
 			GUILayout.BeginHorizontal();
 				GUILayout.FlexibleSpace();	
 
 				//Get the chosen player.
-				selectedPlayerIndex = GUILayout.SelectionGrid(selectedPlayerIndex, playerList, 2);
+				selectedPlayerIndex = GUILayout.SelectionGrid(selectedPlayerIndex, playerList, 2, buttonStyle);
 				selectedPlayer = playerList[selectedPlayerIndex]; 
 
 				//Set welcome message.
@@ -273,13 +276,14 @@ public class MainMenuScript : MonoBehaviour {
 			GUILayout.EndHorizontal();
 			GUILayout.BeginHorizontal();
 				GUILayout.FlexibleSpace();
-				if (GUILayout.Button("Select"))
+				buttonStyle.fixedWidth = 75;
+				if (GUILayout.Button("Select", buttonStyle))
 				{
 					showChooseProfile = false;	
 					if (isPlayerProfile)
 						EmoProfileManagement.Instance.SetUserProfile(selectedPlayer);
 				}
-				if (GUILayout.Button ("Remove"))
+				if (GUILayout.Button ("Remove", buttonStyle))
 				{			
 					//Remove last player name key.
 					PlayerPrefs.DeleteKey(playerNameKeyPrefix + (noOfPlayerProfiles - 1));					
@@ -322,7 +326,7 @@ public class MainMenuScript : MonoBehaviour {
 					}
 				}
 				if (noOfPlayerProfiles < 10)
-					if (GUILayout.Button("Create"))
+					if (GUILayout.Button("Create", buttonStyle))
 					{
 						showCreateProfile = true;
 						showChooseProfile = false;	

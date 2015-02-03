@@ -20,8 +20,10 @@ public class CarControlScript : MonoBehaviour {
 	private string currentAction;
 	private float currentActionPower;
 	private string controlBy;
-	private bool paused = false;
-	private bool showPauseDialog = false;
+	private bool showGameOver = false;
+
+	private const string topCogPrefix = "Top10Cog"; // For saving the top 10 scorers in Cognitiv mode.
+	private const string topKeyPrefix = "Top10Key"; // For saving the top 10 scorers in Keyboard mode.
 
 	// Use this for initialization
 	void Start () 
@@ -217,7 +219,6 @@ public class CarControlScript : MonoBehaviour {
 		                                                 chosenCar.WheelFR.steerAngle - chosenCar.WheelFRTransform.localEulerAngles.z + 90,
 		                                                 chosenCar.WheelFRTransform.localEulerAngles.z);	
 		
-		PauseGame ();
 		BackLights ();
 		EngineSound ();
 		
@@ -260,6 +261,7 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelBL.motorTorque = 0;
 			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed/2;
 			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed/2;
+			showGameOver = true;
 		} 	
 	}
 
@@ -332,23 +334,6 @@ public class CarControlScript : MonoBehaviour {
 		audio.pitch = enginePitch;
 	}
 
-	void PauseGame()
-	{
-		//Attach this to a different object. e.g. camera.
-		if (Input.GetKeyUp (KeyCode.P) && (paused == false))
-		{
-			paused = true;
-			Time.timeScale = 0;
-			showPauseDialog = true;
-		}
-		else if ((Input.GetKeyUp (KeyCode.P) /*|| showPauseDialog == false*/) && (paused == true))
-		{
-			paused = false;
-			Time.timeScale = 1;
-			showPauseDialog = false;
-		}
-	}
-
 	void OnGUI()
 	{
 		if (!hideLabel)
@@ -400,16 +385,15 @@ public class CarControlScript : MonoBehaviour {
 		//Rotate and draw the speedometer needle.
 		GUIUtility.RotateAroundPivot(rotationAngle, new Vector2(Screen.width - 80, Screen.height - 49));
 		GUI.DrawTexture (new Rect (Screen.width - 208, Screen.height - 155, 250, 250), speedometerNeedle);
-	
-		if (showPauseDialog)
+
+		if (showGameOver)
 		{
-			Rect pauseWindow = new Rect(Screen.width / 2 - 175, Screen.height / 2 - 40, 350, 80);
-			pauseWindow = GUILayout.Window(6, pauseWindow, DoPauseAction, "Game Paused");
+			Rect exitWindow = new Rect(Screen.width / 2 - 200, Screen.height / 2 - 40, 400, 80);
+			exitWindow = GUILayout.Window(8, exitWindow, DoGameOverAction, "Game Over");
 		}
 	}
-	
-	//Displays game paused window. 
-	void DoPauseAction(int windowID)
+
+	void DoGameOverAction(int windowID)
 	{
 		GUILayout.Space (2);
 		
@@ -419,21 +403,20 @@ public class CarControlScript : MonoBehaviour {
 		
 		//Set alignment to center, fix the button width and set image label.
 		labelStyle.alignment = TextAnchor.MiddleCenter;
-		buttonStyle.fixedWidth = 60;
+		buttonStyle.fixedWidth = 80;
+		
+		GUILayout.Label("Congratulations! You have reached the end of the game!");
+		GUILayout.Space (5);
 		
 		GUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
 		
-		if (GUILayout.Button("Resume", buttonStyle))
+		if (GUILayout.Button("Main Menu", buttonStyle))
 		{
-			showPauseDialog = false;			
-		}
-		if (GUILayout.Button("Exit", buttonStyle))
-		{
-			//Display are you sure you want to exit? Your game progress will not be saved.
 			
+			Application.LoadLevel (0);			
 		}
-
+		
 		GUILayout.FlexibleSpace();
 		GUILayout.EndHorizontal();
 	}

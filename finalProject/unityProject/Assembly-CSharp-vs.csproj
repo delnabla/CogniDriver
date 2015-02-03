@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\DrawOutline.cs" />
      <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
+     <Compile Include="Assets\Scripts\PauseScript.cs" />
      <Compile Include="Assets\Scripts\SkiddingScript.cs" />
      <Compile Include="Assets\Scripts\emotiv\TrainCognitiv.cs" />
      <Compile Include="Assets\Scripts\emotiv\headsetGUIC.cs" />
