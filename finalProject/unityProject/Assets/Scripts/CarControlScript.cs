@@ -21,6 +21,7 @@ public class CarControlScript : MonoBehaviour {
 	private float currentActionPower;
 	private string controlBy;
 	private bool showGameOver = false;
+	private float elapsedTimeSeconds;
 
 	private const string topCogPrefix = "Top10Cog"; // For saving the top 10 scorers in Cognitiv mode.
 	private const string topKeyPrefix = "Top10Key"; // For saving the top 10 scorers in Keyboard mode.
@@ -262,6 +263,60 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed/2;
 			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed/2;
 			showGameOver = true;
+			
+			//Check game play mode.
+			if (controlBy == "Keyboard")
+			{
+				//Increase the Top10KeyCount if < 10.
+				int topKeyCount = 0;
+				if (PlayerPrefs.HasKey("Top10KeyCount"))
+					topKeyCount = PlayerPrefs.GetInt("Top10KeyCount"); 
+				
+				//If  Top10KeyCount > 10, check if current time is better. If it is, record it.
+				//A top 10 value is stored as: key = topKeyPrefix; value = String(PlayerName;elapsedTimeInSeconds).
+				int[] topKey = new int[topKeyCount];
+				string[] topKeyValues = new string[topKeyCount];
+				int insertPosition = topKeyCount;
+				for (int i = 0; i < topKeyCount; i++)
+				{
+					topKey[i] = int.Parse(PlayerPrefs.GetString(topKeyPrefix + i).Split(';')[1]);
+					topKeyValues[i] = PlayerPrefs.GetString(topKeyPrefix + i);
+					if (elapsedTimeSeconds < topKey[i])
+					{ 
+						insertPosition = i;		
+						break;
+					}
+				}
+
+				//Update all the current top values and insert the new one.
+				int j = 1;
+				while (j < insertPosition - 1)
+				{
+					PlayerPrefs.SetString(topKeyPrefix + (topKeyCount + 2 - j), topKeyValues[topKeyCount-j]);
+					j++;
+				}
+				PlayerPrefs.SetString(topKeyPrefix + insertPosition, "APlayerName;"+elapsedTimeSeconds);
+
+				//Save new value for topKeyCount.
+				if (topKeyCount < 10)
+					topKeyCount++;
+				PlayerPrefs.SetInt("Top10KeyCount", topKeyCount);
+		
+			}		
+			else if (controlBy == "Cognitiv")
+			{
+				//Increase the Top10CogCount if < 10.
+
+
+				//If Top10CogCount > 10, check if current time is better. If it is, record it.
+
+
+				//Create new Top10Cog<No> value.
+
+
+			}
+
+			//Save PlayerPrefs.
 		} 	
 	}
 
@@ -374,7 +429,7 @@ public class CarControlScript : MonoBehaviour {
 		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);
 
 		//Calculate the elapsed time since the start of the game and display it in the right hand side corner.
-		float elapsedTimeSeconds = Time.time - startCountdown - initialTime;
+		elapsedTimeSeconds = Time.time - startCountdown - initialTime;
 		if (elapsedTimeSeconds > 0)
 		{
 			float elapsedTimeMinutes = Mathf.Floor (elapsedTimeSeconds / 60);
