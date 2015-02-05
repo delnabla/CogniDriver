@@ -21,6 +21,7 @@ public class MainMenuScript : MonoBehaviour {
 	private static bool showOptionsDialog = false;
 	private static bool showCreateProfile = false;
 	private static bool showChooseProfile = false;
+	private static bool showStatistics = false;
 
 	private const string playerNameKeyPrefix = "PlayerName";
 	private const string noOfProfilesKeyPrefix = "NumberOfPlayerProfiles";
@@ -33,6 +34,12 @@ public class MainMenuScript : MonoBehaviour {
 
 	private static int selectionControlIndex = 1;
 	public static string selectedControlTool = "Cognitiv";
+
+	private static int topKeyCount = 0;
+	private static int topCogCount = 0;
+
+	private static string[] topKeyPlayers; 
+	private static int[] topKeySeconds; 
 
 	void Awake()
 	{
@@ -66,6 +73,20 @@ public class MainMenuScript : MonoBehaviour {
 		{
 			showCreateProfile = true;
 		}
+
+		//Get statistics.
+		if (PlayerPrefs.HasKey("Top10KeyCount"))
+			topKeyCount = PlayerPrefs.GetInt("Top10KeyCount");
+		topKeyPlayers = new string[topKeyCount];
+		topKeySeconds = new int[topKeyCount];
+		if (topKeyCount > 0)
+		{			
+			for (int i = 0; i < topKeyCount; i++)
+			{
+				topKeyPlayers[i] = PlayerPrefs.GetString("Top10Key" + i).Split(';')[0];
+				topKeySeconds[i] = int.Parse(PlayerPrefs.GetString("Top10Key" + i).Split(';')[1]);
+			}
+		}
 	}
 	
 	void OnMouseEnter()
@@ -90,6 +111,8 @@ public class MainMenuScript : MonoBehaviour {
 			showOptionsDialog = true;
 		else if (isPlayerProfile)
 			showChooseProfile = true;
+		else if (isStatistics)
+			showStatistics = true;
 	}
 	
 	void OnGUI()
@@ -128,6 +151,65 @@ public class MainMenuScript : MonoBehaviour {
 			Rect chooseProfileWindow = new Rect(Screen.width / 2 - 100, Screen.height /2 - 78, 250, 170);
 			chooseProfileWindow = GUILayout.Window(3, chooseProfileWindow, ChooseUserProfile, "Choose player");
 		}
+
+		if (showStatistics)
+		{
+			Rect statsWindow = new Rect(Screen.width / 2 - 200, Screen.height /2 - 175, 400, 350);
+			statsWindow = GUILayout.Window(9, statsWindow, ShowStats, "Top Players");
+		}	
+	}
+
+	void ShowStats(int windowID)
+	{
+		GUILayout.Space (2);
+		
+		//Get label and button style
+		GUIStyle labelStyle = GUI.skin.GetStyle("Label");
+		GUIStyle buttonStyle = GUI.skin.GetStyle("Button");		
+		
+		//Set alignment to center, fix the button width and set image label.
+		labelStyle.alignment = TextAnchor.MiddleCenter;
+		buttonStyle.fixedWidth = 60;
+		
+		GUILayout.BeginHorizontal();
+		GUILayout.FlexibleSpace();
+		GUILayout.Label ("Top 10 Keyboard", labelStyle);
+		GUILayout.FlexibleSpace();
+		GUILayout.Label ("Top 10 Cognitiv", labelStyle);
+		GUILayout.FlexibleSpace();
+		GUILayout.EndHorizontal();
+		
+		GUILayout.BeginVertical();
+		Debug.Log ("topKeyCount: " + topKeyCount);	
+		for (int i = 0; i < topKeyCount; i++)
+		{
+			GUILayout.BeginHorizontal();
+			GUILayout.FlexibleSpace();
+			if (PlayerPrefs.HasKey("Top10Key" + i))
+				GUILayout.Label(topKeyPlayers[i] + "\t\t\t\t" + topKeySeconds[i]);
+			GUILayout.FlexibleSpace();
+			GUILayout.Label ("" + "\t\t\t\t" + "");
+			GUILayout.FlexibleSpace();
+			GUILayout.EndHorizontal();
+		}
+		GUILayout.EndVertical();
+
+		GUILayout.Space (5);
+		GUILayout.BeginHorizontal();
+		GUILayout.FlexibleSpace();
+		if (GUILayout.Button ("Back", buttonStyle))
+			showStatistics = false;
+		GUILayout.FlexibleSpace();
+		if (GUILayout.Button ("Reset", buttonStyle))
+		{
+			for (int i = 0; i < topKeyCount; i++)
+			{
+				PlayerPrefs.DeleteKey("Top10Key" + i);
+			}
+			PlayerPrefs.SetInt("Top10KeyCount", 0);
+		}
+		GUILayout.FlexibleSpace();
+		GUILayout.EndHorizontal();
 	}
 
 	//Displays "Are you sure you want to exit?" window. If yes, also saves player profile data.

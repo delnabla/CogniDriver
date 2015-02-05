@@ -21,7 +21,7 @@ public class CarControlScript : MonoBehaviour {
 	private float currentActionPower;
 	private string controlBy;
 	private bool showGameOver = false;
-	private float elapsedTimeSeconds;
+	private float totalTimeSeconds;
 
 	private const string topCogPrefix = "Top10Cog"; // For saving the top 10 scorers in Cognitiv mode.
 	private const string topKeyPrefix = "Top10Key"; // For saving the top 10 scorers in Keyboard mode.
@@ -277,25 +277,30 @@ public class CarControlScript : MonoBehaviour {
 				int[] topKey = new int[topKeyCount];
 				string[] topKeyValues = new string[topKeyCount];
 				int insertPosition = topKeyCount;
+				totalTimeSeconds = Mathf.RoundToInt(totalTimeSeconds);
 				for (int i = 0; i < topKeyCount; i++)
 				{
+					Debug.Log ("topKey: " + PlayerPrefs.GetString(topKeyPrefix + "0"));
 					topKey[i] = int.Parse(PlayerPrefs.GetString(topKeyPrefix + i).Split(';')[1]);
 					topKeyValues[i] = PlayerPrefs.GetString(topKeyPrefix + i);
-					if (elapsedTimeSeconds < topKey[i])
+					if (totalTimeSeconds < topKey[i])
 					{ 
 						insertPosition = i;		
 						break;
 					}
+					if (totalTimeSeconds >= topKey[i] && topKeyCount < 10)
+						insertPosition = topKeyCount;
 				}
 
 				//Update all the current top values and insert the new one.
 				int j = 1;
-				while (j < insertPosition - 1)
+				while (j <= insertPosition)
 				{
 					PlayerPrefs.SetString(topKeyPrefix + (topKeyCount + 2 - j), topKeyValues[topKeyCount-j]);
 					j++;
 				}
-				PlayerPrefs.SetString(topKeyPrefix + insertPosition, "APlayerName;"+elapsedTimeSeconds);
+		
+				PlayerPrefs.SetString(topKeyPrefix + insertPosition, "APlayerName;"+totalTimeSeconds);
 
 				//Save new value for topKeyCount.
 				if (topKeyCount < 10)
@@ -429,11 +434,11 @@ public class CarControlScript : MonoBehaviour {
 		float rotationAngle = Mathf.Lerp (0, 252, speedFactor);
 
 		//Calculate the elapsed time since the start of the game and display it in the right hand side corner.
-		elapsedTimeSeconds = Time.time - startCountdown - initialTime;
-		if (elapsedTimeSeconds > 0)
+		totalTimeSeconds = Time.time - startCountdown - initialTime;
+		if (totalTimeSeconds > 0)
 		{
-			float elapsedTimeMinutes = Mathf.Floor (elapsedTimeSeconds / 60);
-			elapsedTimeSeconds = Mathf.Round(elapsedTimeSeconds - elapsedTimeMinutes * 60);
+			float elapsedTimeMinutes = Mathf.Floor (totalTimeSeconds / 60);
+			float elapsedTimeSeconds = Mathf.Round(totalTimeSeconds - elapsedTimeMinutes * 60);
 			GUI.Label (new Rect(Screen.width - 280, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");
 		}
 
