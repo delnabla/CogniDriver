@@ -353,7 +353,8 @@ public class MainMenuScript : MonoBehaviour {
 
 				//Set welcome message.
 				welcomeMessage.GetComponent<TextMesh>().text = "Welcome, " + selectedPlayer + "!";
-				
+				PlayerPrefs.SetString ("CurrentPlayerName", selectedPlayer);
+				PlayerPrefs.Save ();	
 				GUILayout.FlexibleSpace();
 			GUILayout.EndHorizontal();
 			GUILayout.BeginHorizontal();

@@ -22,6 +22,8 @@ public class CarControlScript : MonoBehaviour {
 	private string controlBy;
 	private bool showGameOver = false;
 	private float totalTimeSeconds;
+	private static bool gameOver = false;
+	private static string playerName = "";
 
 	private const string topCogPrefix = "Top10Cog"; // For saving the top 10 scorers in Cognitiv mode.
 	private const string topKeyPrefix = "Top10Key"; // For saving the top 10 scorers in Keyboard mode.
@@ -33,6 +35,9 @@ public class CarControlScript : MonoBehaviour {
 		chosenCar.setCenterOfMass (0, -2.3f, -0.5f);
 		SetValues ();
 		originalSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles; 
+		gameOver = false;
+		if (PlayerPrefs.HasKey("CurrentPlayerName"))
+			playerName = PlayerPrefs.GetString ("CurrentPlayerName");	
 	}
 
 	void SetValues()
@@ -195,7 +200,16 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelFR.steerAngle = currentSteerAngle;
 
 			SteeringWheel(currentSteerAngle);
-			StopAfterFinish();
+			if (gameOver == false)
+				StopAfterFinish();
+			//If the car has reached the finish sign, slow the car down until stop.
+			if (transform.position.x >= 1850 && transform.position.z > 1770)
+			{
+				chosenCar.WheelBR.motorTorque = 0;
+				chosenCar.WheelBL.motorTorque = 0;
+				chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
+				chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
+			}
 			HandBrake ();
 		}
 	}
@@ -258,12 +272,16 @@ public class CarControlScript : MonoBehaviour {
 		//If the car has reached the finish sign, stop.
 		if (transform.position.x >= 1850 && transform.position.z > 1770)
 		{
-			chosenCar.WheelBR.motorTorque = 0;
-			chosenCar.WheelBL.motorTorque = 0;
-			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed/2;
-			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed/2;
 			showGameOver = true;
-			
+			gameOver = true;
+			SaveHighscores();
+		}
+	}
+	
+	void SaveHighscores()
+	{
+		if (gameOver)
+		{	
 			//Check game play mode.
 			if (controlBy == "Keyboard")
 			{
@@ -281,8 +299,11 @@ public class CarControlScript : MonoBehaviour {
 				for (int i = 0; i < topKeyCount; i++)
 				{
 					Debug.Log ("topKey: " + PlayerPrefs.GetString(topKeyPrefix + "0"));
-					topKey[i] = int.Parse(PlayerPrefs.GetString(topKeyPrefix + i).Split(';')[1]);
 					topKeyValues[i] = PlayerPrefs.GetString(topKeyPrefix + i);
+					topKey[i] = int.Parse(PlayerPrefs.GetString(topKeyPrefix + i).Split(';')[1]);
+				}
+				for (int i = 0; i < topKeyCount; i++)
+				{
 					if (totalTimeSeconds < topKey[i])
 					{ 
 						insertPosition = i;		
@@ -291,17 +312,17 @@ public class CarControlScript : MonoBehaviour {
 					if (totalTimeSeconds >= topKey[i] && topKeyCount < 10)
 						insertPosition = topKeyCount;
 				}
-
+	
 				//Update all the current top values and insert the new one.
 				int j = 1;
-				while (j <= insertPosition)
+				while (j <= topKeyCount - insertPosition && topKeyCount != 0)
 				{
-					PlayerPrefs.SetString(topKeyPrefix + (topKeyCount + 2 - j), topKeyValues[topKeyCount-j]);
+					PlayerPrefs.SetString(topKeyPrefix + (topKeyCount + 1 - j), topKeyValues[topKeyCount-j]);
 					j++;
 				}
-		
-				PlayerPrefs.SetString(topKeyPrefix + insertPosition, "APlayerName;"+totalTimeSeconds);
-
+				
+				PlayerPrefs.SetString(topKeyPrefix + insertPosition, playerName + ";" + totalTimeSeconds);
+	
 				//Save new value for topKeyCount.
 				if (topKeyCount < 10)
 					topKeyCount++;
@@ -311,18 +332,19 @@ public class CarControlScript : MonoBehaviour {
 			else if (controlBy == "Cognitiv")
 			{
 				//Increase the Top10CogCount if < 10.
-
-
+	
+	
 				//If Top10CogCount > 10, check if current time is better. If it is, record it.
-
-
+	
+	
 				//Create new Top10Cog<No> value.
-
-
+	
+	
 			}
-
-			//Save PlayerPrefs.
-		} 	
+	
+			//Save PlayerPrefs. 	
+			PlayerPrefs.Save ();
+		}
 	}
 
 	void HandBrake() 
