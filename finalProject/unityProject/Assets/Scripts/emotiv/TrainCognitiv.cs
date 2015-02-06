@@ -51,7 +51,7 @@ public class TrainCognitiv : MonoBehaviour {
 		//Train Neutral 
 		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight - 10, 90, 25), "Train"))
 			TrainNeutral();
-		
+
 		//Reset Neutral
 		if (GUI.Button(new Rect(halfScreenWidth + 320, halfScreenHeight - 10, 90, 25), "Reset"))
 			ResetNeutral();			
@@ -160,7 +160,7 @@ public class TrainCognitiv : MonoBehaviour {
 	
 	private void TrainNeutral()
 	{
-		EmoCognitiv.StartTrainingCognitiv(EmoCognitiv.cognitivActionList[0]); //neutral()
+		EmoCognitiv.StartTrainingCognitiv(EmoCognitiv.cognitivActionList[0]); //neutral()	
 	}
 
 	private void TrainPush()

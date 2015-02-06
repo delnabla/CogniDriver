@@ -40,6 +40,8 @@ public class MainMenuScript : MonoBehaviour {
 
 	private static string[] topKeyPlayers; 
 	private static int[] topKeySeconds; 
+	private static string[] topCogPlayers;
+	private static int[] topCogSeconds;
 
 	void Awake()
 	{
@@ -74,7 +76,7 @@ public class MainMenuScript : MonoBehaviour {
 			showCreateProfile = true;
 		}
 
-		//Get statistics.
+		//Get statistics for keyboard mode. 
 		if (PlayerPrefs.HasKey("Top10KeyCount"))
 			topKeyCount = PlayerPrefs.GetInt("Top10KeyCount");
 		topKeyPlayers = new string[topKeyCount];
@@ -85,6 +87,20 @@ public class MainMenuScript : MonoBehaviour {
 			{
 				topKeyPlayers[i] = PlayerPrefs.GetString("Top10Key" + i).Split(';')[0];
 				topKeySeconds[i] = int.Parse(PlayerPrefs.GetString("Top10Key" + i).Split(';')[1]);
+			}
+		}
+
+		//Get statistics for cognitiv mode. 
+		if (PlayerPrefs.HasKey("Top10CogCount"))
+			topCogCount = PlayerPrefs.GetInt("Top10CogCount");
+		topCogPlayers = new string[topCogCount];
+		topCogSeconds = new int[topCogCount];
+		if (topCogCount > 0)
+		{			
+			for (int i = 0; i < topCogCount; i++)
+			{
+				topCogPlayers[i] = PlayerPrefs.GetString("Top10Cog" + i).Split(';')[0];
+				topCogSeconds[i] = int.Parse(PlayerPrefs.GetString("Top10Cog" + i).Split(';')[1]);
 			}
 		}
 	}
@@ -180,15 +196,36 @@ public class MainMenuScript : MonoBehaviour {
 		GUILayout.EndHorizontal();
 		
 		GUILayout.BeginVertical();
-		Debug.Log ("topKeyCount: " + topKeyCount);	
+		
 		for (int i = 0; i < topKeyCount; i++)
 		{
 			GUILayout.BeginHorizontal();
 			GUILayout.FlexibleSpace();
 			if (PlayerPrefs.HasKey("Top10Key" + i))
-				GUILayout.Label(topKeyPlayers[i] + "\t\t\t\t" + topKeySeconds[i]);
+			{
+				GUILayout.Label(topKeyPlayers[i]);
+				GUILayout.FlexibleSpace();
+				GUILayout.Label (topKeySeconds[i].ToString());
+			}
+			else
+			{
+				GUILayout.Label("\t\t\t");
+				GUILayout.FlexibleSpace();
+				GUILayout.Label ("\t");
+			}
 			GUILayout.FlexibleSpace();
-			GUILayout.Label ("" + "\t\t\t\t" + "");
+			if (PlayerPrefs.HasKey("Top10Cog" + i))
+			{
+				GUILayout.Label(topCogPlayers[i]);
+				GUILayout.FlexibleSpace();
+				GUILayout.Label (topCogSeconds[i].ToString());
+			}
+			else
+			{
+				GUILayout.Label("\t\t\t");
+				GUILayout.FlexibleSpace();
+				GUILayout.Label ("\t");
+			}
 			GUILayout.FlexibleSpace();
 			GUILayout.EndHorizontal();
 		}

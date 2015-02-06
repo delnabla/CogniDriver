@@ -298,7 +298,6 @@ public class CarControlScript : MonoBehaviour {
 				totalTimeSeconds = Mathf.RoundToInt(totalTimeSeconds);
 				for (int i = 0; i < topKeyCount; i++)
 				{
-					Debug.Log ("topKey: " + PlayerPrefs.GetString(topKeyPrefix + "0"));
 					topKeyValues[i] = PlayerPrefs.GetString(topKeyPrefix + i);
 					topKey[i] = int.Parse(PlayerPrefs.GetString(topKeyPrefix + i).Split(';')[1]);
 				}
@@ -332,13 +331,46 @@ public class CarControlScript : MonoBehaviour {
 			else if (controlBy == "Cognitiv")
 			{
 				//Increase the Top10CogCount if < 10.
-	
-	
-				//If Top10CogCount > 10, check if current time is better. If it is, record it.
-	
-	
-				//Create new Top10Cog<No> value.
-	
+				int topCogCount = 0;
+				if (PlayerPrefs.HasKey("Top10CogCount"))
+					topCogCount = PlayerPrefs.GetInt("Top10CogCount"); 
+				
+				//If  Top10CogCount > 10, check if current time is better. If it is, record it.
+				//A top 10 value is stored as: key = topCogPrefix; value = String(PlayerName;elapsedTimeInSeconds).
+				int[] topCog = new int[topCogCount];
+				string[] topCogValues = new string[topCogCount];
+				int insertPosition = topCogCount;
+				totalTimeSeconds = Mathf.RoundToInt(totalTimeSeconds);
+				for (int i = 0; i < topCogCount; i++)
+				{
+					topCogValues[i] = PlayerPrefs.GetString(topCogPrefix + i);
+					topCog[i] = int.Parse(PlayerPrefs.GetString(topCogPrefix + i).Split(';')[1]);
+				}
+				for (int i = 0; i < topCogCount; i++)
+				{
+					if (totalTimeSeconds < topCog[i])
+					{ 
+						insertPosition = i;		
+						break;
+					}
+					if (totalTimeSeconds >= topCog[i] && topCogCount < 10)
+						insertPosition = topCogCount;
+				}
+				
+				//Update all the current top values and insert the new one.
+				int j = 1;
+				while (j <= topCogCount - insertPosition && topCogCount != 0)
+				{
+					PlayerPrefs.SetString(topCogPrefix + (topCogCount + 1 - j), topCogValues[topCogCount-j]);
+					j++;
+				}
+				
+				PlayerPrefs.SetString(topCogPrefix + insertPosition, playerName + ";" + totalTimeSeconds);
+				
+				//Save new value for topCogCount.
+				if (topCogCount < 10)
+					topCogCount++;
+				PlayerPrefs.SetInt("Top10CogCount", topCogCount);
 	
 			}
 	
@@ -350,7 +382,7 @@ public class CarControlScript : MonoBehaviour {
 	void HandBrake() 
 	{
 		if (Input.GetButton ("Jump") || (EmoExpressiv.clenchExtent > 0)) //spacebar
-			{ braked = true; Debug.Log ("braking"); }
+			braked = true; 
 		else
 			braked = false;
 
