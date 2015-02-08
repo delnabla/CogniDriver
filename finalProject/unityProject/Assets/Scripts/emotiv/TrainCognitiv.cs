@@ -40,6 +40,8 @@ public class TrainCognitiv : MonoBehaviour {
 		labelStyle.fontStyle = FontStyle.Bold;
 		labelStyle.normal.textColor = Color.white;
 
+		bool trainingStarted = EmoCognitiv.trainingStarted;
+
 		Single pushSkill = EmoEngine.Instance.CognitivGetActionSkillRating((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[1]);
 		Single pullSkill = EmoEngine.Instance.CognitivGetActionSkillRating((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[2]);
 		Single leftSkill = EmoEngine.Instance.CognitivGetActionSkillRating((uint)EmoUserManagement.currentUser, EmoCognitiv.cognitivActionList[5]);
@@ -50,8 +52,10 @@ public class TrainCognitiv : MonoBehaviour {
 
 		//Train Neutral 
 		if (GUI.Button(new Rect(halfScreenWidth + 210, halfScreenHeight - 10, 90, 25), "Train"))
+		{
+			trainingStarted = true;
 			TrainNeutral();
-
+		}
 		//Reset Neutral
 		if (GUI.Button(new Rect(halfScreenWidth + 320, halfScreenHeight - 10, 90, 25), "Reset"))
 			ResetNeutral();			
@@ -154,8 +158,13 @@ public class TrainCognitiv : MonoBehaviour {
 		trainedActions = EmoCognitiv.getTrainedActions();
 		if (trainedActions != 103)
 			GUI.Label (new Rect(halfScreenWidth, halfScreenHeight - 50, 400, 50), "<color=red>You haven't trained all actions. You won't be able to see any progress in animations or skill.</color>");
-		//else
-		//	GUI.Label (new Rect(halfScreenHeight, halfScreenWidth, 300, 25), "<color=green>All actions have been trained.</color>");
+		else
+			GUI.Label (new Rect(halfScreenWidth, halfScreenHeight - 50, 400, 50), "<color=green>All actions have been trained.</color>");
+
+		if (trainingStarted)	
+		{
+			GUI.Label(new Rect(halfScreenWidth - 250, halfScreenHeight - 75, 150, 25), "<color=orange>Training in progress...</color>");
+		}
 	}
 	
 	private void TrainNeutral()

@@ -33,6 +33,7 @@ public class EmoCognitiv : MonoBehaviour
 	private static bool showTrainingCompleteDialog = false; 
 	private static EdkDll.EE_CognitivAction_t cogAction;
 	private static float power;
+	public static bool trainingStarted = false;
     
 	//----------------------------------------  
     void Start() 
@@ -118,32 +119,33 @@ public class EmoCognitiv : MonoBehaviour
     static void engine_CognitivTrainingStarted(object sender, EmoEngineEventArgs e)
     {
         Debug.Log("Cognitiv Training Started");
-        
+        trainingStarted = true;
     }
 
     static void engine_CognitivTrainingSucceeded(object sender, EmoEngineEventArgs e)
     {
 		showTrainingCompleteDialog = true;
+		trainingStarted = false;
         Debug.Log("Cognitiv Training Succeeded");
     }
 
     static void engine_CognitivTrainingCompleted(object sender, EmoEngineEventArgs e)
     {
         Debug.Log("Cognitiv Training Completed");
-
+		trainingStarted = false;
     }
 
     static void engine_CognitivTrainingRejected(object sender, EmoEngineEventArgs e)
     {
         Debug.Log("Cognitiv Training Rejected");
-
+		trainingStarted = false;
     }
 
 	//Method added by Daniela Florescu
 	static void engine_CognitivTrainingErase(object sender, EmoEngineEventArgs e)
 	{
 		Debug.Log("Cognitiv Training Erased");
-		
+		trainingStarted = false; 
 	}
 
     /// <summary>
@@ -172,8 +174,8 @@ public class EmoCognitiv : MonoBehaviour
                     else Debug.Log("Action is not enabled");
                 }
             }
-
     }
+
     /// <summary>
     /// Enable cognitiv action in arraylist
     /// </summary>
