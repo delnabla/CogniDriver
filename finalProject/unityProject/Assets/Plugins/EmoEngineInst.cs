@@ -28,8 +28,8 @@ public class EmoEngineInst : MonoBehaviour
                 new EmoEngine.EmoEngineDisconnectedEventHandler(engine_EmoEngineDisconnected);
             engine.EmoEngineEmoStateUpdated +=
                 new EmoEngine.EmoEngineEmoStateUpdatedEventHandler(engine_EmoEngineEmoStateUpdated);
-            //engine.Connect(); 
-            engine.RemoteConnect("127.0.0.1",1726);
+            engine.Connect(); 
+            //engine.RemoteConnect("127.0.0.1",1726);
             IsStarted = true;
         }  
         

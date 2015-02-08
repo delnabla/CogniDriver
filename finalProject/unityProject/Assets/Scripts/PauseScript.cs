@@ -19,7 +19,7 @@ public class PauseScript : MonoBehaviour {
 	void Update () {
 		//Attach this to a different object. e.g. camera.
 		//Pause/resume when P key is pressed or eyebrows are raised.
-		if ((Input.GetKeyDown (KeyCode.P) || EmoExpressiv.isExpActiveList[2]) && (paused == false))
+		if ((Input.GetKeyDown (KeyCode.P)) && (paused == false))
 		{
 			paused = true;
 			lastTimeScale = Time.timeScale;
@@ -27,7 +27,7 @@ public class PauseScript : MonoBehaviour {
 			AudioListener.pause = true;
 			showPauseDialog = true;
 		}
-		else if ((Input.GetKeyDown (KeyCode.P) || showPauseDialog == false || EmoExpressiv.isExpActiveList[2]) && (paused == true))
+		else if ((Input.GetKeyDown (KeyCode.P) || showPauseDialog == false) && (paused == true))
 		{
 			paused = false;
 			Time.timeScale = lastTimeScale;
