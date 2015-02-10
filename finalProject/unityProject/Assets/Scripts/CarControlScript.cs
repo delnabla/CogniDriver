@@ -37,7 +37,7 @@ public class CarControlScript : MonoBehaviour {
 		originalSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles; 
 		gameOver = false;
 		if (PlayerPrefs.HasKey("CurrentPlayerName"))
-			playerName = PlayerPrefs.GetString ("CurrentPlayerName");	
+			playerName = PlayerPrefs.GetString ("CurrentPlayerName");
 	}
 
 	void SetValues()

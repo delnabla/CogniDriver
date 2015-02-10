@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CarCameraScript : MonoBehaviour {
 
@@ -12,26 +13,50 @@ public class CarCameraScript : MonoBehaviour {
 	public float zoomRatio = 2.5f;
 	public float defaultFOV = 20.5f;
 	private Vector3 rotationVector;
-	private float initialCarRotation;
+	private float initialCarRotationY;
+	private Quaternion initialRotation;
 	public bool isTopCamera;
 	private int cameraRoll = 0;	
 
 	// Use this for initialization
 	void Start () 
 	{
-		initialCarRotation = car.eulerAngles.y;
+		initialCarRotationY = car.eulerAngles.y;
+		initialRotation = car.rotation;
+	}
+
+	IEnumerator Blink()
+	{
+		float endTime = Time.time + 1.4f;
+		while (Time.time < endTime)
+		{
+			car.renderer.enabled = false;
+			yield return new WaitForSeconds(0.2f);
+			car.renderer.enabled = true;
+			yield return new WaitForSeconds(0.2f);
+		}
 	}
 
 	// LateUpdate is called once per frame after Update.
 	void LateUpdate () 
 	{
 		float currentHeight = 0;
+
 		Quaternion currentRotation = Quaternion.Euler(0, 0, 0);
-		
+
+		//If car is flipped over, put it in normal position.
+		Debug.Log ("x: " + Mathf.Round (car.eulerAngles.x) + "z: " + Mathf.Round (car.eulerAngles.z));
+		if ((Mathf.Round (car.eulerAngles.x) % 180 == 0 && Mathf.Round (car.eulerAngles.x) % 360 != 0) || (Mathf.Round (car.eulerAngles.z) % 180 == 0 && Mathf.Round (car.eulerAngles.z) % 360 != 0))
+		{
+			Debug.Log("Car is flipped!");
+			car.rotation = initialRotation;
+			Blink ();
+		}
+
 		if (!isTopCamera)
 		{
 			// Calculate the rotation angles
-			float wantedAngle = rotationVector.y - initialCarRotation;
+			float wantedAngle = rotationVector.y - initialCarRotationY;
 			float currentAngle = transform.eulerAngles.y;
 	
 			// Damp the rotation around the y-axis
