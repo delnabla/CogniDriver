@@ -63,6 +63,8 @@ public class CarControlScript : MonoBehaviour {
 		if (Input.GetAxis ("Vertical") < 0 && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
 			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
 			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
+			chosenCar.WheelBR.motorTorque = 0;
+			chosenCar.WheelBL.motorTorque = 0;
 		}
 		
 		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
@@ -100,6 +102,8 @@ public class CarControlScript : MonoBehaviour {
 		if (currentAction == "COG_PULL" && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
 			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
 			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
+			chosenCar.WheelBR.motorTorque = 0;
+			chosenCar.WheelBL.motorTorque = 0;
 		}
 		
 		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
@@ -136,6 +140,8 @@ public class CarControlScript : MonoBehaviour {
 		if (/*headPosition == Status.Down && */(currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
 			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
 			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
+			chosenCar.WheelBR.motorTorque = 0;
+			chosenCar.WheelBL.motorTorque = 0;
 		}
 		
 		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.

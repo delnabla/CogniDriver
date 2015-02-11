@@ -244,7 +244,16 @@ public class MainMenuScript : MonoBehaviour {
 				PlayerPrefs.DeleteKey("Top10Key" + i);
 			}
 			PlayerPrefs.SetInt("Top10KeyCount", 0);
+			for (int i = 0; i < topCogCount; i++)
+			{
+				PlayerPrefs.DeleteKey("Top10Cog" + i);
+			}
+			PlayerPrefs.SetInt("Top10CogCount", 0);
+
+			//Save PlayerPrefs. 	
+			PlayerPrefs.Save ();
 		}
+
 		GUILayout.FlexibleSpace();
 		GUILayout.EndHorizontal();
 	}
