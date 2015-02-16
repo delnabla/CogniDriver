@@ -100,7 +100,7 @@ public class PauseScript : MonoBehaviour {
 		
 		if (GUILayout.Button("Yes", buttonStyle))
 		{
-			Application.LoadLevel (0);			
+			Application.LoadLevel (1);			
 		}
 		if (GUILayout.Button("No", buttonStyle))
 		{

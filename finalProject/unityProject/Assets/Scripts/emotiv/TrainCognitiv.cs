@@ -152,7 +152,7 @@ public class TrainCognitiv : MonoBehaviour {
 		}
 
 		if (GUI.Button (new Rect(halfScreenWidth - 20, Screen.height - 45, 50, 30), "Back"))
-			Application.LoadLevel(0);
+			Application.LoadLevel(1);
 
 		//Display info label.
 		trainedActions = EmoCognitiv.getTrainedActions();

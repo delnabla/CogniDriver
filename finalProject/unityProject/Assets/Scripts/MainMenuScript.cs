@@ -120,15 +120,17 @@ public class MainMenuScript : MonoBehaviour {
 		if (isExit)
 			showExitDialog = true;
 		else if (isStart)
-			Application.LoadLevel(1);
-		else if (isTrain)
 			Application.LoadLevel(2);
+		else if (isTrain)
+			Application.LoadLevel(3);
 		else if (isOptions)
 			showOptionsDialog = true;
 		else if (isPlayerProfile)
 			showChooseProfile = true;
 		else if (isStatistics)
 			showStatistics = true;
+		else if (isHelp)
+			Application.LoadLevel(4);
 	}
 	
 	void OnGUI()
@@ -173,6 +175,7 @@ public class MainMenuScript : MonoBehaviour {
 			Rect statsWindow = new Rect(Screen.width / 2 - 200, Screen.height /2 - 175, 400, 350);
 			statsWindow = GUILayout.Window(9, statsWindow, ShowStats, "Top Players");
 		}	
+		
 	}
 
 	void ShowStats(int windowID)
