@@ -24,6 +24,8 @@ public class CarControlScript : MonoBehaviour {
 	private float totalTimeSeconds;
 	private static bool gameOver = false;
 	private static string playerName = "";
+	private Quaternion originalRotation;
+	private float torqueForMotor;
 
 	private const string topCogPrefix = "Top10Cog"; // For saving the top 10 scorers in Cognitiv mode.
 	private const string topKeyPrefix = "Top10Key"; // For saving the top 10 scorers in Keyboard mode.
@@ -38,6 +40,8 @@ public class CarControlScript : MonoBehaviour {
 		gameOver = false;
 		if (PlayerPrefs.HasKey("CurrentPlayerName"))
 			playerName = PlayerPrefs.GetString ("CurrentPlayerName");
+		originalRotation = chosenCar.transform.rotation;
+		torqueForMotor = chosenCar.maxTorque;
 	}
 
 	void SetValues()
@@ -48,12 +52,27 @@ public class CarControlScript : MonoBehaviour {
 		slipSidewayFriction = 0.05f;
 	}
 	
+	void OnCollisionStay(Collision hit){
+		if (hit.gameObject.tag == "Road")
+		{
+			torqueForMotor = chosenCar.maxTorque;
+		}
+		else
+		{
+			torqueForMotor = chosenCar.maxTorque / 4;
+			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
+			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
+			chosenCar.WheelBR.motorTorque = 0;
+			chosenCar.WheelBL.motorTorque = 0;
+		}
+	}
+
 	void CarUpdateFromKeyboard()
 	{
 		if (currentSpeed < chosenCar.topSpeed && !braked) 
 		{
-			chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
-			chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * Input.GetAxis ("Vertical");
+			chosenCar.WheelBR.motorTorque = torqueForMotor * Input.GetAxis ("Vertical");
+			chosenCar.WheelBL.motorTorque = torqueForMotor * Input.GetAxis ("Vertical");
 		} else {
 			chosenCar.WheelBR.motorTorque = 0;
 			chosenCar.WheelBL.motorTorque = 0;
@@ -90,8 +109,8 @@ public class CarControlScript : MonoBehaviour {
 		{
 			if (currentAction == "COG_PUSH" || currentAction == "COG_PULL")
 			{
-				chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * multiplyByActionPower * multiplyBy;
-				chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * multiplyByActionPower * multiplyBy;
+				chosenCar.WheelBR.motorTorque = torqueForMotor * multiplyByActionPower * multiplyBy;
+				chosenCar.WheelBL.motorTorque = torqueForMotor * multiplyByActionPower * multiplyBy;
 			}
 		} else {
 			chosenCar.WheelBR.motorTorque = 0;
@@ -128,8 +147,8 @@ public class CarControlScript : MonoBehaviour {
 		{
 			//if (headPosition == Status.Up || headPosition == Status.Down || headPosition == Status.Center) 
 			//{
-				chosenCar.WheelBR.motorTorque = chosenCar.maxTorque * posY / 180;
-				chosenCar.WheelBL.motorTorque = chosenCar.maxTorque * posY / 180;
+				chosenCar.WheelBR.motorTorque = torqueForMotor * posY / 180;
+				chosenCar.WheelBL.motorTorque = torqueForMotor * posY / 180;
 		//	} else {
 		//		chosenCar.WheelBR.motorTorque = 0;
 		//		chosenCar.WheelBL.motorTorque = 0;
@@ -217,6 +236,14 @@ public class CarControlScript : MonoBehaviour {
 				chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
 			}
 			HandBrake ();
+
+			//Restart game if R is pressed.
+			if (Input.GetKeyDown (KeyCode.R))
+			{
+				chosenCar.transform.position = new Vector3(1729.277f, 265.7542f, 11.81225f);
+				chosenCar.transform.rotation = originalRotation;		
+				initialTime = Time.time;
+			}	
 		}
 	}
 

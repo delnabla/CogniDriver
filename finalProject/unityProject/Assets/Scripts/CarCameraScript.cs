@@ -45,7 +45,6 @@ public class CarCameraScript : MonoBehaviour {
 		Quaternion currentRotation = Quaternion.Euler(0, 0, 0);
 
 		//If car is flipped over, put it in normal position.
-		Debug.Log ("x: " + Mathf.Round (car.eulerAngles.x) + "z: " + Mathf.Round (car.eulerAngles.z));
 		if ((Mathf.Round (car.eulerAngles.x) % 180 == 0 && Mathf.Round (car.eulerAngles.x) % 360 != 0) || (Mathf.Round (car.eulerAngles.z) % 180 == 0 && Mathf.Round (car.eulerAngles.z) % 360 != 0))
 		{
 			Debug.Log("Car is flipped!");

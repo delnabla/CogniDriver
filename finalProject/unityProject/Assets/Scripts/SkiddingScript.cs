@@ -5,7 +5,7 @@ using System.Collections;
 public class SkiddingScript : MonoBehaviour {
 
 	public float currentFriction;
-	private float skidAt = 4.5f;
+	private float skidAt = 7.5f;
 	public GameObject skidSound;
 	public float soundEmition = 15;
 	private float soundWait;

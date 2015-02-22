@@ -53,7 +53,7 @@ public class HowToPlayInstructions : MonoBehaviour {
 				                 "It represents the skill level. After training it once, the next time you're going to do it, you will see the cube being animated to give it visual clues as " + 
 				                 "to how well you're doing the same thing. \n\n " +
 				                 "If the cube is not moving at all, after multiple trainings, you should probably start over by resetting the action. " + 
-				                 "If you're doing it good, and the skill level is not 0 but you can't move the cube this one try during training, just reject the training at the end as it will " + 
+				                 "If you're doing well, and the skill level is not 0 but you can't move the cube this one try during training, just reject the training at the end as it will " + 
 				                 "otherwise have a negative effect on your skill level. Proceed to training the other states, Pull, Left and Right in a similar way. \n\n " +
 				                 "Repeat the training process until a high enough skill level is achieved for each state and you are confident you can perform each action at will." +  
 				                 "The Push, Pull, Left, Right actions will be used to control the movement of the car. \n \n " + 
