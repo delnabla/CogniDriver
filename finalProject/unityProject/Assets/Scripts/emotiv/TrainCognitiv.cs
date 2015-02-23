@@ -135,20 +135,20 @@ public class TrainCognitiv : MonoBehaviour {
 		{
 			//Bring cube to front.
 			SetDefaultCubePosition();
-			cubeObject.localScale += new Vector3(power * 0.5f, power * 0.5f, power * 0.5f);
+			cubeObject.localScale += new Vector3(power * 0.3f, power * 0.3f, power * 0.3f);
 			//cubeObject.Translate (new Vector3(1, 1, -1) * power * 2);
 		}
 		else if (cogAction == "COG_LEFT")
 		{
 			//Move cube to left.
 			SetDefaultCubePosition();
-			cubeObject.Translate (Vector3.left * power * 2);
+			cubeObject.Translate (Vector3.left * power * 1.5f);
 		}
 		else if (cogAction == "COG_RIGHT")
 		{
 			//Move cube to right.
 			SetDefaultCubePosition();
-			cubeObject.Translate (Vector3.right * power * 2);
+			cubeObject.Translate (Vector3.right * power * 1.5f);
 		}
 
 		if (GUI.Button (new Rect(halfScreenWidth - 20, Screen.height - 45, 50, 30), "Back"))
@@ -163,7 +163,7 @@ public class TrainCognitiv : MonoBehaviour {
 
 		if (trainingStarted)	
 		{
-			GUI.Label(new Rect(halfScreenWidth - 250, halfScreenHeight - 75, 150, 25), "<color=orange>Training in progress...</color>");
+			GUI.Label(new Rect(halfScreenWidth - 250, halfScreenHeight - 95, 150, 25), "<color=orange>Training in progress...</color>");
 		}
 	}
 	

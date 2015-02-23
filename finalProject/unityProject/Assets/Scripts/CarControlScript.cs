@@ -26,6 +26,7 @@ public class CarControlScript : MonoBehaviour {
 	private static string playerName = "";
 	private Quaternion originalRotation;
 	private float torqueForMotor;
+	private static int countCheckpoints = 0;
 
 	private const string topCogPrefix = "Top10Cog"; // For saving the top 10 scorers in Cognitiv mode.
 	private const string topKeyPrefix = "Top10Key"; // For saving the top 10 scorers in Keyboard mode.
@@ -42,6 +43,7 @@ public class CarControlScript : MonoBehaviour {
 			playerName = PlayerPrefs.GetString ("CurrentPlayerName");
 		originalRotation = chosenCar.transform.rotation;
 		torqueForMotor = chosenCar.maxTorque;
+		countCheckpoints = 0;
 	}
 
 	void SetValues()
@@ -64,6 +66,15 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
 			chosenCar.WheelBR.motorTorque = 0;
 			chosenCar.WheelBL.motorTorque = 0;
+		}
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject.tag == "Checkpoint" + (countCheckpoints + 1))
+		{
+			countCheckpoints++;
+			Debug.Log ("Reached " + countCheckpoints);
 		}
 	}
 
@@ -225,8 +236,10 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelFR.steerAngle = currentSteerAngle;
 
 			SteeringWheel(currentSteerAngle);
+
 			if (gameOver == false)
 				StopAfterFinish();
+
 			//If the car has reached the finish sign, slow the car down until stop.
 			if (transform.position.x >= 1850 && transform.position.z > 1770)
 			{
@@ -235,6 +248,7 @@ public class CarControlScript : MonoBehaviour {
 				chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
 				chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
 			}
+
 			HandBrake ();
 
 			//Restart game if R is pressed.
@@ -243,7 +257,14 @@ public class CarControlScript : MonoBehaviour {
 				chosenCar.transform.position = new Vector3(1729.277f, 265.7542f, 11.81225f);
 				chosenCar.transform.rotation = originalRotation;		
 				initialTime = Time.time;
-			}	
+				countCheckpoints = 0;
+			}
+
+			/*if (Input.GetKeyDown (KeyCode.T))
+			{
+				GameObject checkpoint = GameObject.FindWithTag("Checkpoint" + (countCheckpoints + 1));
+				chosenCar.transform.position = checkpoint.transform.position;
+			}*/
 		}
 	}
 
@@ -306,8 +327,6 @@ public class CarControlScript : MonoBehaviour {
 		if (transform.position.x >= 1850 && transform.position.z > 1770)
 		{
 			showGameOver = true;
-			gameOver = true;
-			SaveHighscores();
 		}
 	}
 	
@@ -552,7 +571,31 @@ public class CarControlScript : MonoBehaviour {
 		labelStyle.alignment = TextAnchor.MiddleCenter;
 		buttonStyle.fixedWidth = 80;
 		
-		GUILayout.Label("Congratulations! You have reached the end of the game!");
+		if (countCheckpoints == 17)
+		{
+			gameOver = true;
+			SaveHighscores();
+			GUILayout.Label("Congratulations! You have reached the end of the game!");
+		}
+		else 
+		{
+			GUILayout.Label ("Oh no! You tried to cheat by not reaching all checkpoints!");	
+			GUILayout.FlexibleSpace ();
+			GUILayout.BeginHorizontal();
+			GUILayout.FlexibleSpace();
+			if (GUILayout.Button ("Restart", buttonStyle))
+			{
+				chosenCar.transform.position = new Vector3(1729.277f, 265.7542f, 11.81225f);
+				chosenCar.transform.rotation = originalRotation;		
+				initialTime = Time.time;
+				showGameOver = false;
+				countCheckpoints = 0;
+			}
+			GUILayout.FlexibleSpace();
+			GUILayout.EndHorizontal();
+			GUILayout.FlexibleSpace();
+		}	
+
 		GUILayout.Space (5);
 		
 		GUILayout.BeginHorizontal();
@@ -560,7 +603,6 @@ public class CarControlScript : MonoBehaviour {
 		
 		if (GUILayout.Button("Main Menu", buttonStyle))
 		{
-			
 			Application.LoadLevel (1);			
 		}
 		
