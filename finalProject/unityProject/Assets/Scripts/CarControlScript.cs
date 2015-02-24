@@ -28,6 +28,8 @@ public class CarControlScript : MonoBehaviour {
 	private float torqueForMotor;
 	private static int countCheckpoints = 0;
 
+	public static int coinCounter = 0;
+
 	private const string topCogPrefix = "Top10Cog"; // For saving the top 10 scorers in Cognitiv mode.
 	private const string topKeyPrefix = "Top10Key"; // For saving the top 10 scorers in Keyboard mode.
 
@@ -546,6 +548,7 @@ public class CarControlScript : MonoBehaviour {
 			float elapsedTimeMinutes = Mathf.Floor (totalTimeSeconds / 60);
 			float elapsedTimeSeconds = Mathf.Round(totalTimeSeconds - elapsedTimeMinutes * 60);
 			GUI.Label (new Rect(Screen.width - 280, 0, 360, 25), "<color=orange>Elapsed Time: " + string.Format("{0:00}:{1:00}", elapsedTimeMinutes, elapsedTimeSeconds) + "</color>");
+			GUI.Label (new Rect(Screen.width - 280, 20, 360, 25), "<color=orange>Coins: " + coinCounter + "</color>");
 		}
 
 		//Rotate and draw the speedometer needle.

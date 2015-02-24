@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Car.cs" />
      <Compile Include="Assets\Scripts\CarCameraScript.cs" />
      <Compile Include="Assets\Scripts\CarControlScript.cs" />
+     <Compile Include="Assets\Scripts\CoinScript.cs" />
      <Compile Include="Assets\Scripts\DestroyTimerScript.cs" />
      <Compile Include="Assets\Scripts\DrawOutline.cs" />
      <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
