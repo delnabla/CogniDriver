@@ -40,6 +40,7 @@ public class MainMenuScript : MonoBehaviour {
 
 	private static string[] topKeyPlayers; 
 	private static int[] topKeySeconds; 
+	private static int[] topKeyCoins;
 	private static string[] topCogPlayers;
 	private static int[] topCogSeconds;
 
@@ -81,12 +82,14 @@ public class MainMenuScript : MonoBehaviour {
 			topKeyCount = PlayerPrefs.GetInt("Top10KeyCount");
 		topKeyPlayers = new string[topKeyCount];
 		topKeySeconds = new int[topKeyCount];
+		topKeyCoins = new int[topKeyCount];
 		if (topKeyCount > 0)
 		{			
 			for (int i = 0; i < topKeyCount; i++)
 			{
 				topKeyPlayers[i] = PlayerPrefs.GetString("Top10Key" + i).Split(';')[0];
 				topKeySeconds[i] = int.Parse(PlayerPrefs.GetString("Top10Key" + i).Split(';')[1]);
+				topKeyCoins[i] = int.Parse(PlayerPrefs.GetString("Top10Key" + i).Split(';')[2]);
 			}
 		}
 
@@ -192,7 +195,7 @@ public class MainMenuScript : MonoBehaviour {
 		
 		GUILayout.BeginHorizontal();
 		GUILayout.FlexibleSpace();
-		GUILayout.Label ("Top 10 Keyboard", labelStyle);
+		GUILayout.Label ("Top 10 Keyboard (Time; Coins)", labelStyle);
 		GUILayout.FlexibleSpace();
 		GUILayout.Label ("Top 10 Cognitiv", labelStyle);
 		GUILayout.FlexibleSpace();
@@ -209,6 +212,8 @@ public class MainMenuScript : MonoBehaviour {
 				GUILayout.Label(topKeyPlayers[i]);
 				GUILayout.FlexibleSpace();
 				GUILayout.Label (topKeySeconds[i].ToString());
+				GUILayout.FlexibleSpace();
+				GUILayout.Label (topKeyCoins[i].ToString());
 			}
 			else
 			{

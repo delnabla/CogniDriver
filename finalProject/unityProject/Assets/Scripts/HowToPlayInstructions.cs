@@ -22,6 +22,8 @@ public class HowToPlayInstructions : MonoBehaviour {
 		localStyle.fontStyle = FontStyle.Bold;
 		localStyle.fontSize = 20;	
 		localStyle.wordWrap = false;	
+		localStyle.alignment = TextAnchor.MiddleLeft;
+
 		GUILayout.Space(15);
 		GUILayout.FlexibleSpace();
 		GUILayout.BeginVertical ();
@@ -34,10 +36,10 @@ public class HowToPlayInstructions : MonoBehaviour {
 
 			localStyle.fontSize = 12;
 			localStyle.fontStyle = FontStyle.Normal;
-
+			GUILayout.FlexibleSpace();
 			GUILayout.BeginHorizontal ();
 				GUILayout.FlexibleSpace();
-				GUILayout.Box ("<b><size=15>Keyboard</size></b> \n\nArrow Keys - Control car movement; \nSpacebar - Handbrake; \nC - Change camera view; \nP - Pause game.",localStyle);
+				GUILayout.Box ("<b><size=15>Keyboard</size></b> \n\nArrow Keys - Control car movement; \nSpacebar - Handbrake; \nC - Change camera view; \nP - Pause game\n R - Restart; T - Get back on track.",localStyle);
 				GUILayout.FlexibleSpace();
 
 				localStyle.wordWrap = true;
@@ -65,6 +67,7 @@ public class HowToPlayInstructions : MonoBehaviour {
 				GUILayout.Box ("<b><size=15>Gyro</size></b>\n\nNot functioning. Work in progress.", localStyle);
 				GUILayout.FlexibleSpace();
 			GUILayout.EndHorizontal();
+			GUILayout.FlexibleSpace();
 			GUILayout.Space(30);
 			GUILayout.BeginHorizontal ();
 				GUILayout.FlexibleSpace();

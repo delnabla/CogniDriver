@@ -18,6 +18,17 @@ public class headsetGUIC : MonoBehaviour {
 	public Texture2D yellowButton;
 	public Texture2D greenButton;
 
+	public Texture2D pushArrow;
+	public Texture2D pullArrow;
+	public Texture2D leftArrow;
+	public Texture2D rightArrow;
+	public Texture2D neutral;
+	public Texture2D pushArrowActive;
+	public Texture2D pullArrowActive;
+	public Texture2D leftArrowActive;
+	public Texture2D rightArrowActive;
+	public Texture2D neutralActive;
+
 	// Use this for initialization
 	void Start () {
 
@@ -53,8 +64,38 @@ public class headsetGUIC : MonoBehaviour {
 		GUIStyle labelStyle = new GUIStyle();
 		labelStyle.alignment = TextAnchor.MiddleLeft;
 
-		GUI.Label(new Rect(10, 170, 300, 25), "<color=orange><b>Current Action: " + EmoCognitiv.getCurrentAction() + "</b></color>", labelStyle);
+		GUI.Label(new Rect(10, 160, 300, 25), "<color=orange><b>Current Action: " /*+ EmoCognitiv.getCurrentAction()*/ + "</b></color>", labelStyle);
+		
+		//left arrow
+		if (EmoCognitiv.getCurrentAction() == "COG_LEFT")
+			GUI.DrawTexture ( new Rect(160*int_scale, 225*int_scale, 46*int_scale, 46*int_scale) , leftArrowActive);
+		else
+			GUI.DrawTexture ( new Rect(160*int_scale, 225*int_scale, 46*int_scale, 46*int_scale) , leftArrow);
+		
+		//right arrow
+		if (EmoCognitiv.getCurrentAction() == "COG_RIGHT")
+			GUI.DrawTexture ( new Rect(220*int_scale, 225*int_scale, 46*int_scale, 46*int_scale) , rightArrowActive);
+		else
+			GUI.DrawTexture ( new Rect(220*int_scale, 225*int_scale, 46*int_scale, 46*int_scale) , rightArrow);
 
+		//forward arrow
+		if (EmoCognitiv.getCurrentAction() == "COG_PUSH")
+			GUI.DrawTexture ( new Rect(191*int_scale, 197*int_scale, 46*int_scale, 46*int_scale) , pushArrowActive);
+		else
+			GUI.DrawTexture ( new Rect(191*int_scale, 197*int_scale, 46*int_scale, 46*int_scale) , pushArrow);
+
+		//backward arrow
+		if (EmoCognitiv.getCurrentAction() == "COG_PULL")
+			GUI.DrawTexture ( new Rect(191*int_scale, 255*int_scale, 46*int_scale, 46*int_scale) , pullArrowActive);
+		else
+			GUI.DrawTexture ( new Rect(191*int_scale, 255*int_scale, 46*int_scale, 46*int_scale) , pullArrow);
+
+		//central circle
+		if (EmoCognitiv.getCurrentAction() == "COG_NEUTRAL")
+			GUI.DrawTexture ( new Rect(190*int_scale, 225*int_scale, 46*int_scale, 46*int_scale) , neutralActive);
+		else
+			GUI.DrawTexture ( new Rect(190*int_scale, 225*int_scale, 46*int_scale, 46*int_scale) , neutral);
+		
 		Texture2D myTexture = new Texture2D(1, 1);
 		Color grey = new Color(0.5f, 0.5f, 0.5f);
 		myTexture.SetPixel(1, 1, grey);
@@ -63,7 +104,7 @@ public class headsetGUIC : MonoBehaviour {
 
 		//Draw background GUI box with default values.
 		float power = (float) Math.Round(EmoCognitiv.getCurrentActionPower()*100, 2); 
-		GUI.Box(new Rect(55, 193, 101, 15), "");
+		GUI.Box(new Rect(55, 203, 101, 15), "");
 
 		//Compute green texture		
 		Color green = new Color(0, 1, 0);
@@ -72,8 +113,8 @@ public class headsetGUIC : MonoBehaviour {
 		GUI.skin.box.normal.background = myTexture; 	
 
 		//Display power box value.
-		GUI.Box(new Rect(56, 195, power, 11), "");
-		GUI.Label(new Rect(10, 190, 300, 25), "<color=orange><b>Power: </b></color>", labelStyle);
+		GUI.Box(new Rect(56, 205, power, 11), "");
+		GUI.Label(new Rect(10, 200, 300, 25), "<color=orange><b>Power: </b></color>", labelStyle);
 		
 		//Restore to previous skin values.
 		GUI.skin.box = backUpBox;

@@ -27,6 +27,7 @@ public class CarControlScript : MonoBehaviour {
 	private Quaternion originalRotation;
 	private float torqueForMotor;
 	private static int countCheckpoints = 0;
+	private static bool saved = false;
 
 	public static int coinCounter = 0;
 
@@ -46,6 +47,8 @@ public class CarControlScript : MonoBehaviour {
 		originalRotation = chosenCar.transform.rotation;
 		torqueForMotor = chosenCar.maxTorque;
 		countCheckpoints = 0;
+		coinCounter = 0;
+		saved = false;
 	}
 
 	void SetValues()
@@ -252,21 +255,6 @@ public class CarControlScript : MonoBehaviour {
 			}
 
 			HandBrake ();
-
-			//Restart game if R is pressed.
-			if (Input.GetKeyDown (KeyCode.R))
-			{
-				chosenCar.transform.position = new Vector3(1729.277f, 265.7542f, 11.81225f);
-				chosenCar.transform.rotation = originalRotation;		
-				initialTime = Time.time;
-				countCheckpoints = 0;
-			}
-
-			/*if (Input.GetKeyDown (KeyCode.T))
-			{
-				GameObject checkpoint = GameObject.FindWithTag("Checkpoint" + (countCheckpoints + 1));
-				chosenCar.transform.position = checkpoint.transform.position;
-			}*/
 		}
 	}
 
@@ -274,6 +262,22 @@ public class CarControlScript : MonoBehaviour {
 	void Update() 
 	{	
 		
+		//Restart game if R is pressed.
+		if (Input.GetKeyDown (KeyCode.R))
+		{
+			chosenCar.transform.position = new Vector3(1729.277f, 265.7542f, 11.81225f);
+			chosenCar.transform.rotation = originalRotation;		
+			initialTime = Time.time;
+			countCheckpoints = 0;
+			coinCounter = 0;
+		}
+		
+		if (Input.GetKeyDown (KeyCode.T))
+		{
+			GameObject checkpoint = GameObject.FindWithTag("Checkpoint" + countCheckpoints);
+			chosenCar.transform.position = checkpoint.transform.position;
+		}
+
 		countdown -= Time.deltaTime;				
 	
 		//Wheel rotation while the car is moving.
@@ -292,7 +296,6 @@ public class CarControlScript : MonoBehaviour {
 		
 		BackLights ();
 		EngineSound ();
-		
 	}
 
 	//Method to deal with the backlights of a car in brake, reverse or idle states.
@@ -334,7 +337,7 @@ public class CarControlScript : MonoBehaviour {
 	
 	void SaveHighscores()
 	{
-		if (gameOver)
+		if (gameOver && !saved)
 		{	
 			//Check game play mode.
 			if (controlBy == "Keyboard")
@@ -345,24 +348,26 @@ public class CarControlScript : MonoBehaviour {
 					topKeyCount = PlayerPrefs.GetInt("Top10KeyCount"); 
 				
 				//If  Top10KeyCount > 10, check if current time is better. If it is, record it.
-				//A top 10 value is stored as: key = topKeyPrefix; value = String(PlayerName;elapsedTimeInSeconds).
-				int[] topKey = new int[topKeyCount];
+				//A top 10 value is stored as: key = topKeyPrefix; value = String(PlayerName;elapsedTimeInSeconds;coins).
+				int[] topKeyTime = new int[topKeyCount];
+				int[] topKeyCoins = new int[topKeyCount];
 				string[] topKeyValues = new string[topKeyCount];
 				int insertPosition = topKeyCount;
 				totalTimeSeconds = Mathf.RoundToInt(totalTimeSeconds);
 				for (int i = 0; i < topKeyCount; i++)
 				{
 					topKeyValues[i] = PlayerPrefs.GetString(topKeyPrefix + i);
-					topKey[i] = int.Parse(PlayerPrefs.GetString(topKeyPrefix + i).Split(';')[1]);
+					topKeyTime[i] = int.Parse(PlayerPrefs.GetString(topKeyPrefix + i).Split(';')[1]);
+					topKeyCoins[i] = int.Parse (PlayerPrefs.GetString(topKeyPrefix + i).Split(';')[2]);
 				}
 				for (int i = 0; i < topKeyCount; i++)
 				{
-					if (totalTimeSeconds < topKey[i])
+					if ((totalTimeSeconds / coinCounter) < (topKeyTime[i] / topKeyCoins[i]))
 					{ 
 						insertPosition = i;		
 						break;
 					}
-					if (totalTimeSeconds >= topKey[i] && topKeyCount < 10)
+					if ((totalTimeSeconds / coinCounter) >= (topKeyTime[i] / topKeyCoins[i]) && topKeyCount < 10)
 						insertPosition = topKeyCount;
 				}
 	
@@ -374,13 +379,12 @@ public class CarControlScript : MonoBehaviour {
 					j++;
 				}
 				
-				PlayerPrefs.SetString(topKeyPrefix + insertPosition, playerName + ";" + totalTimeSeconds);
+				PlayerPrefs.SetString(topKeyPrefix + insertPosition, playerName + ";" + totalTimeSeconds + ";" + coinCounter);
 	
 				//Save new value for topKeyCount.
 				if (topKeyCount < 10)
 					topKeyCount++;
 				PlayerPrefs.SetInt("Top10KeyCount", topKeyCount);
-		
 			}		
 			else if (controlBy == "Cognitiv")
 			{
@@ -391,23 +395,25 @@ public class CarControlScript : MonoBehaviour {
 				
 				//If  Top10CogCount > 10, check if current time is better. If it is, record it.
 				//A top 10 value is stored as: key = topCogPrefix; value = String(PlayerName;elapsedTimeInSeconds).
-				int[] topCog = new int[topCogCount];
+				int[] topCogTime = new int[topCogCount];
+				int[] topCogCoins = new int[topCogCount];
 				string[] topCogValues = new string[topCogCount];
 				int insertPosition = topCogCount;
 				totalTimeSeconds = Mathf.RoundToInt(totalTimeSeconds);
 				for (int i = 0; i < topCogCount; i++)
 				{
 					topCogValues[i] = PlayerPrefs.GetString(topCogPrefix + i);
-					topCog[i] = int.Parse(PlayerPrefs.GetString(topCogPrefix + i).Split(';')[1]);
+					topCogTime[i] = int.Parse(PlayerPrefs.GetString(topCogPrefix + i).Split(';')[1]);
+					topCogCoins[i] = int.Parse(PlayerPrefs.GetString(topCogPrefix + i).Split(';')[2]);
 				}
 				for (int i = 0; i < topCogCount; i++)
 				{
-					if (totalTimeSeconds < topCog[i])
+					if ((totalTimeSeconds / coinCounter) < (topCogTime[i] / topCogCoins[i]))
 					{ 
 						insertPosition = i;		
 						break;
 					}
-					if (totalTimeSeconds >= topCog[i] && topCogCount < 10)
+					if ((totalTimeSeconds / coinCounter) >= (topCogTime[i] / topCogCoins[i]) && topCogCount < 10)
 						insertPosition = topCogCount;
 				}
 				
@@ -419,7 +425,7 @@ public class CarControlScript : MonoBehaviour {
 					j++;
 				}
 				
-				PlayerPrefs.SetString(topCogPrefix + insertPosition, playerName + ";" + totalTimeSeconds);
+				PlayerPrefs.SetString(topCogPrefix + insertPosition, playerName + ";" + totalTimeSeconds + ";" + coinCounter);
 				
 				//Save new value for topCogCount.
 				if (topCogCount < 10)
@@ -430,6 +436,8 @@ public class CarControlScript : MonoBehaviour {
 	
 			//Save PlayerPrefs. 	
 			PlayerPrefs.Save ();
+
+			saved = true;
 		}
 	}
 
