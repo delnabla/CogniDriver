@@ -54,12 +54,15 @@
      <Compile Include="Assets\Scripts\Car.cs" />
      <Compile Include="Assets\Scripts\CarCameraScript.cs" />
      <Compile Include="Assets\Scripts\CarControlScript.cs" />
+     <Compile Include="Assets\Scripts\ChooseCar.cs" />
      <Compile Include="Assets\Scripts\CoinScript.cs" />
      <Compile Include="Assets\Scripts\DestroyTimerScript.cs" />
      <Compile Include="Assets\Scripts\DrawOutline.cs" />
      <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
+     <Compile Include="Assets\Scripts\FerrariCalifornia.cs" />
      <Compile Include="Assets\Scripts\HowToPlayInstructions.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
+     <Compile Include="Assets\Scripts\MercedesS65.cs" />
      <Compile Include="Assets\Scripts\PauseScript.cs" />
      <Compile Include="Assets\Scripts\SkiddingScript.cs" />
      <Compile Include="Assets\Scripts\emotiv\TrainCognitiv.cs" />
