@@ -123,7 +123,7 @@ public class MainMenuScript : MonoBehaviour {
 		if (isExit)
 			showExitDialog = true;
 		else if (isStart)
-			Application.LoadLevel(2);
+			Application.LoadLevel(5);
 		else if (isTrain)
 			Application.LoadLevel(3);
 		else if (isOptions)

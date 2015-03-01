@@ -287,11 +287,15 @@ public class CarControlScript : MonoBehaviour {
 		chosenCar.WheelBRTransform.Rotate (chosenCar.WheelBR.rpm / 60 * 360 * Time.deltaTime, 0, 0);
 
 		//Front wheels might be already rotated due to the steering.
+		int wheelRotation = 0;
+		if (PlayerPrefs.GetString("CarModel") == "Audi")
+			wheelRotation = 90;
+		
 		chosenCar.WheelFLTransform.localEulerAngles = new Vector3 (chosenCar.WheelFLTransform.localEulerAngles.x, 
-		                                                           chosenCar.WheelFL.steerAngle - chosenCar.WheelFLTransform.localEulerAngles.z + 90,
+		                                                           chosenCar.WheelFL.steerAngle - chosenCar.WheelFLTransform.localEulerAngles.z + wheelRotation,
 		                                                           chosenCar.WheelFLTransform.localEulerAngles.z); 
 		chosenCar.WheelFRTransform.localEulerAngles = new Vector3 (chosenCar.WheelFRTransform.localEulerAngles.x,
-		                                                 chosenCar.WheelFR.steerAngle - chosenCar.WheelFRTransform.localEulerAngles.z + 90,
+		                                                 chosenCar.WheelFR.steerAngle - chosenCar.WheelFRTransform.localEulerAngles.z + wheelRotation,
 		                                                 chosenCar.WheelFRTransform.localEulerAngles.z);	
 		
 		BackLights ();

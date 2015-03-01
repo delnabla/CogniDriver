@@ -7,7 +7,6 @@ public class ChooseCar : MonoBehaviour {
 	public Texture arrowRight;
 
 	public Transform audi;
-	public Transform mercedes;
 	public Transform ferrari;
 	public Transform target;
 	public Transform targetOut;
@@ -15,9 +14,7 @@ public class ChooseCar : MonoBehaviour {
 	private static int carIndex;
 	private static int prevCarIndex; 
 
-	public static string chosenCar;
-
-	private const int NO_OF_CARS = 3;
+	private const int NO_OF_CARS = 2;
 
 	private float smoothTime = 0.3f;
 	private float xVelocity = 0;
@@ -36,7 +33,7 @@ public class ChooseCar : MonoBehaviour {
 		moveOutOfSight();
 		displayCar ();
 	}
-
+	
 	void OnGUI()
 	{
 		if (GUI.Button( new Rect(Screen.width / 8 - 50, Screen.height / 2, 46, 46) , arrowLeft))
@@ -59,6 +56,8 @@ public class ChooseCar : MonoBehaviour {
 			moveOutOfSight();
 			displayCar();
 		}
+		if (GUI.Button ( new Rect(Screen.width - 100, Screen.height - 50, 50, 25) , "Play"))
+			Application.LoadLevel(2);
 	}
 
 	void displayCar()
@@ -67,15 +66,11 @@ public class ChooseCar : MonoBehaviour {
 		{
 			case 0: float newPositionAudi = Mathf.SmoothDamp (audi.transform.position.x, target.position.x, ref xVelocity, smoothTime);
 					audi.transform.position = new Vector3(newPositionAudi, audi.transform.position.y, audi.transform.position.z);
-					chosenCar = "Audi";
+					PlayerPrefs.SetString("CarModel","Audi");
 					break; 
-			case 1:	float newPositionMercedes = Mathf.SmoothDamp (mercedes.transform.position.x, target.position.x, ref xVelocity, smoothTime);
-					mercedes.transform.position = new Vector3(newPositionMercedes, mercedes.transform.position.y, mercedes.transform.position.z); 
-					chosenCar = "Mercedes";
-					break; 
-			case 2:	float newPositionFerrari = Mathf.SmoothDamp (ferrari.transform.position.x, target.position.x, ref xVelocity, smoothTime);
+			case 1:	float newPositionFerrari = Mathf.SmoothDamp (ferrari.transform.position.x, target.position.x, ref xVelocity, smoothTime);
 					ferrari.transform.position = new Vector3(newPositionFerrari, ferrari.transform.position.y, ferrari.transform.position.z); 
-					chosenCar = "Ferrari";
+					PlayerPrefs.SetString("CarModel","Ferrari");
 					break; 
 		}
 	}
@@ -86,9 +81,7 @@ public class ChooseCar : MonoBehaviour {
 		{
 			case 0: float newPositionAudi = Mathf.SmoothDamp (audi.transform.position.x, targetOut.position.x, ref xVelocityOut, smoothTime);
 					audi.transform.position = new Vector3(newPositionAudi, audi.transform.position.y, audi.transform.position.z); break; 
-			case 1:	float newPositionMercedes = Mathf.SmoothDamp (mercedes.transform.position.x, targetOut.position.x, ref xVelocityOut, smoothTime);
-					mercedes.transform.position = new Vector3(newPositionMercedes, mercedes.transform.position.y, mercedes.transform.position.z); break; 
-			case 2:	float newPositionFerrari = Mathf.SmoothDamp (ferrari.transform.position.x, targetOut.position.x, ref xVelocityOut, smoothTime);
+			case 1:	float newPositionFerrari = Mathf.SmoothDamp (ferrari.transform.position.x, targetOut.position.x, ref xVelocityOut, smoothTime);
 					ferrari.transform.position = new Vector3(newPositionFerrari, ferrari.transform.position.y, ferrari.transform.position.z); break; 
 		}
 	}

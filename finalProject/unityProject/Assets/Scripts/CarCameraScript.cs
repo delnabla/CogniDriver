@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class CarCameraScript : MonoBehaviour {
 
 	public Transform car;
+	public Transform audi;
+	public Transform ferrari;
+
 	public Transform emptyObjectInFrontOfCar;
 	public float distance = 31;
 	public float height = 5.0f;
@@ -18,9 +21,16 @@ public class CarCameraScript : MonoBehaviour {
 	public bool isTopCamera;
 	private int cameraRoll = 0;	
 
+	private string carModel;
+
 	// Use this for initialization
 	void Start () 
 	{
+		carModel = PlayerPrefs.GetString("CarModel");
+		if (carModel == "Audi")
+			car = audi;
+		else if (carModel == "Ferrari")
+			car = ferrari;
 		initialCarRotationY = car.eulerAngles.y;
 		initialRotation = car.rotation;
 	}
@@ -79,7 +89,10 @@ public class CarCameraScript : MonoBehaviour {
 
 				//steering wheel view
 				case 1: 
-					currentHeight = car.position.y + 1.8f;
+					if (carModel == "Audi")
+						currentHeight = car.position.y + 1.8f;
+					else if (carModel == "Ferrari")
+						currentHeight = car.position.y + 1.3f;
 					break;
 					
 					//over the board view
@@ -114,7 +127,10 @@ public class CarCameraScript : MonoBehaviour {
 
 				//steering wheel view
 				case 1: 
-					transform.position = car.position - currentRotation * Vector3.forward * 1.5f - currentRotation * Vector3.right * 1.7f;
+					if (carModel == "Audi")
+						transform.position = car.position - currentRotation * Vector3.forward * 1.5f - currentRotation * Vector3.right * 1.7f;
+					else if (carModel == "Ferrari")
+						transform.position = car.position - currentRotation * Vector3.forward * 0.01f - currentRotation * Vector3.right * 1.7f;
 					break;
 						
 				//over the board view
