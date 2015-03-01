@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CarControlScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\CarControlScript.cs" Line="592" Column="18" />
+      <File FileName="Assets\Scripts\CarControlScript.cs" Line="318" Column="22" />
       <File FileName="Assets\Scripts\ChooseCar.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MainMenuScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\EnvironmentScript.cs" Line="1" Column="1" />
@@ -12,13 +12,7 @@
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\blabla\Documents\GitHub\mindControl\mindControl\finalProject\unityProject\Assets\Scripts\CarControlScript.cs" line="245" />
-      <Breakpoint file="C:\Users\blabla\Documents\GitHub\mindControl\mindControl\finalProject\unityProject\Assets\Scripts\CarControlScript.cs" line="195" />
-      <Breakpoint file="C:\Users\blabla\Documents\GitHub\mindControl\mindControl\finalProject\unityProject\Assets\Scripts\CarControlScript.cs" line="240" />
-      <Breakpoint file="C:\Users\blabla\Documents\GitHub\mindControl\mindControl\finalProject\unityProject\Assets\Scripts\CarControlScript.cs" line="243" />
-      <Breakpoint file="C:\Users\blabla\Documents\GitHub\mindControl\mindControl\finalProject\unityProject\Assets\Scripts\CarControlScript.cs" line="266" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="Assets\Scripts\ManageCarScript.cs" line="28" offsetX="317" offsetY="459" expression="ferrari.renderer" liveUpdate="False" />

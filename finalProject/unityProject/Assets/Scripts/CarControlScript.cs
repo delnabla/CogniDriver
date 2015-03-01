@@ -207,6 +207,7 @@ public class CarControlScript : MonoBehaviour {
 	
 			//If current speed is less than the maximum speed achievable by the car and we are not in a braked state,
 			// multiply the current speed by the maxTorque constant.
+
 			if (controlBy == "Keyboard")
 				CarUpdateFromKeyboard();	
 			else if (controlBy == "Cognitiv")
@@ -239,9 +240,7 @@ public class CarControlScript : MonoBehaviour {
 
 			chosenCar.WheelFL.steerAngle = currentSteerAngle;
 			chosenCar.WheelFR.steerAngle = currentSteerAngle;
-
-			SteeringWheel(currentSteerAngle);
-
+			
 			if (gameOver == false)
 				StopAfterFinish();
 
@@ -255,13 +254,14 @@ public class CarControlScript : MonoBehaviour {
 			}
 
 			HandBrake ();
+
+			SteeringWheel(currentSteerAngle);
 		}
 	}
 
 	//Update is called once per frame.
 	void Update() 
 	{	
-		
 		//Restart game if R is pressed.
 		if (Input.GetKeyDown (KeyCode.R))
 		{
@@ -305,29 +305,35 @@ public class CarControlScript : MonoBehaviour {
 	//Method to deal with the backlights of a car in brake, reverse or idle states.
 	void BackLights() 
 	{
-		if (currentSpeed > 0 && (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") && !braked)
-			//brake light
-			chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
-		else if (currentSpeed < 0 && (Input.GetAxis ("Vertical") > 0 || currentAction == "COG_PUSH") && !braked)
-			//brake light
-			chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
-		else if (currentSpeed < 0 && (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") && !braked)
-			//reverse
-			chosenCar.backLightObject.renderer.material.color = new Color(171, 170, 175, 1);
-		else if (!braked)
-			//idle
-			chosenCar.backLightObject.renderer.material.color = new Color(108, 4, 11, 1);
+		if (chosenCar.backLightObject.renderer)
+		{
+			if (currentSpeed > 0 && (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") && !braked)
+				//brake light
+				chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
+			else if (currentSpeed < 0 && (Input.GetAxis ("Vertical") > 0 || currentAction == "COG_PUSH") && !braked)
+				//brake light
+				chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
+			else if (currentSpeed < 0 && (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") && !braked)
+				//reverse
+				chosenCar.backLightObject.renderer.material.color = new Color(171, 170, 175, 1);
+			else if (!braked)
+				//idle
+				chosenCar.backLightObject.renderer.material.color = new Color(108, 4, 11, 1);
+		}
 	}
 
 	void SteeringWheel(float currentSteerAngle)
 	{
-		//Rotate the steering wheel.
-		chosenCar.SteeringWheel.transform.Rotate(0, 0, (-90) / currentSteerAngle / 1.5f * Time.deltaTime);			
-		
-		//Turn the steering wheel to the initial position if the left/right keys are released.
-		Vector3 currentSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles;
-		if ((!Input.GetButton ("Horizontal") || (currentAction != "COG_LEFT" && currentAction != "COG_RIGHT")) && currentSteeringWheelRotation != Vector3.zero)
-			chosenCar.SteeringWheel.transform.localEulerAngles = originalSteeringWheelRotation;
+		if (chosenCar.SteeringWheel.renderer)
+		{
+			//Rotate the steering wheel.
+			chosenCar.SteeringWheel.transform.Rotate(0, 0, (-90) / currentSteerAngle / 1.5f * Time.deltaTime);			
+			
+			//Turn the steering wheel to the initial position if the left/right keys are released.
+			Vector3 currentSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles;
+			if ((!Input.GetButton ("Horizontal") || (currentAction != "COG_LEFT" && currentAction != "COG_RIGHT")) && currentSteeringWheelRotation != Vector3.zero)
+				chosenCar.SteeringWheel.transform.localEulerAngles = originalSteeringWheelRotation;
+		}
 	}
 
 	void StopAfterFinish()
