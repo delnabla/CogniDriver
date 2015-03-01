@@ -38,6 +38,7 @@ public class SkiddingScript : MonoBehaviour {
 		{
 			if (soundWait <= 0)
 			{
+				skidSound.audio.volume = MainMenuScript.sfxVolume / 10;
 				Instantiate (skidSound, hit.point, Quaternion.identity);
 				soundWait = 1;
 			}
@@ -48,6 +49,7 @@ public class SkiddingScript : MonoBehaviour {
 		{
 			if (soundWaitReverse <= 0)
 			{
+				reverseSound.audio.volume = MainMenuScript.sfxVolume / 10;
 				Instantiate (reverseSound, hit.point, Quaternion.identity);
 				soundWaitReverse = 10;
 			}

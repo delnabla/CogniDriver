@@ -144,13 +144,13 @@ public class EmoGyroData : MonoBehaviour
 
         }
 
-        if(isMoveBack)
+       /* if(isMoveBack)
         {
             timeMoveBack += Time.deltaTime*1.5f;
             Vector3 tmpVector = Vector3.Slerp(new Vector3(oldPositionX, oldPositionY, 0), Vector3.zero, timeMoveBack);
             GyroX = (int)tmpVector.x;
             GyroY = (int)tmpVector.y;
-        }
+        }*/
 
         
         

@@ -8,7 +8,7 @@ public class EnvironmentScript : MonoBehaviour {
 	public Material cloudySkybox;
 	public AudioClip rainSound;
 
-	private static float rainSoundVolume = 1;
+	private static float rainSoundVolume = 1 * MainMenuScript.sfxVolume / 10;
 
 	// Use this for initialization
 	void Start () {
@@ -51,7 +51,7 @@ public class EnvironmentScript : MonoBehaviour {
 
 	void RainFadeIn()
 	{
-		if (rainSoundVolume < 1)
+		if (rainSoundVolume < 1 * MainMenuScript.sfxVolume / 10)
 		{
 			rainSoundVolume += 0.1f * Time.deltaTime;
 			audio.volume = rainSoundVolume;

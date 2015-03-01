@@ -141,14 +141,20 @@ public class CarControlScript : MonoBehaviour {
 			chosenCar.WheelBL.motorTorque = 0;
 		}
 		
-		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
+		//If no vertical button is pressed, decelerate speed by increasing brakeTorque. 
+		//Wait 3 seconds before deceleration to compensate for the lack of the ability to do two action at the same time.
 		if (currentAction != "COG_PUSH" && currentAction != "COG_PULL") {
+			Wait3Seconds();
 			chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
 			chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
 		} else {
 			chosenCar.WheelBR.brakeTorque = 0;
 			chosenCar.WheelBL.brakeTorque = 0;
 		}
+	}
+
+	IEnumerator Wait3Seconds() {
+		yield return new WaitForSeconds(3);
 	}
 
 	void CarUpdateFromGyro()
@@ -298,8 +304,8 @@ public class CarControlScript : MonoBehaviour {
 		                                                 chosenCar.WheelFR.steerAngle - chosenCar.WheelFRTransform.localEulerAngles.z + wheelRotation,
 		                                                 chosenCar.WheelFRTransform.localEulerAngles.z);	
 		
-		BackLights ();
 		EngineSound ();
+		BackLights ();
 	}
 
 	//Method to deal with the backlights of a car in brake, reverse or idle states.
@@ -309,16 +315,16 @@ public class CarControlScript : MonoBehaviour {
 		{
 			if (currentSpeed > 0 && (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") && !braked)
 				//brake light
-				chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
+				chosenCar.backLightObject.renderer.material.color = new Color(0.973f, 0.016f, 0, 1);
 			else if (currentSpeed < 0 && (Input.GetAxis ("Vertical") > 0 || currentAction == "COG_PUSH") && !braked)
 				//brake light
-				chosenCar.backLightObject.renderer.material.color = new Color(248, 4, 0, 1);
+				chosenCar.backLightObject.renderer.material.color = new Color(0.973f, 0.016f, 0, 1);
 			else if (currentSpeed < 0 && (Input.GetAxis ("Vertical") < 0 || currentAction == "COG_PULL") && !braked)
 				//reverse
-				chosenCar.backLightObject.renderer.material.color = new Color(171, 170, 175, 1);
+				chosenCar.backLightObject.renderer.material.color = new Color(0.671f, 0.667f, 0.686f, 1);
 			else if (!braked)
 				//idle
-				chosenCar.backLightObject.renderer.material.color = new Color(108, 4, 11, 1);
+				chosenCar.backLightObject.renderer.material.color = new Color(0.424f, 0.055f, 0.047f, 1);
 		}
 	}
 

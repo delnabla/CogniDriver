@@ -323,6 +323,7 @@ public class MainMenuScript : MonoBehaviour {
 				GUILayout.Label ("Fullscreen", labelStyle);
 				GUILayout.Space(80);
 				fullscreen = GUILayout.Toggle (fullscreen, "");
+				Screen.fullScreen = fullscreen;
 			GUILayout.EndHorizontal();	
 
 			//Control game by using keyboard, gyro or cognitiv.
