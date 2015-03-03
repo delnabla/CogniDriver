@@ -167,18 +167,18 @@ public class CarControlScript : MonoBehaviour {
 
 		if (currentSpeed < chosenCar.topSpeed && !braked)
 		{
-			//if (headPosition == Status.Up || headPosition == Status.Down || headPosition == Status.Center) 
-			//{
+			if (headPosition == Status.Down || headPosition == Status.Up || headPosition == Status.Center) 
+			{
 				chosenCar.WheelBR.motorTorque = torqueForMotor * posY / 180;
 				chosenCar.WheelBL.motorTorque = torqueForMotor * posY / 180;
-		//	} else {
-		//		chosenCar.WheelBR.motorTorque = 0;
-		//		chosenCar.WheelBL.motorTorque = 0;
-		//	}
+			} else {
+				chosenCar.WheelBR.motorTorque = 0;
+				chosenCar.WheelBL.motorTorque = 0;
+			}
 		}
 		
 		//If the car is in reverse and the current speed exceeds the maxReverseSpeed, apply brakes to slow down.
-		if (/*headPosition == Status.Down && */(currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
+		if (headPosition == Status.Up && (currentSpeed > chosenCar.maxReverseSpeed) && !braked) {				
 			chosenCar.WheelBR.brakeTorque = chosenCar.topSpeed;
 			chosenCar.WheelBL.brakeTorque = chosenCar.topSpeed;
 			chosenCar.WheelBR.motorTorque = 0;
@@ -186,7 +186,7 @@ public class CarControlScript : MonoBehaviour {
 		}
 		
 		//If no vertical button is pressed, decelerate speed by increasing brakeTorque.
-		if (!((headPosition == Status.Up) || (headPosition == Status.Down) || (headPosition == Status.Center))) {
+		if (!((headPosition == Status.Down) || (headPosition == Status.Up) || (headPosition == Status.Center))) {
 			chosenCar.WheelBR.brakeTorque = chosenCar.decelerationSpeed;
 			chosenCar.WheelBL.brakeTorque = chosenCar.decelerationSpeed;
 		} else {
