@@ -271,11 +271,17 @@ public class CarControlScript : MonoBehaviour {
 		//Restart game if R is pressed.
 		if (Input.GetKeyDown (KeyCode.R))
 		{
+			countdown = 3.0f;
+			hideLabel = false;
 			chosenCar.transform.position = new Vector3(1729.277f, 265.7542f, 11.81225f);
 			chosenCar.transform.rotation = originalRotation;		
 			initialTime = Time.time;
 			countCheckpoints = 0;
 			coinCounter = 0;
+			//reactivate coins
+			GameObject coins = GameObject.FindGameObjectWithTag("Coins");
+			foreach (Transform coin in coins.transform)
+				coin.gameObject.SetActive(true);
 		}
 		
 		if (Input.GetKeyDown (KeyCode.T))
@@ -330,15 +336,20 @@ public class CarControlScript : MonoBehaviour {
 
 	void SteeringWheel(float currentSteerAngle)
 	{
-		if (chosenCar.SteeringWheel.renderer)
+		//Rotate the steering wheel.
+		if (chosenCar.SteeringWheel.transform)
 		{
-			//Rotate the steering wheel.
-			chosenCar.SteeringWheel.transform.Rotate(0, 0, (-90) / currentSteerAngle / 1.5f * Time.deltaTime);			
-			
+			if (currentSteerAngle != 0)
+				chosenCar.SteeringWheel.transform.Rotate(0, 0, (-90) / currentSteerAngle / 1.5f * Time.deltaTime);			
+				
 			//Turn the steering wheel to the initial position if the left/right keys are released.
 			Vector3 currentSteeringWheelRotation = chosenCar.SteeringWheel.transform.localEulerAngles;
-			if ((!Input.GetButton ("Horizontal") || (currentAction != "COG_LEFT" && currentAction != "COG_RIGHT")) && currentSteeringWheelRotation != Vector3.zero)
-				chosenCar.SteeringWheel.transform.localEulerAngles = originalSteeringWheelRotation;
+			if (controlBy == "Keyboard" )
+				if (!Input.GetButton ("Horizontal") && currentSteeringWheelRotation != Vector3.zero)
+					chosenCar.SteeringWheel.transform.localEulerAngles = originalSteeringWheelRotation;
+			if (controlBy == "Cognitiv")
+				if (currentAction != "COG_LEFT" && currentAction != "COG_RIGHT" && currentSteeringWheelRotation != Vector3.zero)
+					chosenCar.SteeringWheel.transform.localEulerAngles = originalSteeringWheelRotation;
 		}
 	}
 

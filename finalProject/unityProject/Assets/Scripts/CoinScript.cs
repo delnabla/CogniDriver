@@ -8,7 +8,7 @@ public class CoinScript : MonoBehaviour {
 		if (col.gameObject.tag == "Car")
 		{
 			CarControlScript.coinCounter++;
-			Destroy(this.gameObject);
+			this.gameObject.SetActive(false);
 		}
 	}
 

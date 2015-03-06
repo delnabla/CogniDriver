@@ -28,9 +28,15 @@ public class CarCameraScript : MonoBehaviour {
 	{
 		carModel = PlayerPrefs.GetString("CarModel");
 		if (carModel == "Audi")
-			car = audi;
+		{
+			car = audi; 
+			emptyObjectInFrontOfCar = audi.Find ("EmptyMockObjectInFrontOfTheCar").transform;
+		}
 		else if (carModel == "Ferrari")
+		{
 			car = ferrari;
+			emptyObjectInFrontOfCar = ferrari.Find ("EmptyMockObjectInFrontOfTheCar").transform;
+		}
 		initialCarRotationY = car.eulerAngles.y;
 		initialRotation = car.rotation;
 	}
@@ -130,7 +136,7 @@ public class CarCameraScript : MonoBehaviour {
 					if (carModel == "Audi")
 						transform.position = car.position - currentRotation * Vector3.forward * 1.5f - currentRotation * Vector3.right * 1.7f;
 					else if (carModel == "Ferrari")
-						transform.position = car.position - currentRotation * Vector3.forward * 0.01f - currentRotation * Vector3.right * 1.7f;
+						transform.position = car.position - currentRotation * Vector3.forward * 3.0f - currentRotation * Vector3.right * 1.0f;
 					break;
 						
 				//over the board view
