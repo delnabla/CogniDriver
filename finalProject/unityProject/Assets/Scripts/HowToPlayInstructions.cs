@@ -37,9 +37,11 @@ public class HowToPlayInstructions : MonoBehaviour {
 			localStyle.fontSize = 12;
 			localStyle.fontStyle = FontStyle.Normal;
 			GUILayout.FlexibleSpace();
+			
 			GUILayout.BeginHorizontal ();
+				
 				GUILayout.FlexibleSpace();
-				GUILayout.Box ("<b><size=15>Keyboard</size></b> \n\nArrow Keys - Control car movement; \nSpacebar - Handbrake; \nC - Change camera view; \nP - Pause game\n R - Restart; T - Get back on track.",localStyle);
+				GUILayout.Box ("\n\n\n\n\n\n\n\n\n\n<b><size=15>Keyboard</size></b> \n\nArrow Keys - Control car movement; \nSpacebar - Handbrake; \nC - Change camera view; \nP - Pause game\nR - Restart;\nT - Get back on track.",localStyle);
 				GUILayout.FlexibleSpace();
 
 				localStyle.wordWrap = true;
