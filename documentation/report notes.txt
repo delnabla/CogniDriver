@@ -1,0 +1,110 @@
+http://studentnet.cs.manchester.ac.uk/ugt/COMP30040/show.php?id=29
+
+Expected topics: introduction, background, design, implementation, results, testing, evaluation and conclusions.
+
+Formal English means that there is only very occasional use of contractions and no colloquiums are used.
+
+The word diagram should be loosely interpreted and includes pictures, tables, code fragments, screen shots, ...
+
+Layout problems mean tables split over page boundaries; orphaned headings (immediately followed by a page break); large amounts of white space at the foot of pages caused by diagrams starting the next page.
+
+7. All of the cover material is present and correct, there are very few layout problems, consistent formatting is used throughout and cross references are all correct. Diagrams in several different styles are present and these are all readable. References use either a numbered style (with number increasing through report) or a named style (with references given in alphabetical order).
+
+8. There are very few problems or inconsistencies in the presentation, and the report looks professional. Diagrams, in a range of styles, are not only readable but they also look professional. There are likely to be distinct styles for chapter titles, section heads and subsection heads, and probably a running head.
+
+9. The report has no problems or inconsistencies in its presentation and not only looks professional, but also feels clean and crisp (sufficient white space to not appear crowed, but not too much). There is a wide range of, appropriate, diagram styles and diagrams are not only readable, but also clean and crisp.
+
+There is a substantial amount of technical material, all of which is required to understand what the student has achieved. Within the material, there is a series of architecture diagrams, arranged in a top-down manner, which sets the context for understanding lower level technical detail. This lower-level detail is generally at an abstract level and there are no code snippets. There are appropriate design (use case, class, etc) diagrams, not all of which need to be included in the body of the report. The body of the report will give, for example, a feel for the total number of use cases and their spread, and the total number of classes and their range. No diagram is included without an explanation of it in the text of the report. The report establishes the need for the use of a technology before the technology is described. Every concept, fact, software or tool discussed in the report is referenced (and these do not use Wikipedia).
+
+Many people find that the flow can be helped by short summaries at the start of chapters and sections that give an indication of what the chapter or section contains. This means that no chapter title is immediately followed by a section title and that no section title is immediately followed by a subsection title.
+
+During your project you will have made design and implementation choices, e.g. the implementation technology and APIs to use. Your report must assess the alternatives that you considered and justify the choice that you made. 
+
+Each chapter should be numbered and given a brief title. Sub-sections should also have numbers and titles: e.g. "2.1 Definition of Artificial Intelligence". The "Contents" section should be drawn up with the page number of each section and sub-section.
+
+Diagrams can be created using xfig which is installed on the School's Linux machines. These diagrams can be exported to LaTeX or Postscript files than can be incorporated into LaTeX documents.
+
+For complex projects, there can be a need for a compromise between sufficient detail and avoiding long detailed descriptions. In this case, it is often advantageous to keep descriptions in the body of the report slightly abstract, or focused on important aspects, and put information that is more detailed in one or more appendices. As an example, if your design involves a large number of classes, include only the important ones in the body of your report, indicate the total number of classes in the body and put a full set of class diagrams in an appendix.
+
+
+    abbreviations; make sure that English words are fully written out, abbreviations for technical phrases are acceptable (but give the full meaning on first use)
+    contractions (two words joined by an apostrophe), e.g. don't and it's
+    colloquial and slang vocabulary, e.g. stuff, a lot of, sort of
+
+	 avoid long sentences
+
+http://www.word-mart.com/html/formal_and_informal_writing.html
+http://writing.wisc.edu/Handbook/PDF/twelve_common_errors_uwmadison_writingcenter_rev_sept2012.pdf
+http://www.eecs.qmul.ac.uk/~norman/papers/good_writing/Technical%20writing.pdf page 9
+
+
+avoid compound sentences wherever possible. In particular, be on the lookout for words like and, or and while which are often used unnecessarily to build a compound sentence. 
+
+If all the list items are very short, by which we normally mean less than one line long, then there is no need for any punctuation. Otherwise use a full stop at the end of each list item. 
+
+Never write ‘e.g.’ for ‘for example’.
+
+To show possession: For example,the snake’s eyes, the child’s shoes. If the thing doing the possessing already has an s at the end then do not add an s. For example, if we are talking about the eyes of several snakes then we write: the snakes’ eyes. The only exception to this last rule is if:
+• it is a proper noun (Mr Jones’s daughter);
+• the word ends in a double ss(the boss’s office). 
+
+Where a section is broken into subsections the text immediately before the first subsection should be an introduction and overview of the entire section. 
+
+All variables should be in italics to distinguish them from normal text
+
+
+
+To make them transparent you have to set the shader to Transparent/Speculative in my case and change alpha to 0
+
+
+provide a glossary : BCI, hypoxia, EEG
+page numbers
+
+no eeg
+no gel
+describe suites
+gyro
+hydration
+take them out when on holiday
+damaged photo vs fine photo
+suites photos
+headset photo
+sensor positioning photo
+
+different user's skill levels
+
+3d objects credit
+
+At the time of this writing, the full application source code, source-level documentation, and executable binary are available for download at
+
+
+
+
+
+
+
+http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642076 According to this, it seems it may be difficult to work with the headset in order to classify the EEG data because of the many sources of noise.
+
+ The data sample rate, at 128Hz, is also far lower than in more powerful setups which sample at up to 1000Hz (Newman & Norman, 2010)�(Parra, Spence, Gerson, & Sajda, 2005).
+
+ AffectivTM
+ 
+Emotiv�s online application store offers a number of innovative EEG-powered programs built on these suites. EmoLens tags users� photos based on their emotions when viewing them.
+
+ When a person�s eyes are closed, the EEG signals at the occipital electrodes (channels O1 and O2 on Emotiv) exhibit distinctive high-amplitude waves (Figure 23)�(Zhou, 2010). 
+ 
+ Figure 24
+ 
+ 
+ 
+ BCI illiteracy solution:
+ 
+ One of the biggest challenges in BCI research is to understand and
+solve the problem of ‘BCI Illiteracy’, which is that BCI control does not work for a non-negligible
+portion of subjects (estimated 15% to 30%).
+
+a sophisticated adaptation
+scheme is presented which guides the user from an initial subject-independent classifier that operates
+on simple features to a subject-optimized state-of-the-art classifier within one session while the user
+interacts the whole time with the same feedback application and does not need to care about what is
+going on behind the scenes

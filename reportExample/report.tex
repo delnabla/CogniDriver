@@ -1,0 +1,116 @@
+\documentclass[12pt]{third-rep}
+
+%% This skeleton report is organised as a master file called
+%% report.tex which then includes files for individual parts including
+%% abstract.tex, chapter1.tex, chapter2.tex, chapter3.tex and
+%% appendix1.tex.  
+
+\usepackage{url} % typeset URL's sensibly
+\usepackage{pslatex} % Use Postscript fonts
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{multicol}
+\usepackage{array}
+
+%% This defines the title (the \\ forces a line break)
+\title{CogniDriver}
+%% and author
+\author{Maria - Daniela Florescu}
+%% and supervisor
+\supervisor{Dr. Toby L. J. Howard}
+%% and the year of the report
+\reportyear{2015}
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@reportyear
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+
+%% this defines the file that contains the text of the abstract, there
+%% must be one of these by the time you submit your report.
+\abstractfile{abstract.tex}
+
+%% this defines the file that contains the acknowledgements (it can be
+%% omitted if you don't feel like thanking anyone
+\thanksfile{merci.tex}
+
+%% End of preamble, the actual document starts here
+%%
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+    \includegraphics[scale = 0.50]{crestbw.png}\\[1.0 cm]	% University Logo
+    \textsc{\LARGE The University of Manchester}\\[2.0 cm]	% University Name
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \LARGE \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft} \large
+			\emph{Author:}\\
+			\theauthor
+			\end{flushleft}
+			\end{minipage}~
+			\begin{minipage}{0.4\textwidth}
+			\begin{flushright} \large
+			\emph{Supervisor:} \\
+			Toby L. J. Howard					
+		\end{flushright}
+	\end{minipage}\\[2 cm]
+	
+	{\large \thedate}\\[2 cm]
+ 
+	\vfill
+	
+\end{titlepage}
+
+%% This actually creates the abstract page
+\include{abstract}
+\include{merci}
+
+%% Generate contents etc
+\tableofcontents
+\listoffigures
+\listoftables
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\slshape \rightmark}
+\fancyhead[LO,RE]{\slshape \leftmark}
+\fancyfoot[C]{\thepage}
+
+%% These include the actual text
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+\include{chapter6}
+\include{chapter7}
+\include{chapter8}
+
+\bibliography{refs}             % this causes the references to be
+                                % listed
+
+\bibliographystyle{apalike}       % this determines the style in which
+                                % the references are printed, other
+                                % possible values are plain and abbrv
+%% Appendices start here
+\appendix
+\include{appendix1}
+\end{document}
