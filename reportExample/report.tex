@@ -16,6 +16,7 @@
 \usepackage{vmargin}
 \usepackage{multicol}
 \usepackage{array}
+\usepackage[table,xcdraw]{xcolor}
 
 %% This defines the title (the \\ forces a line break)
 \title{CogniDriver}
@@ -89,6 +90,8 @@
 \listoftables
 
 \pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
 \fancyhf{}
 \fancyhead[LE,RO]{\slshape \rightmark}
 \fancyhead[LO,RE]{\slshape \leftmark}

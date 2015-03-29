@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  27 MAR 2015 23:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  29 MAR 2015 23:40
 entering extended mode
 **report.tex
 
@@ -272,6 +272,30 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip57
 \backup@length=\skip58
 )
+("D:\Program Files (x86)\miktex\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("D:\Program Files (x86)\miktex\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+("D:\Program Files (x86)\miktex\tex\latex\colortbl\colortbl.sty"
+Package: colortbl 2012/02/13 v1.0a Color table columns (DPC)
+\everycr=\toks24
+\minrowclearance=\skip59
+)
+\rownum=\count118
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\report.
 aux
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\abstrac
@@ -296,70 +320,70 @@ ux)
 8.aux)
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x1.aux))
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 52.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 52
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 53.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 53
 .
  ("D:\Program Files (x86)\miktex\tex\latex\psnfss\omspzccm.fd"
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
 
 ("D:\Program Files (x86)\miktex\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count118
+\scratchcounter=\count119
 \scratchdimen=\dimen130
 \scratchbox=\box56
-\nofMPsegments=\count119
-\nofMParguments=\count120
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count121
+\nofMPsegments=\count120
+\nofMParguments=\count121
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count122
 \MPscratchDim=\dimen131
-\MPnumerator=\count122
-\makeMPintoPDFobject=\count123
-\everyMPtoPDFconversion=\toks25
+\MPnumerator=\count123
+\makeMPintoPDFobject=\count124
+\everyMPtoPDFconversion=\toks26
 )
-\c@lstlisting=\count124
+\c@lstlisting=\count125
  <images/crestbw.png, id=1, 290.08376pt x 493.845pt>
 File: images/crestbw.png Graphic file (type png)
  <use images/crestbw.png>
-Package pdftex.def Info: images/crestbw.png used on input line 57.
+Package pdftex.def Info: images/crestbw.png used on input line 58.
 (pdftex.def)             Requested size: 145.04152pt x 246.92189pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 60.
-LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 68
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 69
 .
 
 ("D:\Program Files (x86)\miktex\tex\latex\psnfss\ot1ptmcm.fd"
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 68
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 69
 .
 
 ("D:\Program Files (x86)\miktex\tex\latex\psnfss\omlptmcm.fd"
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 68
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 69
 .
 
 ("D:\Program Files (x86)\miktex\tex\latex\psnfss\omxpsycm.fd"
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/blabla/Documents
@@ -384,7 +408,7 @@ ex) [2
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
 
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\report.
 toc [3
@@ -405,11 +429,11 @@ lot)
 
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 93.
+less on input line 96.
 
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 94.
+less on input line 97.
 
 [6
 
@@ -514,28 +538,70 @@ File: images/BrainwaveComposition.png Graphic file (type png)
 <use images/BrainwaveComposition.png>
 Package pdftex.def Info: images/BrainwaveComposition.png used on input line 55.
 
-(pdftex.def)             Requested size: 397.40906pt x 258.65193pt.
-) [10] [11 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExam
-ple/images/500px-Eeg_delta.png> <C:/Users/blabla/Documents/GitHub/mindControl/m
-indControl/reportExample/images/500px-Eeg_theta.png> <C:/Users/blabla/Documents
-/GitHub/mindControl/mindControl/reportExample/images/500px-Eeg_alpha.png> <C:/U
-sers/blabla/Documents/GitHub/mindControl/mindControl/reportExample/images/500px
--Eeg_beta.png> <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/report
-Example/images/500px-Eeg_gamma.png>]
-[12 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/ima
-ges/BrainwaveComposition.png>]
+(pdftex.def)             Requested size: 351.31378pt x 228.6523pt.
+ [10 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
+ages/BrainwaveComposition.png>]) [11 <C:/Users/blabla/Documents/GitHub/mindCont
+rol/mindControl/reportExample/images/500px-Eeg_delta.png> <C:/Users/blabla/Docu
+ments/GitHub/mindControl/mindControl/reportExample/images/500px-Eeg_theta.png> 
+<C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/images/
+500px-Eeg_alpha.png> <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/
+reportExample/images/500px-Eeg_beta.png> <C:/Users/blabla/Documents/GitHub/mind
+Control/mindControl/reportExample/images/500px-Eeg_gamma.png>]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 3.tex
 Chapter 3.
-) [13
+
+Overfull \hbox (4.92479pt too wide) in paragraph at lines 5--6
+\OT1/ptm/m/n/12 pro-vides a feed-back sig-nal to can-cel com-mon mode noise in 
+the elec-tron-ics [[],
+ []
+
+<images/sensorPositioning.png, id=60, 301.8778pt x 341.77687pt>
+File: images/sensorPositioning.png Graphic file (type png)
+
+<use images/sensorPositioning.png>
+Package pdftex.def Info: images/sensorPositioning.png used on input line 9.
+(pdftex.def)             Requested size: 250.93842pt x 284.10236pt.
+ [12
 
 
 
 ]
+<images/eyeBlink.png, id=65, 417.81094pt x 251.43938pt>
+File: images/eyeBlink.png Graphic file (type png)
+
+<use images/eyeBlink.png>
+Package pdftex.def Info: images/eyeBlink.png used on input line 62.
+(pdftex.def)             Requested size: 351.31378pt x 211.43399pt.
+ [13 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
+ages/sensorPositioning.png>] [14 <C:/Users/blabla/Documents/GitHub/mindControl/
+mindControl/reportExample/images/eyeBlink.png>]
+<images/goodSensorBadSensor.png, id=75, 1334.9875pt x 710.655pt>
+File: images/goodSensorBadSensor.png Graphic file (type png)
+
+<use images/goodSensorBadSensor.png>
+Package pdftex.def Info: images/goodSensorBadSensor.png used on input line 95.
+(pdftex.def)             Requested size: 351.31378pt x 187.01059pt.
+ [15] [16 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExamp
+le/images/goodSensorBadSensor.png>]
+<images/skillLevel.png, id=83, 778.40813pt x 477.28313pt>
+File: images/skillLevel.png Graphic file (type png)
+
+<use images/skillLevel.png>
+Package pdftex.def Info: images/skillLevel.png used on input line 130.
+(pdftex.def)             Requested size: 401.50146pt x 246.1859pt.
+
+Overfull \hbox (68.7519pt too wide) in paragraph at lines 135--136
+[]\OT1/ptm/m/n/12 Some peo-ple might en-counter dif-fi-cul-ties in train-ing th
+e head-set. Ac-cord-ing to [[]],
+ []
+
+[17 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/ima
+ges/skillLevel.png>]) [18]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 4.tex
 Chapter 4.
-) [14
+) [19
 
 
 
@@ -543,7 +609,7 @@ Chapter 4.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 5.tex
 Chapter 5.
-) [15
+) [20
 
 
 
@@ -551,7 +617,7 @@ Chapter 5.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 6.tex
 Chapter 6.
-) [16
+) [21
 
 
 
@@ -559,7 +625,7 @@ Chapter 6.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 7.tex
 Chapter 7.
-) [17
+) [22
 
 
 
@@ -567,22 +633,25 @@ Chapter 7.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 8.tex
 Chapter 8.
-) [18
+) [23
 
 
 
 ]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\report.
-bbl) [19
+bbl
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ¶ in font ptmr7t!
+ [24
 
 
-]
+]) [25]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x1.tex
 Appendix A.
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 10.79993pt on input line 11.
-) [20
+) [26
 
 
 ]
@@ -609,30 +678,26 @@ ux)
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 8.aux)
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
-x1.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+x1.aux)) ) 
 Here is how much of TeX's memory you used:
- 3828 strings out of 493921
- 57336 string characters out of 3146477
- 115936 words of memory out of 3000000
- 6969 multiletter control sequences out of 15000+200000
- 38919 words of font info for 69 fonts, out of 3000000 for 9000
+ 4384 strings out of 493921
+ 64068 string characters out of 3146477
+ 128058 words of memory out of 3000000
+ 7510 multiletter control sequences out of 15000+200000
+ 40026 words of font info for 70 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,15n,43p,698b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Program Files (x86)/miktex/fonts/enc/dvips/fontname/8r.enc}<D:/Program Fi
-les (x86)/miktex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program Files (x
-86)/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files (x86)/mi
-ktex/fonts/type1/urw/courier/ucrr8a.pfb><D:/Program Files (x86)/miktex/fonts/ty
-pe1/urw/helvetic/uhvr8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/time
-s/utmb8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8a.pfb><D
-:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files
- (x86)/miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (21 pages, 313580 bytes).
+ 41i,17n,43p,1407b,339s stack positions out of 5000i,500n,10000p,200000b,50000s
+{D:/Program Files (x86)/miktex/fonts/enc/dvips/fontname/8r.enc}<D:/Pr
+ogram Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program 
+Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files 
+(x86)/miktex/fonts/type1/urw/courier/ucrr8a.pfb><D:/Program Files (x86)/miktex/
+fonts/type1/urw/helvetic/uhvr8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/
+urw/times/utmb8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8
+a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/Progr
+am Files (x86)/miktex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (27 pages, 2522715 bytes).
 PDF statistics:
- 118 PDF objects out of 1000 (max. 8388607)
+ 145 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

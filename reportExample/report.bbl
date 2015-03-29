@@ -1,14 +1,96 @@
 \begin{thebibliography}{}
 
+\bibitem[emo, 2014]{emotivUserManual}
+ (2014).
+\newblock {\em EPOC User Manual}.
+\newblock Emotiv.
+
+\bibitem[Adelson, 2011]{experimenterEPOC}
+Adelson, M. (2011).
+\newblock Experimenter epoc - an experimentation and mind-reading application
+  for the emotiv epoc.
+\newblock
+  \url{http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642075}.
+
+\bibitem[Andrew T.~Campbell and Raizada, 2010]{neurophone}
+Andrew T.~Campbell, Tanzeem~Choudhury, S. H. H. L. M. K. M. M.~R. and Raizada,
+  R. D.~S. (2010).
+\newblock Neurophone: Brain-mobile phone interface using a wireless eeg
+  headset.
+\newblock {\em MobiHeld/ACM}.
+
+\bibitem[BioSemi, 2015]{refSensors2}
+BioSemi (2015).
+\newblock Reference sensors.
+\newblock \url{http://www.biosemi.com/faq/cms&drl.htm}.
+
+\bibitem[Carmen~Vidaurre, 2009]{cureBCIilliteracy}
+Carmen~Vidaurre, B.~B. (2009).
+\newblock Towards a cure for bci illiteracy.
+\newblock {\em BMC Neuroscience}.
+\newblock {doi:10.1186/1471-2202-10-S1-P85}.
+
+\bibitem[Emotiv, 2015a]{refSensors1}
+Emotiv (2015a).
+\newblock Emotiv reference sensors.
+\newblock \url{https://www.emotiv.com/forum/forum4/topic3409/messages/}.
+
+\bibitem[Emotiv, 2015b]{emoTraining}
+Emotiv (2015b).
+\newblock Emotiv training.
+\newblock
+  \url{http://emotiv.com/forum/messages/forum4/topic114/message392/?phrase_id=464885#message392}.
+
+\bibitem[Francesco~Carrino, 2012]{wheelchairEEG}
+Francesco~Carrino, Joel~Dumoulin, E. M. O. A. K. R.~I. (2012).
+\newblock A self-paced bci system to control an electric wheelchair: evaluation
+  of a commercial, low-cost eeg device.
+\newblock {\em Biosignals and Biorobotics Conference (BRC), 2012 ISSNIP}.
+\newblock {doi: 10.1109/BRC.2012.6222185}.
+
 \bibitem[Gall, 1992]{gall1992method}
 Gall, J. (1992).
 \newblock Method and system for altering consciousness.
+\newblock \url{http://www.google.com/patents/US5123899}.
 \newblock US Patent 5,123,899.
+
+\bibitem[Inc., 2010]{emoLens}
+Inc., A.~T. (2010).
+\newblock Emolens.
+\newblock \url{https://www.youtube.com/watch?v=E9_XZlHoSp0}.
+
+\bibitem[Minkyu~Ahn, 2013]{BCIilliteracy}
+Minkyu~Ahn, Hohyun~Cho, S. A. S. C.~J. (2013).
+\newblock High theta and low alpha powers may be indicative of bci-illiteracy
+  in motor imagery.
+\newblock {\em PLoS ONE 8(11): e80886}.
+\newblock {doi:10.1371/journal.pone.0080886}.
 
 \bibitem[Ning-Han~Liu and Hsu, 2013]{musicEEG}
 Ning-Han~Liu, C.-Y.~C. and Hsu, H.-M. (2013).
 \newblock Improving driver alertness through music selection using a mobile eeg
   to detect brainwaves.
 \newblock {\em Sensors}.
+\newblock \url{http://www.fermentas.com/techinfo/nucleicacids/maplambda.htm}.
+
+\bibitem[Reinhold~Scherer, 2012]{wowControl}
+Reinhold~Scherer, Markus~Pröll, B. A. . G. R. M.-P. (2012).
+\newblock New input modalities for modern game design and virtual embodiment.
+\newblock {\em Virtual Reality Short Papers and Posters (VRW), 2012 IEEE}.
+\newblock {doi: 10.1109/VR.2012.6180932}.
+
+\bibitem[Sam~Fok, 2011]{handOrthotic}
+Sam~Fok, Raphael~Schwartz, M. W. C. H. J. Z.-T. S. D. B. E.~L. (2011).
+\newblock An eeg-based brain computer interface for rehabilitation and
+  restoration of hand control following stroke using ipsilateral cortical
+  physiology.
+\newblock {\em Engineering in Medicine and Biology Society, EMBC, 2011 Annual
+  International Conference of the IEEE}.
+\newblock {doi: 10.1109/IEMBS.2011.6091549}.
+
+\bibitem[Smirnoff, 2013]{mindtunes}
+Smirnoff (2013).
+\newblock Mindtunes.
+\newblock \url{https://www.youtube.com/watch?v=PgfxKZiSCDQ}.
 
 \end{thebibliography}

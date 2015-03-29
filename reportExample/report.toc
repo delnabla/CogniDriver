@@ -8,27 +8,36 @@
 \contentsline {subsection}{\numberline {2.1.2}Easy Roads 3D}{10}
 \contentsline {subsection}{\numberline {2.1.3}Photoshop}{10}
 \contentsline {section}{\numberline {2.2}Electroencephalography (EEG)}{10}
-\contentsline {chapter}{\numberline {3}Introducing the Emotiv EPOC}{13}
-\contentsline {section}{\numberline {3.1}SDK description}{13}
-\contentsline {section}{\numberline {3.2}Training}{13}
-\contentsline {chapter}{\numberline {4}Design}{14}
-\contentsline {section}{\numberline {4.1}Overview}{14}
-\contentsline {section}{\numberline {4.2}Design Patterns}{14}
-\contentsline {chapter}{\numberline {5}Implementation}{15}
-\contentsline {section}{\numberline {5.1}Interfacing with Emotiv}{15}
-\contentsline {section}{\numberline {5.2}Scene description}{15}
-\contentsline {section}{\numberline {5.3}Interesting aspects of development}{15}
-\contentsline {chapter}{\numberline {6}Results and analysis}{16}
-\contentsline {chapter}{\numberline {7}Testing and evaluation}{17}
-\contentsline {section}{\numberline {7.1}User testing}{17}
-\contentsline {chapter}{\numberline {8}Conclusions}{18}
-\contentsline {section}{\numberline {8.1}Achievements}{18}
-\contentsline {section}{\numberline {8.2}Personal development}{18}
-\contentsline {section}{\numberline {8.3}Further work}{18}
-\contentsline {section}{\numberline {8.4}Summary}{18}
-\contentsline {chapter}{\numberline {}Bibliography}{19}
-\contentsline {chapter}{\numberline {A}Example of operation}{20}
-\contentsline {section}{\numberline {A.1}Example input and output}{20}
-\contentsline {subsection}{\numberline {A.1.1}Input}{20}
-\contentsline {subsection}{\numberline {A.1.2}Output}{20}
-\contentsline {subsection}{\numberline {A.1.3}Another way to include code}{20}
+\contentsline {chapter}{\numberline {3}Introducing the Emotiv EPOC}{12}
+\contentsline {section}{\numberline {3.1}SDK description}{12}
+\contentsline {subsubsection}{Expressiv\texttrademark Suite}{13}
+\contentsline {subsubsection}{Affectiv\texttrademark Suite}{14}
+\contentsline {subsubsection}{Cognitiv\texttrademark Suite}{14}
+\contentsline {subsubsection}{Mouse Emulator (Gyro)}{15}
+\contentsline {subsection}{\numberline {3.1.1}Caring for the headset}{15}
+\contentsline {subsection}{\numberline {3.1.2}Headset issues}{15}
+\contentsline {subsection}{\numberline {3.1.3}EmoComposer}{16}
+\contentsline {subsection}{\numberline {3.1.4}EmoKey}{16}
+\contentsline {section}{\numberline {3.2}Training}{16}
+\contentsline {section}{\numberline {3.3}Current Applications}{18}
+\contentsline {chapter}{\numberline {4}Design}{19}
+\contentsline {section}{\numberline {4.1}Overview}{19}
+\contentsline {section}{\numberline {4.2}Design Patterns}{19}
+\contentsline {chapter}{\numberline {5}Implementation}{20}
+\contentsline {section}{\numberline {5.1}Interfacing with Emotiv}{20}
+\contentsline {section}{\numberline {5.2}Scene description}{20}
+\contentsline {section}{\numberline {5.3}Interesting aspects of development}{20}
+\contentsline {chapter}{\numberline {6}Results and analysis}{21}
+\contentsline {chapter}{\numberline {7}Testing and evaluation}{22}
+\contentsline {section}{\numberline {7.1}User testing}{22}
+\contentsline {chapter}{\numberline {8}Conclusions}{23}
+\contentsline {section}{\numberline {8.1}Achievements}{23}
+\contentsline {section}{\numberline {8.2}Personal development}{23}
+\contentsline {section}{\numberline {8.3}Further work}{23}
+\contentsline {section}{\numberline {8.4}Summary}{23}
+\contentsline {chapter}{\numberline {}Bibliography}{24}
+\contentsline {chapter}{\numberline {A}Example of operation}{26}
+\contentsline {section}{\numberline {A.1}Example input and output}{26}
+\contentsline {subsection}{\numberline {A.1.1}Input}{26}
+\contentsline {subsection}{\numberline {A.1.2}Output}{26}
+\contentsline {subsection}{\numberline {A.1.3}Another way to include code}{26}
