@@ -56,20 +56,13 @@ All variables should be in italics to distinguish them from normal text
 
 To make them transparent you have to set the shader to Transparent/Speculative in my case and change alpha to 0
 
-
-provide a glossary : BCI, hypoxia, EEG
+CMS/DRL reference sensors 
+provide a glossary : BCI, hypoxia, EEG, P300
 page numbers
+capital letters in biography get turned into lowercase
 
-no eeg
-no gel
-describe suites
-gyro
-hydration
-take them out when on holiday
 damaged photo vs fine photo
 suites photos
-headset photo
-sensor positioning photo
 
 different user's skill levels
 
@@ -77,34 +70,18 @@ different user's skill levels
 
 At the time of this writing, the full application source code, source-level documentation, and executable binary are available for download at
 
+do we count words in tables?
+for forums, date is visited date or post published date?
+no stop. after figure caption?
+numbers: 6 or six?
+journal is mobiheld(conference) or ACM?
+misc/article or master/phd thesis?
+windows sdk only? is it also mac?
 
-
-
-
-
-
-http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642076 According to this, it seems it may be difficult to work with the headset in order to classify the EEG data because of the many sources of noise.
-
- The data sample rate, at 128Hz, is also far lower than in more powerful setups which sample at up to 1000Hz (Newman & Norman, 2010)�(Parra, Spence, Gerson, & Sajda, 2005).
-
- AffectivTM
+http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642076 
  
-Emotiv�s online application store offers a number of innovative EEG-powered programs built on these suites. EmoLens tags users� photos based on their emotions when viewing them.
-
- When a person�s eyes are closed, the EEG signals at the occipital electrodes (channels O1 and O2 on Emotiv) exhibit distinctive high-amplitude waves (Figure 23)�(Zhou, 2010). 
+Emotiv�s online application store offers a number of innovative EEG-powered programs built on these suites. EmoLens tags users� photos based on their emotions when viewing them. 
  
- Figure 24
- 
- 
- 
- BCI illiteracy solution:
- 
- One of the biggest challenges in BCI research is to understand and
-solve the problem of ‘BCI Illiteracy’, which is that BCI control does not work for a non-negligible
-portion of subjects (estimated 15% to 30%).
-
-a sophisticated adaptation
-scheme is presented which guides the user from an initial subject-independent classifier that operates
-on simple features to a subject-optimized state-of-the-art classifier within one session while the user
-interacts the whole time with the same feedback application and does not need to care about what is
-going on behind the scenes
+ wdiths:
+ 350 px - general photo
+ 400 px - screenshot window
