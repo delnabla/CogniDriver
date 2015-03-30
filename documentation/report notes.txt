@@ -77,7 +77,20 @@ numbers: 6 or six?
 journal is mobiheld(conference) or ACM?
 misc/article or master/phd thesis?
 windows sdk only? is it also mac?
-
+I feel like using 'we' most of the times when I write. is this fine? i tried to force myself to write 'I' during the report but I see Lloyd has been using 'we' as well in his report.
+is strategy pattern what i actually have?
+if (controlBy == "Keyboard")
+				CarUpdateFromKeyboard();	
+			else if (controlBy == "Cognitiv")
+				CarUpdateFromCognitiv();
+			else if (controlBy == "Gyro")
+				CarUpdateFromGyro();
+ CalculateClient minusClient = new CalculateClient(new Minus());
+ Response.Write("<br />Minus: " + minusClient.Calculate(7, 1).ToString());
+		http://en.wikipedia.org/wiki/Strategy_pattern
+very bad access modifiers
+		
+		
 http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642076 
  
 Emotiv�s online application store offers a number of innovative EEG-powered programs built on these suites. EmoLens tags users� photos based on their emotions when viewing them. 
@@ -85,3 +98,15 @@ Emotiv�s online application store offers a number of innovative EEG-powered pr
  wdiths:
  350 px - general photo
  400 px - screenshot window
+ 
+ 
+
+mvc?
+ 
+ strategy design pattern
+ 
+ 
+ 
+ improvements: check training is automatically dropped when signal is too poor; use the singleton design pattern. at least for the car class.; access modifiers
+ 
+ 

@@ -66,6 +66,12 @@ Minkyu~Ahn, Hohyun~Cho, S. A. S. C.~J. (2013).
 \newblock {\em PLoS ONE 8(11): e80886}.
 \newblock {doi:10.1371/journal.pone.0080886}.
 
+\bibitem[Monster, 2015]{carphysics}
+Monster, M. (2015).
+\newblock Car physics for games.
+\newblock
+  \url{http://www.asawicki.info/Mirror/Car%20Physics%20for%20Games/Car%20Physics%20for%20Games.html}.
+
 \bibitem[Ning-Han~Liu and Hsu, 2013]{musicEEG}
 Ning-Han~Liu, C.-Y.~C. and Hsu, H.-M. (2013).
 \newblock Improving driver alertness through music selection using a mobile eeg
@@ -92,5 +98,17 @@ Sam~Fok, Raphael~Schwartz, M. W. C. H. J. Z.-T. S. D. B. E.~L. (2011).
 Smirnoff (2013).
 \newblock Mindtunes.
 \newblock \url{https://www.youtube.com/watch?v=PgfxKZiSCDQ}.
+
+\bibitem[Studio, 2014]{walkerboys}
+Studio, W.~B. (2014).
+\newblock Unity tutorial.
+\newblock
+  \url{http://walkerboystudio.com/html/unity_course_start_here__free_.html}.
+
+\bibitem[Tutorials, 2014]{flattutorials}
+Tutorials, F. (2014).
+\newblock Unity car game tutorial.
+\newblock
+  \url{https://www.youtube.com/watch?v=c5Snsi68xzE&list=PL67XFC3MYQ6K0PXSad15xFrhxNL76r4Te}.
 
 \end{thebibliography}

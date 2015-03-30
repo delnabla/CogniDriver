@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  29 MAR 2015 23:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  31 MAR 2015 00:43
 entering extended mode
 **report.tex
 
@@ -601,15 +601,15 @@ ges/skillLevel.png>]) [18]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 4.tex
 Chapter 4.
-) [19
+[19
 
 
 
-]
+] [20]) [21]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 5.tex
 Chapter 5.
-) [20
+) [22
 
 
 
@@ -617,7 +617,7 @@ Chapter 5.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 6.tex
 Chapter 6.
-) [21
+) [23
 
 
 
@@ -625,7 +625,7 @@ Chapter 6.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 7.tex
 Chapter 7.
-) [22
+) [24
 
 
 
@@ -633,25 +633,37 @@ Chapter 7.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 8.tex
 Chapter 8.
-) [23
+) [25
 
 
 
 ]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\report.
 bbl
+Underfull \hbox (badness 2460) in paragraph at lines 70--74
+[]\OT1/ptm/m/n/12 Monster, M. (2015).  Car physics for games.  $\OT1/pcr/m/n/12
+ http : / / www .$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--74
+$\OT1/pcr/m/n/12 asawicki . info / Mirror / Car % 20Physics % 20for % 20Games /
+ Car % 20Physics %$
+ []
+
+[26
+
+
+]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
- [24
-
-
-]) [25]
+) [27]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x1.tex
 Appendix A.
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 10.79993pt on input line 11.
-) [26
+) [28
 
 
 ]
@@ -680,10 +692,10 @@ ux)
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x1.aux)) ) 
 Here is how much of TeX's memory you used:
- 4384 strings out of 493921
- 64068 string characters out of 3146477
- 128058 words of memory out of 3000000
- 7510 multiletter control sequences out of 15000+200000
+ 4387 strings out of 493921
+ 64107 string characters out of 3146477
+ 128104 words of memory out of 3000000
+ 7513 multiletter control sequences out of 15000+200000
  40026 words of font info for 70 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  41i,17n,43p,1407b,339s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -695,9 +707,9 @@ fonts/type1/urw/helvetic/uhvr8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/
 urw/times/utmb8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8
 a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/Progr
 am Files (x86)/miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (27 pages, 2522715 bytes).
+Output written on report.pdf (29 pages, 2537366 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
+ 151 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
