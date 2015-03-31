@@ -89,6 +89,7 @@ if (controlBy == "Keyboard")
  Response.Write("<br />Minus: " + minusClient.Calculate(7, 1).ToString());
 		http://en.wikipedia.org/wiki/Strategy_pattern
 very bad access modifiers
+a use case diagram might make more sense. sargeant says it's useless without use case descriptions.
 		
 		
 http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642076 
@@ -98,15 +99,10 @@ Emotiv�s online application store offers a number of innovative EEG-powered pr
  wdiths:
  350 px - general photo
  400 px - screenshot window
- 
+
  
 
-mvc?
  
- strategy design pattern
- 
- 
- 
- improvements: check training is automatically dropped when signal is too poor; use the singleton design pattern. at least for the car class.; access modifiers
+ improvements: check training is automatically dropped when signal is too poor; use the singleton design pattern. at least for the car class.; access modifiers;better names
  
  

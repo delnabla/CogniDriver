@@ -4,9 +4,11 @@
 This chapter describes the design decisions taken in this project and how these work towards achieving the aims described in chapter \ref{cha:intro}.
 
 \section{Overview}
-As a methodology used during the project, I have followed the Agile Unified Process. This decision was taken because the process is iterative and it allows the user to be flexible if circumstances change.
+As a methodology used during the project, I have followed the Agile Unified Process. This decision was taken because the process is iterative and it allows the user to be flexible if circumstances change. Agile UP also focuses on producing working code over comprehensive documentation.
 
 For splitting the tasks, I have been using \url{http://trello.com}, a free project management tool which allows you to have virtual boards and cards for each task, making it a virtual Kanban system.
+
+For producing the UML diagrams, I have used \url{http://www.gliffy.com/}, an online tool which allows the user to create 5 diagrams for free.
 
 \subsection{Project workflow}
 The project has consisted of 4 phases:
@@ -48,7 +50,16 @@ The Model-view-controller architecture has been used with the purpose of separat
 
 \section{Design Patterns}
 
-\paragraph{Abstract Factory} has been used to create cars from the abstract \texttt{Car} class. \texttt{AudiR8} and \texttt{FerrariCalifornia} are thus inheriting from \texttt{Car}. See Appendix for the UML class diagram.
+\textbf{Abstract Factory} has been used to create cars from the abstract \texttt{Car} class. \texttt{AudiR8} and \texttt{FerrariCalifornia} are thus inheriting from \texttt{Car}. See figure \ref{fig:classDiagram} for the UML class diagram.
 
-\paragraph{Strategy} is used to decide which car control options to follow depending on the game play mode: Keyboard, Cognitiv or Gyro. It is also used in the car model choice.
+\textbf{Strategy} is used to decide which car control options to follow depending on the game play mode: Keyboard, Cognitiv or Gyro. It is also used in the car model choice.
 
+\begin{landscape}
+\pagestyle{plain}
+\begin{figure}
+  \centering
+  \includegraphics[width=750px]{CogniDriverDomainClassDiagram.png}
+  \caption{Domain class diagram for CogniDriver. The instance variables have been omitted for simplification.}
+    \label{fig:classDiagram}           
+\end{figure}
+\end{landscape}

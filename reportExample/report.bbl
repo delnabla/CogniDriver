@@ -1,7 +1,13 @@
 \begin{thebibliography}{}
 
-\bibitem[emo, 2014]{emotivUserManual}
- (2014).
+\bibitem[emo, 2014a]{emotivSDKUserManual}
+ (2014a).
+\newblock {\em Emotiv Sofware Development Kit User Manual for Release
+  2.0.0.20}.
+\newblock Emotiv.
+
+\bibitem[emo, 2014b]{emotivUserManual}
+ (2014b).
 \newblock {\em EPOC User Manual}.
 \newblock Emotiv.
 
