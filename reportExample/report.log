@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  31 MAR 2015 20:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  1 APR 2015 19:39
 entering extended mode
 **report.tex
 
@@ -666,19 +666,58 @@ o-tiv pro-vides in edk.dll.'[[]]
 File: images/sceneInteraction.png Graphic file (type png)
 
 <use images/sceneInteraction.png>
-Package pdftex.def Info: images/sceneInteraction.png used on input line 130.
+Package pdftex.def Info: images/sceneInteraction.png used on input line 127.
 (pdftex.def)             Requested size: 451.68915pt x 219.99524pt.
 
-Overfull \hbox (24.25761pt too wide) in paragraph at lines 130--131
+Overfull \hbox (24.25761pt too wide) in paragraph at lines 127--128
  [][] 
  []
 
-[26] [27 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExampl
-e/images/sceneInteraction.png>]) [28]
+<images/carchoicescene.png, id=117, 821.31844pt x 442.65375pt>
+File: images/carchoicescene.png Graphic file (type png)
+
+<use images/carchoicescene.png>
+Package pdftex.def Info: images/carchoicescene.png used on input line 137.
+(pdftex.def)             Requested size: 401.50146pt x 216.38889pt.
+ [26] [27 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExamp
+le/images/sceneInteraction.png> <C:/Users/blabla/Documents/GitHub/mindControl/m
+indControl/reportExample/images/carchoicescene.png>] <images/mainmenuscene.png,
+ id=125, 824.32968pt x 445.665pt>
+File: images/mainmenuscene.png Graphic file (type png)
+
+<use images/mainmenuscene.png>
+Package pdftex.def Info: images/mainmenuscene.png used on input line 161.
+(pdftex.def)             Requested size: 401.50146pt x 217.0653pt.
+
+<images/mainscene.png, id=126, 822.07124pt x 444.15938pt>
+File: images/mainscene.png Graphic file (type png)
+
+<use images/mainscene.png>
+Package pdftex.def Info: images/mainscene.png used on input line 171.
+(pdftex.def)             Requested size: 401.50146pt x 216.92838pt.
+
+<images/splashscreen.png, id=127, 601.4972pt x 243.91125pt>
+File: images/splashscreen.png Graphic file (type png)
+
+<use images/splashscreen.png>
+Package pdftex.def Info: images/splashscreen.png used on input line 181.
+(pdftex.def)             Requested size: 401.50146pt x 162.81674pt.
+ [28 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
+ages/mainmenuscene.png>]
+<images/trainingscene.png, id=131, 820.56563pt x 436.63126pt>
+File: images/trainingscene.png Graphic file (type png)
+
+<use images/trainingscene.png>
+Package pdftex.def Info: images/trainingscene.png used on input line 191.
+(pdftex.def)             Requested size: 401.50146pt x 213.63805pt.
+ [29 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
+ages/mainscene.png> <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/r
+eportExample/images/splashscreen.png>] [30 <C:/Users/blabla/Documents/GitHub/mi
+ndControl/mindControl/reportExample/images/trainingscene.png>]) [31]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 6.tex
 Chapter 6.
-) [29
+) [32
 
 
 
@@ -686,7 +725,7 @@ Chapter 6.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 7.tex
 Chapter 7.
-) [30
+) [33
 
 
 
@@ -694,7 +733,7 @@ Chapter 7.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 8.tex
 Chapter 8.
-) [31
+) [34
 
 
 
@@ -712,17 +751,17 @@ $\OT1/pcr/m/n/12 asawicki . info / Mirror / Car % 20Physics % 20for % 20Games /
  Car % 20Physics %$
  []
 
-[32
+[35
 
 
 ]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
-) [33]
+) [36]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x1.tex
 Appendix A.
-) [34
+) [37
 
 
 ]
@@ -751,13 +790,13 @@ ux)
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x1.aux)) ) 
 Here is how much of TeX's memory you used:
- 4811 strings out of 493921
- 71270 string characters out of 3146477
- 136585 words of memory out of 3000000
- 7920 multiletter control sequences out of 15000+200000
+ 4842 strings out of 493921
+ 72021 string characters out of 3146477
+ 136635 words of memory out of 3000000
+ 7946 multiletter control sequences out of 15000+200000
  36681 words of font info for 66 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 41i,17n,43p,1407b,379s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,17n,43p,1425b,367s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/Program Files (x86)/miktex/fonts/enc/dvips/fontname/8r.enc}<D:/Pr
 ogram Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program 
 Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files 
@@ -765,9 +804,9 @@ Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files
 fonts/type1/urw/times/utmb8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw
 /times/utmr8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8a.p
 fb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (35 pages, 2627889 bytes).
+Output written on report.pdf (38 pages, 4779802 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
+ 187 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -90,7 +90,7 @@ if (controlBy == "Keyboard")
 		http://en.wikipedia.org/wiki/Strategy_pattern
 very bad access modifiers
 a use case diagram might make more sense. sargeant says it's useless without use case descriptions.
-		
+logbook helped
 		
 http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642076 
  
@@ -104,5 +104,5 @@ Emotiv�s online application store offers a number of innovative EEG-powered pr
 
  
  improvements: check training is automatically dropped when signal is too poor; use the singleton design pattern. at least for the car class.; access modifiers;better names
- 
+ learnt: order of things in update function does matter.
  
