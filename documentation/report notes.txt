@@ -74,17 +74,19 @@ do we count words in tables?
 for forums, date is visited date or post published date?
 no stop. after figure caption?
 numbers: 6 or six?
+
 journal is mobiheld(conference) or ACM?
 misc/article or master/phd thesis?
+
 windows sdk only? is it also mac?
 I feel like using 'we' most of the times when I write. is this fine? i tried to force myself to write 'I' during the report but I see Lloyd has been using 'we' as well in his report.
 is strategy pattern what i actually have?
 if (controlBy == "Keyboard")
-				CarUpdateFromKeyboard();	
-			else if (controlBy == "Cognitiv")
-				CarUpdateFromCognitiv();
-			else if (controlBy == "Gyro")
-				CarUpdateFromGyro();
+	CarUpdateFromKeyboard();	
+else if (controlBy == "Cognitiv")
+	CarUpdateFromCognitiv();
+else if (controlBy == "Gyro")
+	CarUpdateFromGyro();
  CalculateClient minusClient = new CalculateClient(new Minus());
  Response.Write("<br />Minus: " + minusClient.Calculate(7, 1).ToString());
 		http://en.wikipedia.org/wiki/Strategy_pattern
