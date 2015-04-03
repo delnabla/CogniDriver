@@ -57,7 +57,7 @@ All variables should be in italics to distinguish them from normal text
 To make them transparent you have to set the shader to Transparent/Speculative in my case and change alpha to 0
 
 CMS/DRL reference sensors 
-provide a glossary : BCI, hypoxia, EEG, P300
+provide a glossary : BCI, hypoxia, EEG, P300, collider
 page numbers
 capital letters in biography get turned into lowercase
 
@@ -108,3 +108,4 @@ Emotiv�s online application store offers a number of innovative EEG-powered pr
  improvements: check training is automatically dropped when signal is too poor; use the singleton design pattern. at least for the car class.; access modifiers;better names
  learnt: order of things in update function does matter.
  
+ images of other user profiles training skill

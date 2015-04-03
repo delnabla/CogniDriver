@@ -66,6 +66,18 @@ while executing---line 1020 of file apalike.bst
 Too many commas in name 1 of "Francesco Carrino, Joel Dumoulin, Elena Mugellini, Omar Abou Khaled, Rolf Ingold" for entry wheelchairEEG
 while executing---line 1020 of file apalike.bst
 Warning--to sort, need author or key in emotivSDKUserManual
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1020 of file apalike.bst
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1020 of file apalike.bst
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1020 of file apalike.bst
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1020 of file apalike.bst
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1020 of file apalike.bst
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1020 of file apalike.bst
 Name 1 in "Andrew T. Campbell, Tanzeem Choudhury, Shaohan Hu, Hong Lu, Matthew K. Mukerjee, Mashfiqui Rabbi, and Rajeev D. S. Raizada" has a comma at the end for entry neurophone
 while executing---line 1095 of file apalike.bst
 Too many commas in name 1 of "Andrew T. Campbell, Tanzeem Choudhury, Shaohan Hu, Hong Lu, Matthew K. Mukerjee, Mashfiqui Rabbi, and Rajeev D. S. Raizada" for entry neurophone
@@ -92,4 +104,11 @@ Too many commas in name 1 of "Sam Fok, Raphael Schwartz, Mark Wronkiewicz, Charl
 while executing---line 1095 of file apalike.bst
 Too many commas in name 1 of "Sam Fok, Raphael Schwartz, Mark Wronkiewicz, Charles Holmes, Jessica Zhang, Thane Somers, David Bundy, Eric Leuthardt" for entry handOrthotic
 while executing---line 1095 of file apalike.bst
-(There were 39 error messages)
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1095 of file apalike.bst
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1095 of file apalike.bst
+Too many commas in name 1 of "Shinji Nishimoto, An T. Vu, Thomas Naselaris, Yuval Benjamini, Bin Yu, Jack L. Gallant" for entry moviebrain
+while executing---line 1095 of file apalike.bst
+Warning--there's a number but no volume in moviebrain
+(There were 48 error messages)

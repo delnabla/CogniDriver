@@ -54,14 +54,13 @@
 \contentsline {section}{\numberline {6.1}Observations}{32}
 \contentsline {section}{\numberline {6.2}NASA TLX results}{33}
 \contentsline {section}{\numberline {6.3}Analysis of user questionnaire answers}{33}
-\contentsline {section}{\numberline {6.4}Good points about the game}{33}
-\contentsline {section}{\numberline {6.5}Bad points about the game}{33}
-\contentsline {section}{\numberline {6.6}What should be improved?}{33}
-\contentsline {section}{\numberline {6.7}What has been implemented?}{33}
-\contentsline {chapter}{\numberline {7}Conclusions}{34}
-\contentsline {section}{\numberline {7.1}Achievements}{34}
-\contentsline {section}{\numberline {7.2}Personal development}{34}
-\contentsline {section}{\numberline {7.3}Further work}{34}
-\contentsline {section}{\numberline {7.4}Summary}{34}
-\contentsline {chapter}{\numberline {}Bibliography}{35}
-\contentsline {chapter}{\numberline {A}CogniDriver - User Study}{37}
+\contentsline {section}{\numberline {6.4}Good points about the game}{34}
+\contentsline {section}{\numberline {6.5}Bad points about the game}{34}
+\contentsline {section}{\numberline {6.6}What should be improved and what has been implemented?}{35}
+\contentsline {chapter}{\numberline {7}Conclusions}{36}
+\contentsline {section}{\numberline {7.1}Achievements}{36}
+\contentsline {section}{\numberline {7.2}Personal development}{36}
+\contentsline {section}{\numberline {7.3}Further work}{36}
+\contentsline {section}{\numberline {7.4}Summary}{36}
+\contentsline {chapter}{\numberline {}Bibliography}{37}
+\contentsline {chapter}{\numberline {A}CogniDriver - User Study}{39}

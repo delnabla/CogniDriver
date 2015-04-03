@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  2 APR 2015 18:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  3 APR 2015 19:17
 entering extended mode
 **report.tex
 
@@ -993,15 +993,18 @@ Chapter 6.
 
 
 
-]
+] [33] [34] <images/ohno.png, id=154, 301.8778pt x 82.05656pt>
+File: images/ohno.png Graphic file (type png)
 
-LaTeX Warning: Citation `nasatlx' on page 33 undefined on input line 19.
-
-) [33]
+<use images/ohno.png>
+Package pdftex.def Info: images/ohno.png used on input line 72.
+(pdftex.def)             Requested size: 301.1261pt x 81.85225pt.
+) [35 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/i
+mages/ohno.png>]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 7.tex
 Chapter 7.
-) [34
+) [36
 
 
 
@@ -1021,7 +1024,7 @@ $\OT1/pcr/m/n/12 asawicki . info / Mirror / Car % 20Physics % 20for % 20Games /
  Car % 20Physics %$
  []
 
-[35
+[37
 
 
 
@@ -1029,7 +1032,7 @@ $\OT1/pcr/m/n/12 asawicki . info / Mirror / Car % 20Physics % 20for % 20Games /
 ]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
-) [36]
+) [38]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x1.tex
 Appendix A.
@@ -1053,7 +1056,7 @@ Overfull \hbox (30.07458pt too wide) in paragraph at lines 31--32
  []|[]| 
  []
 
-[37
+[39
 
 
 ]
@@ -1076,12 +1079,12 @@ Overfull \hbox (28.21236pt too wide) in paragraph at lines 60--61
 [][] 
  []
 
-[38])
+[40])
 Overfull \hbox (28.21236pt too wide) in paragraph at lines 65--121
 [][] 
  []
 
-[39]
+[41]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\report.
 aux
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\abstrac
@@ -1105,29 +1108,25 @@ ux)
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 8.aux)
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
-x1.aux))
-
-LaTeX Warning: There were undefined references.
-
- ) 
+x1.aux)) ) 
 Here is how much of TeX's memory you used:
- 14154 strings out of 493921
- 275126 string characters out of 3146477
- 308827 words of memory out of 3000000
- 17058 multiletter control sequences out of 15000+200000
+ 14161 strings out of 493921
+ 275235 string characters out of 3146477
+ 308880 words of memory out of 3000000
+ 17064 multiletter control sequences out of 15000+200000
  36681 words of font info for 66 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  55i,19n,54p,1425b,368s stack positions out of 5000i,500n,10000p,200000b,50000s
-{D:/Program Files (x86)/miktex/fonts/enc/dvips/fontname/8r.enc}<D:/Program Fi
-les (x86)/miktex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program Files (x
-86)/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files (x86)/mi
-ktex/fonts/type1/urw/courier/ucrr8a.pfb><D:/Program Files (x86)/miktex/fonts/ty
-pe1/urw/times/utmb8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/u
-tmr8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/P
-rogram Files (x86)/miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (40 pages, 4817769 bytes).
+{D:/Program Files (x86)/miktex/fonts/enc/dvips/fontname/8r.enc}<D:/Pr
+ogram Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program 
+Files (x86)/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files 
+(x86)/miktex/fonts/type1/urw/courier/ucrr8a.pfb><D:/Program Files (x86)/miktex/
+fonts/type1/urw/times/utmb8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw
+/times/utmr8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8a.p
+fb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (42 pages, 4852623 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
+ 203 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 108 words of extra memory for PDF output out of 10000 (max. 10000000)
 

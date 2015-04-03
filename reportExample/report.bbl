@@ -100,6 +100,13 @@ Sam~Fok, Raphael~Schwartz, M. W. C. H. J. Z.-T. S. D. B. E.~L. (2011).
   International Conference of the IEEE}.
 \newblock {doi: 10.1109/IEMBS.2011.6091549}.
 
+\bibitem[Shinji~Nishimoto, 2011]{moviebrain}
+Shinji~Nishimoto, An T.~Vu, T. N. Y. B. B. Y. J. L.~G. (2011).
+\newblock Reconstructing visual experiences from brain activity evoked by
+  natural movies.
+\newblock {\em Current Biology}, (21):1641--1646.
+\newblock {doi: http://dx.doi.org/10.1016/j.cub.2011.08.031}.
+
 \bibitem[Smirnoff, 2013]{mindtunes}
 Smirnoff (2013).
 \newblock Mindtunes.
@@ -116,5 +123,10 @@ Tutorials, F. (2014).
 \newblock Unity car game tutorial.
 \newblock
   \url{https://www.youtube.com/watch?v=c5Snsi68xzE&list=PL67XFC3MYQ6K0PXSad15xFrhxNL76r4Te}.
+
+\bibitem[Vertanen, 2010]{nasatlx}
+Vertanen, K. (2010).
+\newblock Nasa tlx test.
+\newblock \url{http://www.keithv.com/software/nasatlx/nasatlx.html}.
 
 \end{thebibliography}
