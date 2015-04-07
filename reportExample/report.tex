@@ -20,6 +20,36 @@
 \usepackage{pdflscape}
 \usepackage{fancyvrb}
 \usepackage{tikz}
+\usepackage[xindy,toc]{glossaries}
+
+\makeglossaries
+
+\newglossaryentry{bci}
+{
+    name=BCI,
+    description={Brain Computer Interface}
+}
+\newglossaryentry{eeg}
+{
+    name=EEG,
+    description={Electroencephalography}
+}
+\newglossaryentry{P300}
+{
+    name=P300,
+    description={The P300 is a detectable peak in activity that appears approximately 300ms
+after some infrequent stimuli \cite{hons1201}}
+}
+\newglossaryentry{hypoxia}
+{
+    name=hypoxia,
+    description={The body or a region of the body is deprived of adequate oxygen supply}
+}
+\newglossaryentry{collider}
+{
+    name=collider,
+    description={An invisible object that is used either as a barrier to stop another object from going through it or which is used as a trigger to detect whether another object has reached that point}
+}
 
 %% This defines the title (the \\ forces a line break)
 \title{CogniDriver}
@@ -119,4 +149,7 @@
 %% Appendices start here
 \appendix
 \include{appendix1}
+
+\printglossary
+
 \end{document}

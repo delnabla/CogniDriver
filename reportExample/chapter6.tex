@@ -57,7 +57,7 @@ Some considered it would have been useful to see the brainwaves for each channel
 
 The training process requires concentration and it can take a long time. Some people were disturbed by the amount of clicking going on in order to start training, accept or reject it and then start again. It also got the participant distracted and it was breaking the concentration level. Sometimes, I would do the clicking for the participant so I could catch the events when the object was really being moved. Complaints were received regarding the training as being too stressful, frustrating and not rewarding. The amount of clicking, although disliked by many, is not something which could be changed since the training process can vary in duration. It was suggested that an approach to this might be to automatically accept a training if it meets some set guidelines but then the participant is quite out of control of the process. In addition, it might make the movement more difficult to control.
 
-Some invisible colliders from around the mountains were slightly touching the road side. This has now been fixed.
+Some invisible \glspl{collider} from around the mountains were slightly touching the road side. This has now been fixed.
 
 The driver seat view was not always enjoyable, especially when the sensor contact quality was not perfect and the blink would be mistaken for a left wink which would then cause the camera view to change.
 
@@ -65,7 +65,7 @@ The driver seat view was not always enjoyable, especially when the sensor contac
 \label{section:implemented}
 It has been suggested by more than a half of the participants that training would be easier if it was done with a car object rather than a cube as this made them more properly visualise the action. It also made it easier to activate an action while playing the game. This has been implemented.
 
-Checkpoints were another suggestion so that players could be stopped from cheating and taking a short route to the finish line. This has been implemented with the help of invisible colliders which were being triggered when the car would pass through them. A total of 17 checkpoints have been inserted. At the finish line, if the number of checkpoints the player has been through is different than 17, the message in figure \ref{fig:ohno} will appear, giving the option to restart the game.
+Checkpoints were another suggestion so that players could be stopped from cheating and taking a short route to the finish line. This has been implemented with the help of invisible \glspl{collider} which were being triggered when the car would pass through them. A total of 17 checkpoints have been inserted. At the finish line, if the number of checkpoints the player has been through is different than 17, the message in figure \ref{fig:ohno} will appear, giving the option to restart the game.
 
 \begin{figure}
   \centering
@@ -83,3 +83,5 @@ There used to be a quite annoying reverse sound which was suggested to be remove
 There used to be no way of restarting the race from the keyboard. This is now done when the player is pressing the 'R' key. Also, using 'T' will make the car respawn at the last checkpoint it has been through just in case the player gets lost around the environment. It is not something that should happen too often, but it might occur.
 
 The things which have not been implemented had to do with not having access to the raw EEG data or them simply not being feasible or important.
+
+From a talk after the testing session was complete, it was suggested it would be good to give the car different speeds on grass and road. This has been implemented. The car accelerates about 2 times slower when it gets on the grass area.

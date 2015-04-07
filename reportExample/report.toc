@@ -58,9 +58,7 @@
 \contentsline {section}{\numberline {6.5}Bad points about the game}{34}
 \contentsline {section}{\numberline {6.6}What should be improved and what has been implemented?}{35}
 \contentsline {chapter}{\numberline {7}Conclusions}{36}
-\contentsline {section}{\numberline {7.1}Achievements}{36}
-\contentsline {section}{\numberline {7.2}Personal development}{36}
-\contentsline {section}{\numberline {7.3}Further work}{36}
-\contentsline {section}{\numberline {7.4}Summary}{36}
-\contentsline {chapter}{\numberline {}Bibliography}{37}
-\contentsline {chapter}{\numberline {A}CogniDriver - User Study}{39}
+\contentsline {section}{\numberline {7.1}Personal development}{36}
+\contentsline {section}{\numberline {7.2}Summary}{36}
+\contentsline {chapter}{\numberline {}Bibliography}{38}
+\contentsline {chapter}{\numberline {A}CogniDriver - User Study}{40}
