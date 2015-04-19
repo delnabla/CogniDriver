@@ -54,7 +54,7 @@ All variables should be in italics to distinguish them from normal text
 
 
 
-To make them transparent you have to set the shader to Transparent/Speculative in my case and change alpha to 0
+
 
 CMS/DRL reference sensors 
 
@@ -64,39 +64,16 @@ capital letters in biography get turned into lowercase
 damaged photo vs fine photo
 suites photos
 
-different user's skill levels
-
-3d objects credit
-
-At the time of this writing, the full application source code, source-level documentation, and executable binary are available for download at
-
-do we count words in tables?
-for forums, date is visited date or post published date?
-no stop. after figure caption?
-numbers: 6 or six?
-
-journal is mobiheld(conference) or ACM?
-misc/article or master/phd thesis?
-
-windows sdk only? is it also mac?
-I feel like using 'we' most of the times when I write. is this fine? i tried to force myself to write 'I' during the report but I see Lloyd has been using 'we' as well in his report.
-is strategy pattern what i actually have?
-if (controlBy == "Keyboard")
-	CarUpdateFromKeyboard();	
-else if (controlBy == "Cognitiv")
-	CarUpdateFromCognitiv();
-else if (controlBy == "Gyro")
-	CarUpdateFromGyro();
- CalculateClient minusClient = new CalculateClient(new Minus());
- Response.Write("<br />Minus: " + minusClient.Calculate(7, 1).ToString());
-		http://en.wikipedia.org/wiki/Strategy_pattern
-very bad access modifiers
-a use case diagram might make more sense. sargeant says it's useless without use case descriptions.
-logbook helped
 		
 http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642076 
  
 Emotiv�s online application store offers a number of innovative EEG-powered programs built on these suites. EmoLens tags users� photos based on their emotions when viewing them. 
+
+
+
+
+
+
  
  wdiths:
  350 px - general photo
@@ -104,7 +81,16 @@ Emotiv�s online application store offers a number of innovative EEG-powered pr
  
 
 
- 
- 
- images of other user profiles training skill
- 
+To make them transparent you have to set the shader to Transparent/Speculative in my case and change alpha to 0
+
+different user's skill levels
+
+
+Figure 3.3 left looks out of focus.
+
+1. expressiv suite page 15 section 3.1
+2. affective suite
+3. mouse emulator
+4. 5. oxidised pics section 3.3
+
+proofread

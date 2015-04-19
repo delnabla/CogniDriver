@@ -36,6 +36,14 @@ Carmen~Vidaurre, B.~B. (2009).
 \newblock {\em BMC Neuroscience}.
 \newblock {doi:10.1186/1471-2202-10-S1-P85}.
 
+\bibitem[Choon Guan~Lim, 2012]{adhd}
+Choon Guan~Lim, Tih Shih~Lee, C. G. D. S. S. F. Y. Z. S. S. W. T. H. Z. K. R.
+  R.~K. (2012).
+\newblock A brain-computer interface based attention training program for
+  treating attention deficit hyperactivity disorder.
+\newblock {\em PLoS ONE 7(10): e46692}.
+\newblock {doi: 10.1371/journal.pone.0046692}.
+
 \bibitem[Emotiv, 2015a]{refSensors1}
 Emotiv (2015a).
 \newblock Emotiv reference sensors.
@@ -65,6 +73,11 @@ Inc., A.~T. (2010).
 \newblock Emolens.
 \newblock \url{https://www.youtube.com/watch?v=E9_XZlHoSp0}.
 
+\bibitem[Lang, 2012]{hons1201}
+Lang, M. (2012).
+\newblock Investigating the emotiv epoc for cognitive control in limited
+  training time.
+
 \bibitem[Minkyu~Ahn, 2013]{BCIilliteracy}
 Minkyu~Ahn, Hohyun~Cho, S. A. S. C.~J. (2013).
 \newblock High theta and low alpha powers may be indicative of bci-illiteracy
@@ -77,6 +90,11 @@ Monster, M. (2015).
 \newblock Car physics for games.
 \newblock
   \url{http://www.asawicki.info/Mirror/Car%20Physics%20for%20Games/Car%20Physics%20for%20Games.html}.
+
+\bibitem[Murray, 2014]{jmurray}
+Murray, J.~W. (2014).
+\newblock {\em C\# Game Programming Cookbook for Unity 3D}.
+\newblock CRC Press.
 
 \bibitem[Ning-Han~Liu and Hsu, 2013]{musicEEG}
 Ning-Han~Liu, C.-Y.~C. and Hsu, H.-M. (2013).
@@ -124,9 +142,19 @@ Tutorials, F. (2014).
 \newblock
   \url{https://www.youtube.com/watch?v=c5Snsi68xzE&list=PL67XFC3MYQ6K0PXSad15xFrhxNL76r4Te}.
 
+\bibitem[Unity, 2015]{assassins}
+Unity (2015).
+\newblock Unity game list.
+\newblock \url{https://unity3d.com/gallery/made-with-unity/game-list/profile}.
+
 \bibitem[Vertanen, 2010]{nasatlx}
 Vertanen, K. (2010).
 \newblock Nasa tlx test.
 \newblock \url{http://www.keithv.com/software/nasatlx/nasatlx.html}.
+
+\bibitem[Wikipedia, 2015]{battlestar}
+Wikipedia (2015).
+\newblock Battlestar galactica online.
+\newblock \url{http://en.wikipedia.org/wiki/Battlestar_Galactica_Online}.
 
 \end{thebibliography}

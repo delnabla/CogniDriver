@@ -1,64 +1,65 @@
-\contentsline {chapter}{\numberline {1}Introduction}{7}
-\contentsline {section}{\numberline {1.1}Applications}{7}
-\contentsline {section}{\numberline {1.2}Aims and objectives}{7}
-\contentsline {section}{\numberline {1.3}Report outline}{8}
-\contentsline {chapter}{\numberline {2}Background}{9}
-\contentsline {section}{\numberline {2.1}Development tools}{9}
-\contentsline {subsection}{\numberline {2.1.1}Unity}{9}
-\contentsline {subsection}{\numberline {2.1.2}Easy Roads 3D}{10}
-\contentsline {subsection}{\numberline {2.1.3}Photoshop}{10}
-\contentsline {section}{\numberline {2.2}Electroencephalography (EEG)}{10}
-\contentsline {chapter}{\numberline {3}Introducing the Emotiv EPOC}{12}
-\contentsline {section}{\numberline {3.1}SDK description}{12}
-\contentsline {subsubsection}{Expressiv\texttrademark Suite}{13}
-\contentsline {subsubsection}{Affectiv\texttrademark Suite}{14}
-\contentsline {subsubsection}{Cognitiv\texttrademark Suite}{14}
-\contentsline {subsubsection}{Mouse Emulator (Gyro)}{15}
-\contentsline {subsection}{\numberline {3.1.1}Caring for the headset}{15}
-\contentsline {subsection}{\numberline {3.1.2}Headset issues}{15}
-\contentsline {subsection}{\numberline {3.1.3}EmoComposer}{16}
-\contentsline {subsection}{\numberline {3.1.4}EmoKey}{16}
-\contentsline {section}{\numberline {3.2}Training}{16}
-\contentsline {section}{\numberline {3.3}Current Applications}{18}
-\contentsline {chapter}{\numberline {4}Design}{19}
-\contentsline {section}{\numberline {4.1}Overview}{19}
-\contentsline {subsection}{\numberline {4.1.1}Project workflow}{19}
-\contentsline {subsection}{\numberline {4.1.2}Requirements}{20}
-\contentsline {subsubsection}{Functional requirements}{20}
-\contentsline {subsubsection}{Non-functional requirements}{20}
-\contentsline {subsection}{\numberline {4.1.3}Separation of concerns}{21}
-\contentsline {section}{\numberline {4.2}Design Patterns}{21}
-\contentsline {chapter}{\numberline {5}Implementation}{23}
-\contentsline {section}{\numberline {5.1}Interfacing with Emotiv}{23}
-\contentsline {subsection}{\numberline {5.1.1}EdkDll}{23}
-\contentsline {subsection}{\numberline {5.1.2}EmoAffectiv}{23}
-\contentsline {subsection}{\numberline {5.1.3}EmoCognitiv}{24}
-\contentsline {subsection}{\numberline {5.1.4}EmoEngine}{24}
-\contentsline {subsection}{\numberline {5.1.5}EmoEngineInst}{24}
-\contentsline {subsection}{\numberline {5.1.6}EmoExpressiv}{24}
-\contentsline {subsection}{\numberline {5.1.7}EmoGyroData}{25}
-\contentsline {subsection}{\numberline {5.1.8}EmoProfileManagement}{25}
-\contentsline {subsection}{\numberline {5.1.9}EmoState}{26}
-\contentsline {subsection}{\numberline {5.1.10}EmoUserManagement}{26}
-\contentsline {subsection}{\numberline {5.1.11}LabelDraw}{26}
-\contentsline {section}{\numberline {5.2}Scene description}{26}
-\contentsline {subsection}{\numberline {5.2.1}CarChoiceScene}{26}
-\contentsline {subsection}{\numberline {5.2.2}HelpScene}{28}
-\contentsline {subsection}{\numberline {5.2.3}MainMenu}{28}
-\contentsline {subsection}{\numberline {5.2.4}MainScene}{28}
-\contentsline {subsection}{\numberline {5.2.5}SplashScreen}{29}
-\contentsline {subsection}{\numberline {5.2.6}TrainingScene}{29}
-\contentsline {section}{\numberline {5.3}Notes}{30}
-\contentsline {subsection}{\numberline {5.3.1}Gyro mode}{31}
-\contentsline {chapter}{\numberline {6}Testing and evaluation}{32}
-\contentsline {section}{\numberline {6.1}Observations}{32}
-\contentsline {section}{\numberline {6.2}NASA TLX results}{33}
-\contentsline {section}{\numberline {6.3}Analysis of user questionnaire answers}{33}
-\contentsline {section}{\numberline {6.4}Good points about the game}{34}
-\contentsline {section}{\numberline {6.5}Bad points about the game}{34}
-\contentsline {section}{\numberline {6.6}What should be improved and what has been implemented?}{35}
-\contentsline {chapter}{\numberline {7}Conclusions}{36}
-\contentsline {section}{\numberline {7.1}Personal development}{36}
-\contentsline {section}{\numberline {7.2}Summary}{36}
-\contentsline {chapter}{\numberline {}Bibliography}{38}
-\contentsline {chapter}{\numberline {A}CogniDriver - User Study}{40}
+\contentsline {chapter}{\numberline {1}Introduction}{7}{chapter.1}
+\contentsline {section}{\numberline {1.1}Applications}{7}{section.1.1}
+\contentsline {section}{\numberline {1.2}Aims and objectives}{7}{section.1.2}
+\contentsline {section}{\numberline {1.3}Report outline}{8}{section.1.3}
+\contentsline {chapter}{\numberline {2}Background}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Development tools}{9}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Unity}{9}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Easy Roads 3D}{10}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Photoshop}{10}{subsection.2.1.3}
+\contentsline {section}{\numberline {2.2}Electroencephalography (EEG)}{10}{section.2.2}
+\contentsline {chapter}{\numberline {3}Introducing the Emotiv EPOC}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}SDK description}{12}{section.3.1}
+\contentsline {subsubsection}{Expressiv\texttrademark Suite}{13}{section*.8}
+\contentsline {subsubsection}{Affectiv\texttrademark Suite}{14}{section*.10}
+\contentsline {subsubsection}{Cognitiv\texttrademark Suite}{14}{section*.11}
+\contentsline {subsubsection}{Mouse Emulator (Gyro)}{15}{section*.12}
+\contentsline {subsection}{\numberline {3.1.1}Caring for the headset}{15}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Headset issues}{16}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}EmoComposer}{16}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}EmoKey}{16}{subsection.3.1.4}
+\contentsline {section}{\numberline {3.2}Training}{16}{section.3.2}
+\contentsline {section}{\numberline {3.3}Current Applications}{18}{section.3.3}
+\contentsline {chapter}{\numberline {4}Design}{19}{chapter.4}
+\contentsline {section}{\numberline {4.1}Overview}{19}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Project workflow}{19}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Requirements}{20}{subsection.4.1.2}
+\contentsline {subsubsection}{Functional requirements}{20}{section*.16}
+\contentsline {subsubsection}{Non-functional requirements}{21}{section*.17}
+\contentsline {subsection}{\numberline {4.1.3}Separation of concerns}{21}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Design Patterns}{21}{section.4.2}
+\contentsline {chapter}{\numberline {5}Implementation}{23}{chapter.5}
+\contentsline {section}{\numberline {5.1}Interfacing with Emotiv}{23}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}EdkDll}{23}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}EmoAffectiv}{23}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}EmoCognitiv}{24}{subsection.5.1.3}
+\contentsline {subsection}{\numberline {5.1.4}EmoEngine}{24}{subsection.5.1.4}
+\contentsline {subsection}{\numberline {5.1.5}EmoEngineInst}{24}{subsection.5.1.5}
+\contentsline {subsection}{\numberline {5.1.6}EmoExpressiv}{24}{subsection.5.1.6}
+\contentsline {subsection}{\numberline {5.1.7}EmoGyroData}{25}{subsection.5.1.7}
+\contentsline {subsection}{\numberline {5.1.8}EmoProfileManagement}{25}{subsection.5.1.8}
+\contentsline {subsection}{\numberline {5.1.9}EmoState}{26}{subsection.5.1.9}
+\contentsline {subsection}{\numberline {5.1.10}EmoUserManagement}{26}{subsection.5.1.10}
+\contentsline {subsection}{\numberline {5.1.11}LabelDraw}{26}{subsection.5.1.11}
+\contentsline {section}{\numberline {5.2}Scene description}{26}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}CarChoiceScene}{26}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}HelpScene}{28}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}MainMenu}{28}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}MainScene}{28}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}SplashScreen}{29}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.2.6}TrainingScene}{29}{subsection.5.2.6}
+\contentsline {section}{\numberline {5.3}Notes}{30}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Gyro mode}{31}{subsection.5.3.1}
+\contentsline {chapter}{\numberline {6}Testing and evaluation}{32}{chapter.6}
+\contentsline {section}{\numberline {6.1}Observations}{32}{section.6.1}
+\contentsline {section}{\numberline {6.2}NASA TLX results}{33}{section.6.2}
+\contentsline {section}{\numberline {6.3}Analysis of user questionnaire answers}{33}{section.6.3}
+\contentsline {section}{\numberline {6.4}Good points about the game}{34}{section.6.4}
+\contentsline {section}{\numberline {6.5}Bad points about the game}{34}{section.6.5}
+\contentsline {section}{\numberline {6.6}What should be improved and what has been implemented?}{35}{section.6.6}
+\contentsline {chapter}{\numberline {7}Conclusions}{36}{chapter.7}
+\contentsline {section}{\numberline {7.1}Personal development}{36}{section.7.1}
+\contentsline {section}{\numberline {7.2}Summary}{36}{section.7.2}
+\contentsline {chapter}{\numberline {}Bibliography}{38}{chapter*.26}
+\contentsline {chapter}{\numberline {A}CogniDriver - User Study}{40}{appendix.A}
+\contentsline {chapter}{\numberline {B}CogniDriver - 3D Object Sources}{43}{appendix.B}

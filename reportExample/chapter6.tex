@@ -7,13 +7,13 @@ At the moment of user testing, the game was finished with the exception of the c
 
 In this chapter, we are going to discuss the results of the user testing. The used questionnaire can be found in appendix \ref{appendix:userStudy}. 
 
-For the purposes of testing the projects, the participants were firstly asked to play the game in keyboard mode. Following this, they were asked to fill in a NASA TLX (Task Load Index) test so that we would have a measurement of how demanding this task was for the user. Next, the Emotiv EPOC headset was fit on the partipant's head and the training process would begin. After feeling confident enough for the first action (push), the user could see it working in the actual game play. We insisted on properly training 2 actions: push - for acceleration - and left - for a left turn. The reason why left was necessary is because the track does a left turn on a slightly elevated terrain. Less than 5 users have probably had enough time to train the other 2 states (pull and right) as well. Again, after the 2 hours were almost up, the participant was asked to take another NASA TLX test, this time taking into account how demanding the process was for Cognitiv game play. Finally, the participant was asked to fill in the user study questionnaire in appendix \ref{appendix:userStudy}. 
+For the purposes of testing the projects, the participants were firstly asked to play the game in keyboard mode. Following this, they were asked to fill in a NASA TLX (Task Load Index) test so that we would have a measurement of how demanding this task was for the user. Next, the Emotiv EPOC headset was fit on the participant's head and the training process would begin. After feeling confident enough for the first action (push), the user could see it working in the actual game play. We insisted on properly training 2 actions: push - for acceleration - and left - for a left turn. The reason why left was necessary is because the track does a left turn on a slightly elevated terrain. Less than 5 users have probably had enough time to train the other 2 states (pull and right) as well. Again, after the 2 hours were almost up, the participant was asked to take another NASA TLX test, this time taking into account how demanding the process was for Cognitiv game play. Finally, the participant was asked to fill in the user study questionnaire in appendix \ref{appendix:userStudy}. 
 
-The following sections will describe the results of the user testing. In section \ref{section:implemented}, we will highlight what was changed in CogniDriver following the participants answer, in the period of 2 weeks left before the project demonstrations period begun.
+The following sections will describe the results of the user testing. In section \ref{section:implemented}, we will highlight what was changed in CogniDriver following the participants' answer, in the period of 2 weeks left before the project demonstrations period begun.
 
 \section{Observations}
 
-Some of the participants displayed better skill in training the headset if the testing was done in the morning. This is compared to evenings, when some of the partipants complained about being tired and not able to concentrate properly.
+Some of the participants displayed better skill in training the headset if the testing was done in the morning. This is compared to evenings, when some of the partipants complained about being tired and not being able to concentrate properly.
 
 The testing was done using a cube as the training object. In my opinion, this would have made training consistent with people used to the Emotiv EPOC Control Panel or other applications which require Cognitiv training. 
 
@@ -44,7 +44,7 @@ Raining when frustrated was considered a great feature by most.
 
 The graphics were generally appreciated and feedback was received on the track as being sensible. 
 
-Some players enjoyed the funny game physics because there were opportunities for cheating. However, these opportunities have been reduced now and I have tried improving the physics so that not as much skidding would occur.
+Some players enjoyed the funny game physics because there were opportunities for cheating. However, these opportunities have been reduced now and we have tried improving the physics so that not as much skidding would occur.
 
 The training interface was considered clear and understandable.
 
@@ -57,7 +57,7 @@ Some considered it would have been useful to see the brainwaves for each channel
 
 The training process requires concentration and it can take a long time. Some people were disturbed by the amount of clicking going on in order to start training, accept or reject it and then start again. It also got the participant distracted and it was breaking the concentration level. Sometimes, I would do the clicking for the participant so I could catch the events when the object was really being moved. Complaints were received regarding the training as being too stressful, frustrating and not rewarding. The amount of clicking, although disliked by many, is not something which could be changed since the training process can vary in duration. It was suggested that an approach to this might be to automatically accept a training if it meets some set guidelines but then the participant is quite out of control of the process. In addition, it might make the movement more difficult to control.
 
-Some invisible \glspl{collider} from around the mountains were slightly touching the road side. This has now been fixed.
+Some invisible colliders\footnote{An invisible object that is used either as a barrier to stop another object from going through it or which is used as a trigger to detect whether another object has reached that point} from around the mountains were slightly touching the road side. This has now been fixed.
 
 The driver seat view was not always enjoyable, especially when the sensor contact quality was not perfect and the blink would be mistaken for a left wink which would then cause the camera view to change.
 
@@ -65,7 +65,7 @@ The driver seat view was not always enjoyable, especially when the sensor contac
 \label{section:implemented}
 It has been suggested by more than a half of the participants that training would be easier if it was done with a car object rather than a cube as this made them more properly visualise the action. It also made it easier to activate an action while playing the game. This has been implemented.
 
-Checkpoints were another suggestion so that players could be stopped from cheating and taking a short route to the finish line. This has been implemented with the help of invisible \glspl{collider} which were being triggered when the car would pass through them. A total of 17 checkpoints have been inserted. At the finish line, if the number of checkpoints the player has been through is different than 17, the message in figure \ref{fig:ohno} will appear, giving the option to restart the game.
+Checkpoints were another suggestion so that players could be stopped from cheating and taking a short route to the finish line. This has been implemented with the help of invisible colliders which were being triggered when the car would pass through them. A total of 17 checkpoints have been inserted. At the finish line, if the number of checkpoints the player has been through is different than 17, the message in figure \ref{fig:ohno} will appear, giving the option to restart the game.
 
 \begin{figure}
   \centering

@@ -1,10 +1,12 @@
+\pagestyle{fancy}
+
 \chapter{Implementation}
 \label{cha:implementation}
 
 This chapter is going through some of the implementation details during the project development phase of the project.
 
 \section{Interfacing with Emotiv}
-The Unity 3D plugin package from Emotiv comes in a suite of 11 C\# files which we will describe in a bit more detail. In order to get access to this data, an  \texttt{EPOCManager} object was created. This object contains all the plugins in the package apart from  \texttt{EdkDll}, \texttt{EmoState}, \texttt{EmoProfileManagement} and \texttt{LabelDraw}. In the following subsections, I am going to provide some very short code snippets since these might prove useful in the future for someone wishing to develop a game using Unity and Emotiv.
+The Unity 3D plugin package from Emotiv comes in a suite of 11 C\# files which we will describe in a bit more detail. In order to get access to this data, an  \texttt{EPOCManager} object was created. This object contains all the plugins in the package apart from  \texttt{EdkDll}, \texttt{EmoState}, \texttt{EmoProfileManagement} and \texttt{LabelDraw}. In the following subsections, we are going to provide some very short code snippets since these might prove useful in the future for someone wishing to develop a game using Unity and Emotiv.
 
 \subsection{EdkDll}
 Contains the implementation of the Emotiv API.
@@ -18,10 +20,10 @@ EmoAffectiv.frustrationScore
 
 returns a value representing how frustrated the user is.
 
-In the game, frustration is used to get the rain started once the score is higher than 50\%. 
+In CogniDriver, frustration is used to get the rain started once the score is higher than 50\% and the excitement is lower than 50\%. 
 
 \subsection{EmoCognitiv} 
-It is a class containing methods to start or reset the training. It automatically handles events which start, reset, erase, declare successful or failed training. I have added accessor methods to obtain the current action, its power and the trained actions. I have also added a GUI method, \texttt{DoTrainingCompleteAction(int windowID)} which pops up the window asking the user whether the training should be accepted or rejected and it handles the response appropriately. Before starting the training though, the 4 actions (push, pull, left, right) have to be activated through a call such as: 
+It is a class containing methods to start or reset the training. It automatically handles events which start, reset, erase, declare successful or failed training. We have added accessor methods to obtain the current action, its power and the trained actions. We have also added a GUI method, \texttt{DoTrainingCompleteAction(int windowID)} which pops up the window asking the user whether the training should be accepted or rejected and it handles the response appropriately. Before starting the training though, the 4 actions (push, pull, left, right) have to be activated through a call such as: 
 
 \begin{Verbatim}[frame=single, framesep=3mm]
 EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[6], 
@@ -49,7 +51,7 @@ Single pushSkill = EmoEngine.Instance.CognitivGetActionSkillRating(
 It is used most often to change the connection method from live data to simulated data (through the use of EmoComposer (subsection \ref{part:emocomposer})).
 
 \subsection{EmoExpressiv}
-The EmoExpressiv class is obtained to get access to the player's facial expressions through simple calls to the public instance variables, such as the following which checks whether the player did a left wink:
+The EmoExpressiv class is useful in order to get access to the player's facial expressions through simple calls to the public instance variables, such as the following which checks whether the player did a left wink:
 
 \begin{Verbatim}[frame=single, framesep=3mm]
 EmoExpressiv.isLeftWink
@@ -58,10 +60,10 @@ EmoExpressiv.isLeftWink
 In CogniDriver, left wink is used to change the camera view. Clenching teeth will action the car's handbrake. 
 
 \subsection{EmoGyroData}
-Gives access to the head position in relation to the circle observed in figure. One may also obtain the \texttt{x} and \texttt{y} coordinates of the gyro. However, I could not find the maximum and minimum values, nor are there 2 online references which give the same numbers.
+Gives access to the head position in relation to the circle observed in figure. One may also obtain the \texttt{x} and \texttt{y} coordinates of the gyro. However, we could not find the maximum and minimum values, nor are there 2 online references which give the same numbers.
 
 \subsection{EmoProfileManagement}
-This class is useful to handle the player profiles. In CogniDriver, I have limited the number of player profiles to 10 because of the following reasons:
+This class is useful to handle the player profiles. In CogniDriver, we have limited the number of player profiles to 10 because of the following reasons:
 \begin{itemize}
 	\item The training for a saved profile can take a few MB;
 	\item Unity does not contain a drop down list as a GUI element;
@@ -105,7 +107,7 @@ EmoProfileManagement.Instance.SetUserProfile(selectedPlayer);
 \end{Verbatim}
 
 \subsection{EmoState}
-Represents the emotional status of the user at a given time \cite{emotivSDKUserManual}. This class is used by \texttt{EmoAffectiv}, \texttt{EmoExpressiv} and \texttt{EmoCognitiv} mainly. I did not need to call any functions directly from this class.
+Represents the emotional status of the user at a given time \cite{emotivSDKUserManual}. This class is used by \texttt{EmoAffectiv}, \texttt{EmoExpressiv} and \texttt{EmoCognitiv} mainly. We did not need to call any functions directly from this class.
 
 \subsection{EmoUserManagement}
 Keeps track of the current user, the current number of user profiles and also fires events when a USB dongle is inserted or removed. I did not need to use this class directly apart from obtaining the current user by calling
@@ -115,10 +117,10 @@ EmoUserManagement.currentUser
 \end{Verbatim}
 
 \subsection{LabelDraw}
-I did not need to use this class while developing CogniDriver.
+We did not need to use this class while developing CogniDriver.
 
 \section{Scene description}
-In Unity, a scene contains all the objects for a part of the game such as a level or a different screen. For CogniDriver, I have split the game in 6 scenes. All of the scenes, apart from the splash screen, will display the sensor contact quality, current action and the power of the current action. This can be observed in figure \ref{fig:mainmenuscene}.
+In Unity, a scene contains all the objects for a part of the game such as a level or a different screen. For CogniDriver, we have split the game in 6 scenes. All of the scenes, apart from the splash screen, will display the sensor contact quality, current action and the power of the current action. This can be observed in figure \ref{fig:mainmenuscene}.
 
 See figure \ref{fig:sceneInteraction} for an example of how the scenes interact with each other.
 
@@ -195,9 +197,9 @@ Its aim is to provide a place where the player can train the 5 actions: neutral 
 
 \section{Notes}
 
-I took the decision of having the Cognitiv training done inside the game so that a new player would not need to open another application, for example the Emotiv Control Panel, in order to train the profile.
+We took the decision of having the Cognitiv training done inside the game so that a new player would not need to open another application, for example the Emotiv Control Panel, in order to train the profile.
 
-For passing variables between different scenes, Unity's \texttt{PlayerPrefs} module has been very useful. One example of its use is in saving the highscores. I will go in a bit more detail about what the saving highscores process is.
+For passing variables between different scenes, Unity's \texttt{PlayerPrefs} module has been very useful. One example of its use is in saving the highscores. We will go in a bit more detail about what the saving highscores process is.
 \begin{enumerate}
 	\item Get the current number of entries in the highscore list.
 	\item If it is \textgreater  10, check if current entry is better than existing ones. If it is, record it.
