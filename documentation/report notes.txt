@@ -83,14 +83,5 @@ Emotiv�s online application store offers a number of innovative EEG-powered pr
 
 To make them transparent you have to set the shader to Transparent/Speculative in my case and change alpha to 0
 
-different user's skill levels
-
-
-Figure 3.3 left looks out of focus.
-
-1. expressiv suite page 15 section 3.1
-2. affective suite
-3. mouse emulator
-4. 5. oxidised pics section 3.3
 
 proofread

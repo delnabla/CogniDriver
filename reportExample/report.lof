@@ -4,20 +4,24 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Sensor positioning for the Emotiv EPOC. Credit: Emotiv\relax }}{13}{figure.caption.6}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces AF3 and AF4 channel response to eye blink. Credit: \cite {experimenterEPOC}\relax }}{14}{figure.caption.9}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces From left to right: clean inside of golden plate; clean outside of golden plate; oxidised inside of golden plate; oxidised outside of golden plate.\relax }}{16}{figure.caption.13}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Cognitiv suite training profile\relax }}{17}{figure.caption.14}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Expressiv suite in the Emotiv EPOC Control Panel\relax }}{15}{figure.caption.10}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Affectiv suite in the Emotiv EPOC Control Panel\relax }}{15}{figure.caption.12}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Mouse emulator in the Emotiv EPOC Control Panel\relax }}{16}{figure.caption.15}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces From left to right: clean inside of golden plate; clean outside of golden plate; oxidised inside of golden plate; oxidised outside of golden plate.\relax }}{17}{figure.caption.16}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Cognitiv suite training profile\relax }}{19}{figure.caption.17}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Use case diagram for CogniDriver.\relax }}{20}{figure.caption.15}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Domain class diagram for CogniDriver. The instance variables have been omitted for simplification.\relax }}{22}{figure.caption.18}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Use case diagram for CogniDriver.\relax }}{21}{figure.caption.18}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Domain class diagram for CogniDriver. The instance variables have been omitted for simplification.\relax }}{23}{figure.caption.21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Scene interaction diagram from the moment the application starts loading.\relax }}{27}{figure.caption.19}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Car choice scene\relax }}{27}{figure.caption.20}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Main menu scene\relax }}{28}{figure.caption.21}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Main scene\relax }}{29}{figure.caption.22}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Splash screen scene\relax }}{29}{figure.caption.23}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Training scene\relax }}{30}{figure.caption.24}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Scene interaction diagram from the moment the application starts loading.\relax }}{28}{figure.caption.22}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Car choice scene\relax }}{28}{figure.caption.23}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Main menu scene\relax }}{29}{figure.caption.24}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Main scene\relax }}{30}{figure.caption.25}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Splash screen scene\relax }}{30}{figure.caption.26}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Training scene\relax }}{31}{figure.caption.27}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces A print screen of the message which will occur in case the player tries to follow a shortcut to the finish line\relax }}{35}{figure.caption.25}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Trained user profile during user testing\relax }}{34}{figure.caption.28}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces A print screen of the message which will occur in case the player tries to follow a shortcut to the finish line\relax }}{36}{figure.caption.29}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

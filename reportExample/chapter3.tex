@@ -55,13 +55,20 @@ One thing to note is that if the sensor contact quality is not perfect, blinks a
 	
 The API usually gives back data as a \texttt{boolean}, but for smile, clench and look left/right, a \texttt{float} between 0 and 1 can also be obtained which represents the extent of that facial expression. 
 
-Figure \ref{fig:blinkAF} shows an image of how the EEG looks like in channels AF3 and AF4 after a blink. See figure for a screenshot of the suite.
+Figure \ref{fig:blinkAF} shows an image of how the EEG looks like in channels AF3 and AF4 after a blink. See figure \ref{fig:expressiv} for a screenshot of the suite.
 
 \begin{figure}
   \centering
   \includegraphics[width=350px]{eyeBlink.png}
   \caption{AF3 and AF4 channel response to eye blink. Credit: \cite{experimenterEPOC}}
     \label{fig:blinkAF}           
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=400px]{expressiv.png}
+  \caption{Expressiv suite in the Emotiv EPOC Control Panel}
+    \label{fig:expressiv}           
 \end{figure}
 
 \subsubsection{Affectiv\texttrademark  Suite}
@@ -75,16 +82,30 @@ Returns a \texttt{float} between 0 and 1 which describes the power of one of the
 	\item Excitement long term
 \end{itemize}
 
-I have found that these emotions represent my mood quite well. One thing to note is that boredom is not the kind of boredom one feels when they have nothing to do, but it is rather the opposite of engagement, according to Emotiv. See figure for a screenshot of the suite.
+I have found that these emotions represent my mood quite well. One thing to note is that boredom is not the kind of boredom one feels when they have nothing to do, but it is rather the opposite of engagement, according to Emotiv. See figure \ref{fig:affectiv} for a screenshot of the suite.
 
 The Emotiv User Manual \cite{emotivUserManual} (page 31) provides information on the activities and brainwave types that may trigger each emotion.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=400px]{affectiv.png}
+  \caption{Affectiv suite in the Emotiv EPOC Control Panel}
+    \label{fig:affectiv}           
+\end{figure}
 
 \subsubsection{Cognitiv\texttrademark  Suite}
 This is probably the most exciting feature of the Emotiv EPOC. Here, one can train 13 actions: push, pull, left, right, lift, drop, 6 rotations (one in each direction for the X, Y and Z axis) and disappear. The disappear action is more abstract because while the first 12 are real life actions, an object cannot vanish into thin air, in reality, through whatever methods. The user has to train each action for a period of 8 seconds. This should be done multiple times until an as high as possible skill level is obtained. The more you get used to training, the easier it will become. I have achieved close to 100\% on all 4 actions: push, pull, left, right. At one point, I was able to achieve 100\% on the push action in less than 5 trainings. The SDK can only detect up to 4 actions at any one time, so one has to choose wisely which actions would be best for their application. See figure \ref{fig:skillLevelMe} for a screenshot of the suite.
 
 \subsubsection{Mouse Emulator (Gyro)}
 
-This data actually comes from a gyroscope fitted in the headset. The original version aims to emulate the mouse movement by changing the head position. Once the head turns to left or right and remains in that position, the centre of the circle becomes the new head position. However, having access to the Unity 3D plugins, we were able to modify this suite so that the centre of the circle was not recalculated if the head stayed to the left or to the right because we wanted to use the gyro as yet another way to control the car movement. See figure for a screenshot of the suite.
+This data actually comes from a gyroscope fitted in the headset. The original version aims to emulate the mouse movement by changing the head position. Once the head turns to left or right and remains in that position, the centre of the circle becomes the new head position. However, having access to the Unity 3D plugins, we were able to modify this suite so that the centre of the circle was not recalculated if the head stayed to the left or to the right because we wanted to use the gyro as yet another way to control the car movement. See figure \ref{fig:gyro} for a screenshot of the suite.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=400px]{mouse.png}
+  \caption{Mouse emulator in the Emotiv EPOC Control Panel}
+    \label{fig:gyro}           
+\end{figure}
 
 \subsection{Caring for the headset}
 The 16 sensors need to be properly hydrated before starting to use the Emotiv EPOC. The hydration is done with contact lenses saline solution which has the purpose of enabling a better transmission of the brainwaves while also sanitising the felt pads. For the first use of the sensors, one may need to apply 15-20 proper hydrations before good and reliable sensor contact quality is achieved.
@@ -93,7 +114,7 @@ When the user does not expect to use the headset for a period of more than 3-4 d
 
 \begin{figure}
   \centering
-  \includegraphics[width=350px]{goodSensorBadSensor.png}
+  \includegraphics[height=90px]{goodin.png} \includegraphics[height=90px]{goodout.png} \includegraphics[height=90px]{badin.png} \includegraphics[height=90px]{badout.png}
   \caption{From left to right: clean inside of golden plate; clean outside of golden plate; oxidised inside of golden plate; oxidised outside of golden plate.}
     \label{fig:cleanVsOxidised}           
 \end{figure}
