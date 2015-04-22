@@ -11,6 +11,15 @@
 \newblock {\em EPOC User Manual}.
 \newblock Emotiv.
 
+\bibitem[A.~Ferreira, 2006]{manipulator}
+A.~Ferreira, T. F.~{\relax Bastos-Filho}, M. {\relax Sarcinelli-Filho}. F. A.
+  {\relax Cheein}. J. {\relax Postigo}. R.~{\relax Carelli}. (2006).
+\newblock Teleoperation of an industrial manipulator through a tcp/ip channel
+  using eeg signals.
+\newblock {\em 2006 IEEE International Symposium on Industrial Electronics},
+  4:3066 -- 3071.
+\newblock {doi: 10.1109/ISIE.2006.296105}.
+
 \bibitem[Adelson, 2011]{experimenterEPOC}
 Adelson, M. (2011).
 \newblock Experimenter epoc - an experimentation and mind-reading application
@@ -18,9 +27,10 @@ Adelson, M. (2011).
 \newblock
   \url{http://compmem.princeton.edu/experimenter/ExperimenterReport.html#_Toc290642075}.
 
-\bibitem[Andrew T.~Campbell and Raizada, 2010]{neurophone}
-Andrew T.~Campbell, Tanzeem~Choudhury, S. H. H. L. M. K. M. M.~R. and Raizada,
-  R. D.~S. (2010).
+\bibitem[Andrew T.~Campbell and {\relax Raizada}, 2010]{neurophone}
+Andrew T.~Campbell, Tanzeem~{\relax Choudhury}, S. {\relax Hu}. H. {\relax Lu}.
+  M. K. {\relax Mukerjee}. M.~{\relax Rabbi}. and {\relax Raizada}, R. D.~S.
+  (2010).
 \newblock Neurophone: Brain-mobile phone interface using a wireless eeg
   headset.
 \newblock {\em MobiHeld/ACM}.
@@ -37,8 +47,9 @@ Carmen~Vidaurre, B.~B. (2009).
 \newblock {doi:10.1186/1471-2202-10-S1-P85}.
 
 \bibitem[Choon Guan~Lim, 2012]{adhd}
-Choon Guan~Lim, Tih Shih~Lee, C. G. D. S. S. F. Y. Z. S. S. W. T. H. Z. K. R.
-  R.~K. (2012).
+Choon Guan~Lim, Tih Shih~{\relax Lee}, C. {\relax Guan}. D. S. S. {\relax
+  Fung}. Y. {\relax Zhao}. S. S. W. {\relax Teng}. H. {\relax Zhang}. K. R.
+  R.~{\relax Krishnan}. (2012).
 \newblock A brain-computer interface based attention training program for
   treating attention deficit hyperactivity disorder.
 \newblock {\em PLoS ONE 7(10): e46692}.
@@ -55,8 +66,17 @@ Emotiv (2015b).
 \newblock
   \url{http://emotiv.com/forum/messages/forum4/topic114/message392/?phrase_id=464885#message392}.
 
+\bibitem[Fabien~Lotte, 2008]{exhibition}
+Fabien~Lotte, Yann~{\relax Renard}, A.~{\relax L\'ecuyer}. (2008).
+\newblock Self-paced brain-computer interaction with virtual worlds: A
+  quantitative and qualitative study `out of the lab'.
+\newblock {\em 4th international Brain Computer Interface Workshop and Training
+  Course}.
+\newblock {https://hal.inria.fr/inria-00304340}.
+
 \bibitem[Francesco~Carrino, 2012]{wheelchairEEG}
-Francesco~Carrino, Joel~Dumoulin, E. M. O. A. K. R.~I. (2012).
+Francesco~Carrino, Joel~{\relax Dumoulin}, E. {\relax Mugellini}. O. A. {\relax
+  Khaled}. R.~{\relax Ingold}. (2012).
 \newblock A self-paced bci system to control an electric wheelchair: evaluation
   of a commercial, low-cost eeg device.
 \newblock {\em Biosignals and Biorobotics Conference (BRC), 2012 ISSNIP}.
@@ -79,7 +99,7 @@ Lang, M. (2012).
   training time.
 
 \bibitem[Minkyu~Ahn, 2013]{BCIilliteracy}
-Minkyu~Ahn, Hohyun~Cho, S. A. S. C.~J. (2013).
+Minkyu~Ahn, Hohyun~Cho, S. {\relax Ahn}. S. C.~{\relax Jun}. (2013).
 \newblock High theta and low alpha powers may be indicative of bci-illiteracy
   in motor imagery.
 \newblock {\em PLoS ONE 8(11): e80886}.
@@ -96,21 +116,24 @@ Murray, J.~W. (2014).
 \newblock {\em C\# Game Programming Cookbook for Unity 3D}.
 \newblock CRC Press.
 
-\bibitem[Ning-Han~Liu and Hsu, 2013]{musicEEG}
-Ning-Han~Liu, C.-Y.~C. and Hsu, H.-M. (2013).
+\bibitem[Ning-Han~Liu and {\relax Hsu}, 2013]{musicEEG}
+Ning-Han~Liu, C.-Y.~{\relax Chiang}. and {\relax Hsu}, H.-M. (2013).
 \newblock Improving driver alertness through music selection using a mobile eeg
   to detect brainwaves.
 \newblock {\em Sensors}.
 \newblock \url{http://www.fermentas.com/techinfo/nucleicacids/maplambda.htm}.
 
 \bibitem[Reinhold~Scherer, 2012]{wowControl}
-Reinhold~Scherer, Markus~Pröll, B. A. . G. R. M.-P. (2012).
+Reinhold~Scherer, Markus~{\relax Pröll}, B. {\relax Allison}. . G. R.~{\relax
+  Müller-Putz}. (2012).
 \newblock New input modalities for modern game design and virtual embodiment.
 \newblock {\em Virtual Reality Short Papers and Posters (VRW), 2012 IEEE}.
 \newblock {doi: 10.1109/VR.2012.6180932}.
 
 \bibitem[Sam~Fok, 2011]{handOrthotic}
-Sam~Fok, Raphael~Schwartz, M. W. C. H. J. Z.-T. S. D. B. E.~L. (2011).
+Sam~Fok, Raphael~{\relax Schwartz}, M. {\relax Wronkiewicz}. C. {\relax
+  Holmes}. J. {\relax Zhang}. T. {\relax Somers}. D. {\relax Bundy}. E.~{\relax
+  Leuthardt}. (2011).
 \newblock An eeg-based brain computer interface for rehabilitation and
   restoration of hand control following stroke using ipsilateral cortical
   physiology.
@@ -118,8 +141,9 @@ Sam~Fok, Raphael~Schwartz, M. W. C. H. J. Z.-T. S. D. B. E.~L. (2011).
   International Conference of the IEEE}.
 \newblock {doi: 10.1109/IEMBS.2011.6091549}.
 
-\bibitem[Shinji~Nishimoto, 2011]{moviebrain}
-Shinji~Nishimoto, An T.~Vu, T. N. Y. B. B. Y. J. L.~G. (2011).
+\bibitem[Shinji~{\relax Nishimoto}, 2011]{moviebrain}
+Shinji~{\relax Nishimoto}, An T.~{\relax Vu}, T. {\relax Naselaris}. Y. {\relax
+  Benjamini}. B. {\relax Yu}. J. L.~{\relax Gallant}. (2011).
 \newblock Reconstructing visual experiences from brain activity evoked by
   natural movies.
 \newblock {\em Current Biology}, (21):1641--1646.
@@ -156,5 +180,12 @@ Vertanen, K. (2010).
 Wikipedia (2015).
 \newblock Battlestar galactica online.
 \newblock \url{http://en.wikipedia.org/wiki/Battlestar_Galactica_Online}.
+
+\bibitem[Xiaorong~Gao, 2003]{remotecontroller}
+Xiaorong~Gao, Dingfeng~{\relax Xu}, M. {\relax Cheng}. S.~{\relax Gao}. (2003).
+\newblock A bci-based environmental controller for the motion-disabled.
+\newblock {\em IEEE Transactions on Neural Systems and Rehabilitation
+  Engineering}, 11(2):137 -- 140.
+\newblock {doi: 10.1109/TNSRE.2003.814449}.
 
 \end{thebibliography}

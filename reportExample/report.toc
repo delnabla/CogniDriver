@@ -46,20 +46,19 @@
 \contentsline {subsection}{\numberline {5.2.2}HelpScene}{29}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}MainMenu}{29}{subsection.5.2.3}
 \contentsline {subsection}{\numberline {5.2.4}MainScene}{29}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}SplashScreen}{30}{subsection.5.2.5}
-\contentsline {subsection}{\numberline {5.2.6}TrainingScene}{30}{subsection.5.2.6}
-\contentsline {section}{\numberline {5.3}Notes}{31}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Gyro mode}{32}{subsection.5.3.1}
-\contentsline {chapter}{\numberline {6}Testing and evaluation}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Observations}{34}{section.6.1}
-\contentsline {section}{\numberline {6.2}NASA TLX results}{34}{section.6.2}
-\contentsline {section}{\numberline {6.3}Analysis of user questionnaire answers}{35}{section.6.3}
-\contentsline {section}{\numberline {6.4}Good points about the game}{35}{section.6.4}
-\contentsline {section}{\numberline {6.5}Bad points about the game}{35}{section.6.5}
-\contentsline {section}{\numberline {6.6}What should be improved and what has been implemented?}{36}{section.6.6}
-\contentsline {chapter}{\numberline {7}Conclusions}{38}{chapter.7}
-\contentsline {section}{\numberline {7.1}Personal development}{38}{section.7.1}
-\contentsline {section}{\numberline {7.2}Summary}{38}{section.7.2}
-\contentsline {chapter}{\numberline {}Bibliography}{40}{chapter*.30}
+\contentsline {subsection}{\numberline {5.2.5}TrainingScene}{30}{subsection.5.2.5}
+\contentsline {section}{\numberline {5.3}Notes}{30}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Gyro mode}{31}{subsection.5.3.1}
+\contentsline {chapter}{\numberline {6}Testing and evaluation}{32}{chapter.6}
+\contentsline {section}{\numberline {6.1}Observations}{33}{section.6.1}
+\contentsline {section}{\numberline {6.2}NASA TLX results}{33}{section.6.2}
+\contentsline {section}{\numberline {6.3}Analysis of user questionnaire answers}{34}{section.6.3}
+\contentsline {section}{\numberline {6.4}Good points about the game}{34}{section.6.4}
+\contentsline {section}{\numberline {6.5}Bad points about the game}{34}{section.6.5}
+\contentsline {section}{\numberline {6.6}What should be improved and what has been implemented?}{35}{section.6.6}
+\contentsline {chapter}{\numberline {7}Conclusions}{37}{chapter.7}
+\contentsline {section}{\numberline {7.1}Personal development}{37}{section.7.1}
+\contentsline {section}{\numberline {7.2}Summary}{37}{section.7.2}
+\contentsline {chapter}{\numberline {}Bibliography}{39}{chapter*.29}
 \contentsline {chapter}{\numberline {A}CogniDriver - User Study}{42}{appendix.A}
 \contentsline {chapter}{\numberline {B}CogniDriver - 3D Object Sources}{45}{appendix.B}
