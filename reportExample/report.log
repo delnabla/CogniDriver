@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  22 APR 2015 22:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.3.25)  23 APR 2015 23:29
 entering extended mode
 **report.tex
 
@@ -909,12 +909,6 @@ less on input line 103.
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 1.tex
 Chapter 1.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 14.
 [7
@@ -938,7 +932,7 @@ File: omlptm.fd
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 31.
 
-<images/500px-Eeg_delta.png, id=416, 501.875pt x 100.375pt>
+<images/500px-Eeg_delta.png, id=420, 501.875pt x 100.375pt>
 File: images/500px-Eeg_delta.png Graphic file (type png)
 
 <use images/500px-Eeg_delta.png>
@@ -949,7 +943,7 @@ Overfull \hbox (23.31483pt too wide) in paragraph at lines 31--31
 []|[]| 
  []
 
-<images/500px-Eeg_theta.png, id=417, 501.875pt x 100.375pt>
+<images/500px-Eeg_theta.png, id=421, 501.875pt x 100.375pt>
 File: images/500px-Eeg_theta.png Graphic file (type png)
 
 <use images/500px-Eeg_theta.png>
@@ -960,7 +954,7 @@ Overfull \hbox (23.31483pt too wide) in paragraph at lines 32--32
 []|[]| 
  []
 
-<images/500px-Eeg_alpha.png, id=418, 501.875pt x 100.375pt>
+<images/500px-Eeg_alpha.png, id=422, 501.875pt x 100.375pt>
 File: images/500px-Eeg_alpha.png Graphic file (type png)
 
 <use images/500px-Eeg_alpha.png>
@@ -976,7 +970,7 @@ Overfull \hbox (9.41779pt too wide) in paragraph at lines 34--34
  []|\OT1/ptm/m/n/12 conciousness, 
  []
 
-<images/500px-Eeg_beta.png, id=419, 501.875pt x 100.375pt>
+<images/500px-Eeg_beta.png, id=423, 501.875pt x 100.375pt>
 File: images/500px-Eeg_beta.png Graphic file (type png)
 
 <use images/500px-Eeg_beta.png>
@@ -987,7 +981,7 @@ Overfull \hbox (23.31483pt too wide) in paragraph at lines 34--34
 []|[]| 
  []
 
-<images/500px-Eeg_gamma.png, id=420, 501.875pt x 100.375pt>
+<images/500px-Eeg_gamma.png, id=424, 501.875pt x 100.375pt>
 File: images/500px-Eeg_gamma.png Graphic file (type png)
 
 <use images/500px-Eeg_gamma.png>
@@ -1006,11 +1000,11 @@ Overfull \hbox (20.50699pt too wide) in paragraph at lines 28--37
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/BrainwaveComposition.png, id=423, 441.5697pt x 287.3937pt>
+<images/BrainwaveComposition.png, id=427, 441.5697pt x 287.3937pt>
 File: images/BrainwaveComposition.png Graphic file (type png)
 
 <use images/BrainwaveComposition.png>
-Package pdftex.def Info: images/BrainwaveComposition.png used on input line 46.
+Package pdftex.def Info: images/BrainwaveComposition.png used on input line 44.
 
 (pdftex.def)             Requested size: 351.31378pt x 228.6523pt.
  [10 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
@@ -1030,7 +1024,7 @@ Overfull \hbox (4.92479pt too wide) in paragraph at lines 5--6
 the elec-tron-ics [[],
  []
 
-<images/sensorPositioning.png, id=446, 301.8778pt x 341.77687pt>
+<images/sensorPositioning.png, id=450, 301.8778pt x 341.77687pt>
 File: images/sensorPositioning.png Graphic file (type png)
 
 <use images/sensorPositioning.png>
@@ -1041,7 +1035,7 @@ Package pdftex.def Info: images/sensorPositioning.png used on input line 9.
 
 
 ]
-<images/eyeBlink.png, id=460, 417.81094pt x 251.43938pt>
+<images/eyeBlink.png, id=464, 417.81094pt x 251.43938pt>
 File: images/eyeBlink.png Graphic file (type png)
 
 <use images/eyeBlink.png>
@@ -1049,14 +1043,14 @@ Package pdftex.def Info: images/eyeBlink.png used on input line 62.
 (pdftex.def)             Requested size: 351.31378pt x 211.43399pt.
  [13 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
 ages/sensorPositioning.png>]
-<images/expressiv.png, id=482, 782.925pt x 480.29437pt>
+<images/expressiv.png, id=486, 782.925pt x 480.29437pt>
 File: images/expressiv.png Graphic file (type png)
 
 <use images/expressiv.png>
 Package pdftex.def Info: images/expressiv.png used on input line 69.
 (pdftex.def)             Requested size: 401.50146pt x 246.31001pt.
 
-<images/affectiv.png, id=485, 781.41937pt x 480.29437pt>
+<images/affectiv.png, id=489, 781.41937pt x 480.29437pt>
 File: images/affectiv.png Graphic file (type png)
 
 <use images/affectiv.png>
@@ -1066,32 +1060,32 @@ Package pdftex.def Info: images/affectiv.png used on input line 91.
 ages/eyeBlink.png>] [15 <C:/Users/blabla/Documents/GitHub/mindControl/mindContr
 ol/reportExample/images/expressiv.png> <C:/Users/blabla/Documents/GitHub/mindCo
 ntrol/mindControl/reportExample/images/affectiv.png>]
-<images/mouse.png, id=499, 779.91376pt x 464.4853pt>
+<images/mouse.png, id=503, 779.91376pt x 464.4853pt>
 File: images/mouse.png Graphic file (type png)
  <use images/mouse.png>
 Package pdftex.def Info: images/mouse.png used on input line 105.
 (pdftex.def)             Requested size: 401.50146pt x 239.11693pt.
 
 [16 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/ima
-ges/mouse.png>] <images/goodin.png, id=506, 829.0975pt x 739.76375pt>
+ges/mouse.png>] <images/goodin.png, id=510, 829.0975pt x 739.76375pt>
 File: images/goodin.png Graphic file (type png)
 
 <use images/goodin.png>
 Package pdftex.def Info: images/goodin.png used on input line 117.
 (pdftex.def)             Requested size: 101.2459pt x 90.33783pt.
- <images/goodout.png, id=507, 774.895pt x 769.87625pt>
+ <images/goodout.png, id=511, 774.895pt x 769.87625pt>
 File: images/goodout.png Graphic file (type png)
 
 <use images/goodout.png>
 Package pdftex.def Info: images/goodout.png used on input line 117.
 (pdftex.def)             Requested size: 90.92603pt x 90.33783pt.
- <images/badin.png, id=508, 718.685pt x 678.535pt>
+ <images/badin.png, id=512, 718.685pt x 678.535pt>
 File: images/badin.png Graphic file (type png)
 
 <use images/badin.png>
 Package pdftex.def Info: images/badin.png used on input line 117.
 (pdftex.def)             Requested size: 95.6804pt x 90.33783pt.
- <images/badout.png, id=509, 722.7pt x 688.5725pt>
+ <images/badout.png, id=513, 722.7pt x 688.5725pt>
 File: images/badout.png Graphic file (type png)
 
 <use images/badout.png>
@@ -1103,7 +1097,7 @@ ontrol/reportExample/images/goodout.png (PNG copy)> <C:/Users/blabla/Documents/
 GitHub/mindControl/mindControl/reportExample/images/badin.png (PNG copy)> <C:/U
 sers/blabla/Documents/GitHub/mindControl/mindControl/reportExample/images/badou
 t.png (PNG copy)>]
-<images/skillLevel.png, id=520, 778.40813pt x 477.28313pt>
+<images/skillLevel.png, id=525, 778.40813pt x 477.28313pt>
 File: images/skillLevel.png Graphic file (type png)
 
 <use images/skillLevel.png>
@@ -1115,24 +1109,32 @@ Overfull \hbox (68.7519pt too wide) in paragraph at lines 158--159
 e head-set. Ac-cord-ing to [[]],
  []
 
-[18]) [19 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExamp
-le/images/skillLevel.png>]
+[18] [19 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExampl
+e/images/skillLevel.png>]
+<images/neurophone.png, id=559, 134.00063pt x 201.75375pt>
+File: images/neurophone.png Graphic file (type png)
+
+<use images/neurophone.png>
+Package pdftex.def Info: images/neurophone.png used on input line 176.
+(pdftex.def)             Requested size: 134.00027pt x 201.75325pt.
+) [20 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/i
+mages/neurophone.png>]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 4.tex
 Chapter 4.
-[20
+[21
 
 
 
-] <images/usecasediagram.png, id=567, 402.50375pt x 509.905pt>
+] <images/usecasediagram.png, id=584, 402.50375pt x 509.905pt>
 File: images/usecasediagram.png Graphic file (type png)
 
 <use images/usecasediagram.png>
 Package pdftex.def Info: images/usecasediagram.png used on input line 24.
 (pdftex.def)             Requested size: 277.32867pt x 351.31378pt.
- [21 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
+ [22 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
 ages/usecasediagram.png>]
-<images/CogniDriverDomainClassDiagram.png, id=575, 1921.1775pt x 747.79375pt>
+<images/CogniDriverDomainClassDiagram.png, id=592, 1921.1775pt x 747.79375pt>
 File: images/CogniDriverDomainClassDiagram.png Graphic file (type png)
 
 <use images/CogniDriverDomainClassDiagram.png>
@@ -1144,12 +1146,12 @@ Overfull \hbox (81.09549pt too wide) in paragraph at lines 68--69
  [][] 
  []
 
-) [22] [23 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExam
+) [23] [24 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExam
 ple/images/CogniDriverDomainClassDiagram.png>]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 5.tex
 Chapter 5.
-[24
+[25
 
 
 
@@ -1159,7 +1161,7 @@ Overfull \hbox (2.9443pt too wide) in paragraph at lines 48--49
 o-tiv pro-vides in edk.dll.'[[]] 
  []
 
-[25] [26] <images/sceneInteraction.png, id=606, 814.04124pt x 396.48125pt>
+[26] [27] <images/sceneInteraction.png, id=623, 814.04124pt x 396.48125pt>
 File: images/sceneInteraction.png Graphic file (type png)
 
 <use images/sceneInteraction.png>
@@ -1170,69 +1172,69 @@ Overfull \hbox (24.25761pt too wide) in paragraph at lines 129--130
  [][] 
  []
 
-<images/carchoicescene.png, id=608, 821.31844pt x 442.65375pt>
+<images/carchoicescene.png, id=625, 821.31844pt x 442.65375pt>
 File: images/carchoicescene.png Graphic file (type png)
 
 <use images/carchoicescene.png>
 Package pdftex.def Info: images/carchoicescene.png used on input line 139.
 (pdftex.def)             Requested size: 401.50146pt x 216.38889pt.
- [27] [28 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExamp
+ [28] [29 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExamp
 le/images/sceneInteraction.png> <C:/Users/blabla/Documents/GitHub/mindControl/m
 indControl/reportExample/images/carchoicescene.png>] <images/mainmenuscene.png,
- id=619, 824.32968pt x 445.665pt>
+ id=636, 824.32968pt x 445.665pt>
 File: images/mainmenuscene.png Graphic file (type png)
 
 <use images/mainmenuscene.png>
 Package pdftex.def Info: images/mainmenuscene.png used on input line 163.
 (pdftex.def)             Requested size: 401.50146pt x 217.0653pt.
 
-<images/mainscene.png, id=621, 822.07124pt x 444.15938pt>
+<images/mainscene.png, id=638, 822.07124pt x 444.15938pt>
 File: images/mainscene.png Graphic file (type png)
 
 <use images/mainscene.png>
 Package pdftex.def Info: images/mainscene.png used on input line 173.
 (pdftex.def)             Requested size: 401.50146pt x 216.92838pt.
- [29 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
+ [30 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
 ages/mainmenuscene.png>]
-<images/trainingscene.png, id=627, 820.56563pt x 436.63126pt>
+<images/trainingscene.png, id=645, 820.56563pt x 436.63126pt>
 File: images/trainingscene.png Graphic file (type png)
 
 <use images/trainingscene.png>
 Package pdftex.def Info: images/trainingscene.png used on input line 183.
 (pdftex.def)             Requested size: 401.50146pt x 213.63805pt.
- [30 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
-ages/mainscene.png>]) [31 <C:/Users/blabla/Documents/GitHub/mindControl/mindCon
+ [31 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
+ages/mainscene.png>]) [32 <C:/Users/blabla/Documents/GitHub/mindControl/mindCon
 trol/reportExample/images/trainingscene.png>]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 6.tex
 Chapter 6.
-<images/lloyd.png, id=648, 1027.58907pt x 579.66562pt>
+<images/lloyd.png, id=665, 1027.58907pt x 579.66562pt>
 File: images/lloyd.png Graphic file (type png)
  <use images/lloyd.png>
 Package pdftex.def Info: images/lloyd.png used on input line 16.
 (pdftex.def)             Requested size: 401.50146pt x 226.49324pt.
 
-[32
+[33
 
 
 
-] [33 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/i
-mages/lloyd.png>] [34] <images/ohno.png, id=665, 301.8778pt x 82.05656pt>
+] [34 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/i
+mages/lloyd.png>] [35] <images/ohno.png, id=681, 301.8778pt x 82.05656pt>
 File: images/ohno.png Graphic file (type png)
 
 <use images/ohno.png>
 Package pdftex.def Info: images/ohno.png used on input line 79.
 (pdftex.def)             Requested size: 301.1261pt x 81.85225pt.
- [35 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
-ages/ohno.png>]) [36]
+ [36 <C:/Users/blabla/Documents/GitHub/mindControl/mindControl/reportExample/im
+ages/ohno.png>]) [37]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\chapter
 7.tex
 Chapter 7.
-[37
+[38
 
 
 
-]) [38]
+]) [39]
 No file chapter8.tex.
 
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\report.
@@ -1241,19 +1243,37 @@ Underfull \hbox (badness 1199) in paragraph at lines 78--84
 []\OT1/ptm/m/n/12 Francesco Car-rino, Joel Du-moulin, E. Mugellini. O. A.
  []
 
-[39
+[40
 
 
 
 
 ]
-Underfull \hbox (badness 2460) in paragraph at lines 109--113
+Underfull \hbox (badness 4036) in paragraph at lines 92--96
+[]\OT1/ptm/m/n/12 Georges, B. (2015).  A brain com-puter in-ter-face that could
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--96
+\OT1/ptm/m/n/12 help quadriplegics walk.  []$\OT1/pcr/m/n/12 http : / / www . w
+orldcrunch . com / tech-[]science /$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--96
+$\OT1/pcr/m/n/12 a-[]brain-[]computer-[]interface-[]that-[]could-[]help-[]quadr
+iplegics-[]walk /$
+ []
+
+
+Underfull \hbox (badness 2460) in paragraph at lines 128--132
 []\OT1/ptm/m/n/12 Monster, M. (2015).  Car physics for games.  []$\OT1/pcr/m/n/
 12 http : / / www .$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--113
+Underfull \hbox (badness 10000) in paragraph at lines 128--132
 $\OT1/pcr/m/n/12 asawicki . info / Mirror / Car % 20Physics % 20for % 20Games /
  Car % 20Physics %$
  []
@@ -1263,35 +1283,35 @@ Missing character: There is no ¶ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¼ in font ptmr7t!
 
-Underfull \hbox (badness 1072) in paragraph at lines 145--151
+Underfull \hbox (badness 1072) in paragraph at lines 164--170
 []\OT1/ptm/m/n/12 Shinji Nishi-moto, An T. Vu, T. Nase-laris. Y. Ben-jamini.
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 145--151
+Underfull \hbox (badness 1817) in paragraph at lines 164--170
 \OT1/ptm/m/n/12 B. Yu. J. L. Gal-lant. (2011).  Re-con-struct-ing vi-sual ex-pe
 -ri-ences from brain
  []
 
 
-Underfull \hbox (badness 1616) in paragraph at lines 145--151
+Underfull \hbox (badness 1616) in paragraph at lines 164--170
 \OT1/ptm/m/n/12 ac-tiv-ity evoked by nat-u-ral movies.  \OT1/ptm/m/it/12 Cur-re
 nt Bi-ol-ogy\OT1/ptm/m/n/12 , (21):1641--1646.  doi:
  []
 
-[40]
-Underfull \hbox (badness 2443) in paragraph at lines 180--183
+[41]
+Underfull \hbox (badness 2443) in paragraph at lines 204--207
 []\OT1/ptm/m/n/12 Wikipedia (2015).  Bat-tlestar galac-tica on-line.  []$\OT1/p
 cr/m/n/12 http : / / en .$
  []
 
 
-Underfull \hbox (badness 2478) in paragraph at lines 185--190
+Underfull \hbox (badness 2478) in paragraph at lines 209--214
 \OT1/ptm/m/it/12 on Neu-ral Sys-tems and Re-ha-bil-i-ta-tion En-gi-neer-ing\OT1
 /ptm/m/n/12 , 11(2):137 -- 140.  doi:
  []
 
-) [41]
+) [42]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x1.tex
 Appendix A.
@@ -1315,7 +1335,7 @@ Overfull \hbox (30.07458pt too wide) in paragraph at lines 31--32
  []|[]| 
  []
 
-[42
+[43
 
 
 ]
@@ -1338,29 +1358,29 @@ Overfull \hbox (28.21236pt too wide) in paragraph at lines 60--61
 [][] 
  []
 
-[43])
+[44])
 Overfull \hbox (28.21236pt too wide) in paragraph at lines 65--125
 [][] 
  []
 
-[44]
+[45]
 (C:\Users\blabla\Documents\GitHub\mindControl\mindControl\reportExample\appendi
 x2.tex
 Appendix B.
-<images/audir8.png, id=746, 612.2875pt x 379.4175pt>
+<images/audir8.png, id=767, 612.2875pt x 379.4175pt>
 File: images/audir8.png Graphic file (type png)
  <use images/audir8.png>
 Package pdftex.def Info: images/audir8.png used on input line 12.
 (pdftex.def)             Requested size: 80.9829pt x 50.18768pt.
 
-<images/mercedes.png, id=748, 564.1075pt x 437.635pt>
+<images/mercedes.png, id=769, 564.1075pt x 437.635pt>
 File: images/mercedes.png Graphic file (type png)
 
 <use images/mercedes.png>
 Package pdftex.def Info: images/mercedes.png used on input line 13.
 (pdftex.def)             Requested size: 64.68593pt x 50.18768pt.
 
-<images/california.png, id=750, 606.265pt x 379.4175pt>
+<images/california.png, id=771, 606.265pt x 379.4175pt>
 File: images/california.png Graphic file (type png)
 
 <use images/california.png>
@@ -1371,7 +1391,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|[]$\OT1/pcr/m/n/12 http : / / www . mediafire . com / download /$
  []
 
-<images/fence.png, id=752, 578.16pt x 724.7075pt>
+<images/fence.png, id=773, 578.16pt x 724.7075pt>
 File: images/fence.png Graphic file (type png)
  <use images/fence.png>
 Package pdftex.def Info: images/fence.png used on input line 15.
@@ -1381,13 +1401,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--15
 []|[]$\OT1/pcr/m/n/12 http : / / www . archibaseplanet . com / download /$
  []
 
-<images/house.png, id=754, 869.2475pt x 375.4025pt>
+<images/house.png, id=775, 869.2475pt x 375.4025pt>
 File: images/house.png Graphic file (type png)
  <use images/house.png>
 Package pdftex.def Info: images/house.png used on input line 16.
 (pdftex.def)             Requested size: 116.20267pt x 50.18768pt.
 
-<images/farmhouse.png, id=756, 853.1875pt x 495.8525pt>
+<images/farmhouse.png, id=777, 853.1875pt x 495.8525pt>
 File: images/farmhouse.png Graphic file (type png)
 
 <use images/farmhouse.png>
@@ -1398,12 +1418,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--17
 []|[]$\OT1/pcr/m/n/12 http : / / tf3dm . com / 3d-[]model /$
  []
 
-<images/roadsign.png, id=758, 317.185pt x 1027.84pt>
+<images/roadsign.png, id=779, 317.185pt x 1027.84pt>
 File: images/roadsign.png Graphic file (type png)
  <use images/roadsign.png>
 Package pdftex.def Info: images/roadsign.png used on input line 18.
 (pdftex.def)             Requested size: 15.4875pt x 50.18768pt.
-) [45
+) [46
 
 
 
@@ -1448,17 +1468,17 @@ x2.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 128.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 128.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 94FA3FA2FE26AF2C228F0EEC07B23E83;3749.
+(rerunfilecheck)             Checksum: 601F08EED98AEB694720893CD175A569;3749.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 128.
  ) 
 Here is how much of TeX's memory you used:
- 19280 strings out of 493921
- 357091 string characters out of 3146477
- 418408 words of memory out of 3000000
- 21920 multiletter control sequences out of 15000+200000
- 49458 words of font info for 90 fonts, out of 3000000 for 9000
+ 19266 strings out of 493921
+ 356958 string characters out of 3146477
+ 419830 words of memory out of 3000000
+ 21905 multiletter control sequences out of 15000+200000
+ 36681 words of font info for 66 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 55i,19n,54p,1431b,474s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,19n,54p,1437b,474s stack positions out of 5000i,500n,10000p,200000b,50000s
 {D:/Program Files (x86)/miktex/fonts/enc/dvips/fontname/8r.enc}<D:/Program Fi
 les (x86)/miktex/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/Program Files (x
 86)/miktex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files (x86)/mi
@@ -1466,9 +1486,9 @@ ktex/fonts/type1/urw/courier/ucrr8a.pfb><D:/Program Files (x86)/miktex/fonts/ty
 pe1/urw/times/utmb8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/u
 tmr8a.pfb><D:/Program Files (x86)/miktex/fonts/type1/urw/times/utmr8a.pfb><D:/P
 rogram Files (x86)/miktex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (46 pages, 7155204 bytes).
+Output written on report.pdf (47 pages, 7264721 bytes).
 PDF statistics:
- 842 PDF objects out of 1000 (max. 8388607)
- 189 named destinations out of 1000 (max. 500000)
- 642 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 863 PDF objects out of 1000 (max. 8388607)
+ 192 named destinations out of 1000 (max. 500000)
+ 647 words of extra memory for PDF output out of 10000 (max. 10000000)
 

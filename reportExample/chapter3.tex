@@ -2,7 +2,7 @@
 \label{cha:epoc}
 
 \section{SDK description}
-The Emotiv EPOC headset is a portable EEG device which consists of 14 sensors that transmit raw EEG data (see figure \ref{fig:sensorPos} for their positioning) to the computer and 2 reference sensors (CMS - Common Mode Sense and DRL - Driven Right Leg). The CMS sensor is the point on the scalp against which everything else is measured. The DRL sensor provides a feedback signal to cancel common mode noise in the electronics \cite{refSensors1, refSensors2}. See table \ref{table:sensorName} for the meaning of the abbreviations of sensor positions. The raw data gets interpreted and the user gains access to all of the information in one of the following 4 suites: Expressiv, Affectiv, Cognitiv, Mouse Emulator. 
+The Emotiv EPOC headset is a portable EEG device which consists of 14 sensors that transmit raw EEG data (see figure \ref{fig:sensorPos} for their positioning) to the computer and 2 reference sensors (CMS - Common Mode Sense and DRL - Driven Right Leg). The CMS sensor is the point on the scalp against which everything else is measured. The DRL sensor provides a feedback signal to cancel common mode noise in the electronics \cite{refSensors1, refSensors2}. See table \ref{table:sensorName} for the meaning of the abbreviations of sensor positions. The raw data gets interpreted and the user gains access to all of the information in one of the following 3 suites: Expressiv, Affectiv, Cognitiv. There is also a Mouse Emulator which uses data from the 2-axis gyroscope fitted on top of the headset. 
 
 \begin{figure}
   \centering
@@ -29,7 +29,7 @@ O                     & Occipital        &  &                       & \multicolu
 
 We have been using the developer's SDK, so it is worth highlighting we did not have any access to the raw EEG data. 
 
-The battery lasts about 10 to 12 hours. The charging is done via a USB cable.
+The battery lasts for about 10 to 12 hours. The charging is done via a USB cable.
 
 According to \cite{experimenterEPOC}, the data sampling rate is 128Hz. \cite{emotivUserManual} states that there may be up to 2 seconds delay from when the data is sent until a visual feedback is observed. 
 
@@ -82,7 +82,7 @@ Returns a \texttt{float} between 0 and 1 which describes the power of one of the
 	\item Excitement long term
 \end{itemize}
 
-I have found that these emotions represent my mood quite well. One thing to note is that boredom is not the kind of boredom one feels when they have nothing to do, but it is rather the opposite of engagement, according to Emotiv. See figure \ref{fig:affectiv} for a screenshot of the suite.
+I find these emotions to represent my mood quite well. One thing to note is that boredom is not the kind of boredom one feels when they have nothing to do, but it is rather the opposite of engagement, according to Emotiv. See figure \ref{fig:affectiv} for a screenshot of the suite.
 
 The Emotiv User Manual \cite{emotivUserManual} (page 31) provides information on the activities and brainwave types that may trigger each emotion.
 
@@ -94,7 +94,7 @@ The Emotiv User Manual \cite{emotivUserManual} (page 31) provides information on
 \end{figure}
 
 \subsubsection{Cognitiv\texttrademark  Suite}
-This is probably the most exciting feature of the Emotiv EPOC. Here, one can train 13 actions: push, pull, left, right, lift, drop, 6 rotations (one in each direction for the X, Y and Z axis) and disappear. The disappear action is more abstract because while the first 12 are real life actions, an object cannot vanish into thin air, in reality, through whatever methods. The user has to train each action for a period of 8 seconds. This should be done multiple times until an as high as possible skill level is obtained. The more you get used to training, the easier it will become. I have achieved close to 100\% on all 4 actions: push, pull, left, right. At one point, I was able to achieve 100\% on the push action in less than 5 trainings. The SDK can only detect up to 4 actions at any one time, so one has to choose wisely which actions would be best for their application. See figure \ref{fig:skillLevelMe} for a screenshot of the suite.
+This is probably the most exciting feature of the Emotiv EPOC. Here, one can train 13 actions: push, pull, left, right, lift, drop, 6 rotations (one in each direction for the X, Y and Z axis) and disappear. The disappear action is more abstract because while the first 12 are real life actions, an object cannot vanish into thin air, in reality, through whatever methods. The user has to train each action for a period of 8 seconds. This should be done multiple times until an as high as possible skill level is obtained. The more you get used to training, the easier it will become. I have achieved close to 100\% on all 4 actions: push, pull, left, right. At one point, I was able to achieve 100\% on the push action in less than 5 trainings. The SDK can only detect up to 4 actions at any one time, so one has to choose wisely which actions would be best for their application. See figure \ref{fig:skillLevelMe} for a screenshot of the suite. It is also worth mentioning that the same user might have to train multiple profiles for future uses because sometimes it's difficult for one to be in the same state as they were at the time of the first training. 
 
 \subsubsection{Mouse Emulator (Gyro)}
 
@@ -110,7 +110,7 @@ This data actually comes from a gyroscope fitted in the headset. The original ve
 \subsection{Caring for the headset}
 The 16 sensors need to be properly hydrated before starting to use the Emotiv EPOC. The hydration is done with contact lenses saline solution which has the purpose of enabling a better transmission of the brainwaves while also sanitising the felt pads. For the first use of the sensors, one may need to apply 15-20 proper hydrations before good and reliable sensor contact quality is achieved.
 
-When the user does not expect to use the headset for a period of more than 3-4 days, it is recommended to remove the felt parts from the sensors. Otherwise, the process of oxidation happens much more quickly. See figure \ref{fig:cleanVsOxidised} for images of clean sensors and oxidised sensors. The green residue can be cleaned with a cotton swab dipped into a solution of 1/2 water 1/2 white vinegar. If cleaning the interior of the golden plates, take care not to remove the slightly white polymer paste. I have left the felt parts in the sensors when I went on holiday for about 3 weeks. When I returned, the headset was losing contact quality very quickly and after about 15 minutes, it had to be rehydrated. It looks like salt columns may also form in the felt parts. My problem though, was that the golden plates oxidised a lot and after cleaning them as described above we achieved full green sensor contact quality which is the best you can wish for. We firstly cleaned the outside of the golden plates but that did not help too much. Then, we moved to cleaning the inside as well and that did the job for me, although on the Emotiv forums this is not something they would recommend. We were amazed to see the great contact quality we could achieve and it did not have any negative effects on the sensors as they are still in perfect shape 4 months after the cleaning.
+When the user does not expect to use the headset for a period of more than 3-4 days, it is recommended to remove the felt parts from the sensors. Otherwise, the process of oxidation happens much more quickly. See figure \ref{fig:cleanVsOxidised} for images of clean sensors and oxidised sensors. The green residue can be cleaned with a cotton swab dipped into a solution of 1/2 water 1/2 white vinegar. When cleaning the interior of the golden plates, care should be taken not to remove the slightly white polymer paste. I have left the felt parts in the sensors when I went on holiday for about 3 weeks. When I returned, the headset was losing contact quality very quickly and after about 15 minutes, it had to be rehydrated. It looks like salt columns may also form in the felt parts. My problem though, was that the golden plates oxidised a lot and after cleaning them as described above we achieved full green sensor contact quality which is the best you can wish for. We firstly cleaned the outside of the golden plates but that did not help too much. Then, we moved to cleaning the inside as well and that did the job, although on the Emotiv forums this is not something they would recommend. We were amazed to see the great contact quality we could achieve and it did not have any negative effects on the sensors as they are still in perfect shape 4 months after the cleaning.
 
 \begin{figure}
   \centering
@@ -124,7 +124,7 @@ One of the main problems encountered is that the wireless connection to the comp
 
 \subsection{EmoComposer}
 \label{part:emocomposer}
-EmoComposer is a tool which sends simulations of EmoEngine events to an application. This made it easy to test the game without connecting the headset. This was particularly useful in more tricky to test situations which would have meant spending a long time trying to achieve an action by pure concentration.
+EmoComposer is a tool which sends simulations of EmoEngine events to an application. This made it easy to test the game without connecting the headset. This was particularly useful in more tricky to test situations which would have meant spending a long time to train and try to achieve the action through normal use. 
 
 \subsection{EmoKey}
 EmoKey allows mapping of keys to all the interpretations described in this chapter. In this way, one can use the headset to send smiley faces when smiling or laughing for example. One may also use it to paint. These are two of the things that we have tried. It is supposed to be more useful for playing games using the headset. This has been tried in \cite{wowControl} for the \textit{World of Warcraft} game.
@@ -132,7 +132,7 @@ EmoKey allows mapping of keys to all the interpretations described in this chapt
 \section{Training}
 Because training is a difficult part of getting started with the headset, this section is only trying to provide some pointers as to what might work. 
 
-First of all, while training the user should try to keep as still as possible and concentrate on the action being trained. For example, if one is trying to train the push action, the thing which works most of the times is to visualise how the training cube is being pushed to the back of the virtual room. 
+First of all, while training the user should try to keep as still as possible and concentrate on the action being trained. For example, if one is trying to train the push action, the thing which works most of the times is to visualise how the training cube is being pushed to the back of the virtual room. In \cite{quadriplegic}, it is stated that the electrical activity within the motor cortex is the same as when one actually makes a movement. This is the reason why imagining an action will actually make a virtual object move.
 
 Other people find it easy to visualise a flow of energy in the direction of the trained action. 
 
@@ -146,7 +146,7 @@ Imagining colours or objects for different actions, does not seem to work.
 
 The problem with training is that there is no `recipe' one can follow. Rather, the user has to try to come up with something that works for them. 
 
-With regards to the training success, in figure \ref{fig:skillLevelMe} you can see one of my achievements. \cite{emoTraining} suggests the fastest learners seem to be young children who believe they can do anything, and very relaxed elderly. In the given example, the father of the poster, aged 82, was able to train reliably 4 actions in less than 5 minutes. For some notes on how the user testing training worked, read chapter \ref{cha:testing}.
+With regards to the training success, in figure \ref{fig:skillLevelMe} you can see one of my achievements. \cite{emoTraining} suggests the fastest learners seem to be young children who believe they can do anything, and very relaxed elderly. In the given example, the father of the poster, aged 82, was able to train reliably 4 actions in less than 5 minutes. For some notes on how the user testing training worked in our case, read Chapter \ref{cha:testing}.
 
 \begin{figure}
   \centering
@@ -155,18 +155,25 @@ With regards to the training success, in figure \ref{fig:skillLevelMe} you can s
     \label{fig:skillLevelMe}          
 \end{figure}
 
-Some people might encounter difficulties in training the headset. According to \cite{cureBCIilliteracy}, between 15\% and 30\% of the people trying to use a BCI, will not be able to do so. This condition is called `BCI illiteracy' and it better analysed by \cite{BCIilliteracy}. Their study suggests these people have high theta and low alpha waves present across different mental states such as non task related, resting before motor imagery and motor imagery. \cite{cureBCIilliteracy} have tried to come with a solution to this by using a subject-optimised classifier.
+Some people might encounter difficulties in training the headset. According to \cite{cureBCIilliteracy}, between 15\% and 30\% of the people trying to use a BCI, will not be able to do so. This condition is called `BCI illiteracy' and it is better analysed by \cite{BCIilliteracy}. Their study suggests these people have high theta and low alpha waves present across different mental states such as non task related, resting before motor imagery and motor imagery. \cite{cureBCIilliteracy} have tried to come with a solution to this by using a subject-optimised classifier.
 
 \section{Current Applications}
 \label{sec:currentApplication}
 
-In this section, we are going to have a quick go-through some of the existent applications developed with the help of the Emotiv EPOC.
+In this section, we review some of the existing applications developed with the help of the Emotiv EPOC. OpenViBE \cite{openvibe} is an open-source software platform used especially in the medical, multimedia and robotics fields in order to design, test and use a range of BCI applications. It is officially supported on Windows and Linux operating systems.   
 
 \begin{itemize}
-	\item NeuroPhone \cite{neurophone} is an application which uses the P300\footnote{The P300 is a detectable peak in activity that appears approximately 300ms
-after some infrequent stimuli \cite{hons1201}} signal and allows the user to scroll through photos of 6 contacts at a time. Once the person the user is looking for is found, the application will dial that person's number.
+	\item NeuroPhone \cite{neurophone} is an application which uses the P300 signal (a detectable peak in activity that appears approximately 300ms after some infrequent stimuli \cite{hons1201}) and allows the user to scroll through photos of 6 contacts at a time. Once the person the user is looking for is found, the application will dial that person's number. Figure \ref{fig:neurophone} shows a screenshot of the application. 
 	\item \cite{handOrthotic} have developed a system which allows the control of a hand prosthetic which opens and closes a patient's hand.
 	\item \cite{wheelchairEEG} shows it is difficult to successfully control applications in a highly error sensitive context, such as a wheelchair. 
 	\item Mindtunes \cite{mindtunes} is a project in which DJ Fresh has used multiple headsets in order to produce club quality music from the raw EEG data.   
 	\item EmoLens \cite{emoLens} tags a user's Flickr photos with emotions and learns to show similar pictures in the future as well as allowing picture search based on the tagged emotion.
+	\item \cite{medicalcomparison} does a comparison between the Emotiv EPOC headset and the ANT medical device in the case of a P300 speller. While the results for Emotiv alone are not bad and far better than the chance case, the medical EEG outperforms it, meaning EPOC is more suitable for non-critical applications. The good results of the Emotiv EPOC also dismiss the claim that it is mainly recording the muscle and eye activity. \cite{spellerexample} shows a video where the EPOC headset is used on a 6x6 speller matrix. It is useful to observe visually how a P300 system works. For the experiment, it takes the participant 6 minutes and 44 seconds to spell the phrase `SPELLING WITH MIND'.
 \end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics{neurophone.png}
+  \caption{Neurophone application user interface. The highlighted contact is the the person the user intended to call. It is selected following the presence of the P300 signal. Credit: \cite{neurophone}}
+    \label{fig:neurophone}          
+\end{figure}

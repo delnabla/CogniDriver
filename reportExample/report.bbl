@@ -88,6 +88,18 @@ Gall, J. (1992).
 \newblock \url{http://www.google.com/patents/US5123899}.
 \newblock US Patent 5,123,899.
 
+\bibitem[Georges, 2015]{quadriplegic}
+Georges, B. (2015).
+\newblock A brain computer interface that could help quadriplegics walk.
+\newblock
+  \url{http://www.worldcrunch.com/tech-science/a-brain-computer-interface-that-could-help-quadriplegics-walk/braingate-wimagine-cea-research-implant/c4s12389/#.VTlYzpNqI5x}.
+
+\bibitem[Ghasem-Sani, 2015]{spellerexample}
+Ghasem-Sani, O. (2015).
+\newblock P300 speller implementented using an emotiv neuroheadset and an svm
+  classifier.
+\newblock \url{https://www.youtube.com/watch?v=50O3YMBUo0M}.
+
 \bibitem[Inc., 2010]{emoLens}
 Inc., A.~T. (2010).
 \newblock Emolens.
@@ -97,6 +109,13 @@ Inc., A.~T. (2010).
 Lang, M. (2012).
 \newblock Investigating the emotiv epoc for cognitive control in limited
   training time.
+
+\bibitem[Matthieu~Duvinage, 2013]{medicalcomparison}
+Matthieu~Duvinage, Thierry~{\relax Castermans}, M. {\relax Petieau}. T. {\relax
+  Hoellinger}. G. {\relax Cheron}. T.~{\relax Dutoit}. (2013).
+\newblock Performance of the emotiv epoc headset for p300-based applications.
+\newblock {\em BioMedical Engineering OnLine 2013, 12:56}.
+\newblock {doi: 10.1186/1475-925X-12-56}.
 
 \bibitem[Minkyu~Ahn, 2013]{BCIilliteracy}
 Minkyu~Ahn, Hohyun~Cho, S. {\relax Ahn}. S. C.~{\relax Jun}. (2013).
@@ -175,6 +194,11 @@ Unity (2015).
 Vertanen, K. (2010).
 \newblock Nasa tlx test.
 \newblock \url{http://www.keithv.com/software/nasatlx/nasatlx.html}.
+
+\bibitem[ViBE, 2015]{openvibe}
+ViBE, O. (2015).
+\newblock Open vibe.
+\newblock \url{http://openvibe.inria.fr/discover/}.
 
 \bibitem[Wikipedia, 2015]{battlestar}
 Wikipedia (2015).

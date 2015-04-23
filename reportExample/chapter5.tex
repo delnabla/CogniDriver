@@ -3,7 +3,7 @@
 \chapter{Implementation}
 \label{cha:implementation}
 
-This chapter is going through some of the implementation details during the project development phase of the project.
+This chapter presents the main implementation details during the development phase of the project.
 
 \section{Interfacing with Emotiv}
 The Unity 3D plugin package from Emotiv comes in a suite of 11 C\# files which we will describe in a bit more detail. In order to get access to this data, an  \texttt{EPOCManager} object was created. This object contains all the plugins in the package apart from  \texttt{EdkDll}, \texttt{EmoState}, \texttt{EmoProfileManagement} and \texttt{LabelDraw}. In the following subsections, we are going to provide some very short code snippets since these might prove useful in the future for someone wishing to develop a game using Unity and Emotiv.
@@ -12,7 +12,7 @@ The Unity 3D plugin package from Emotiv comes in a suite of 11 C\# files which w
 Contains the implementation of the Emotiv API.
 
 \subsection{EmoAffectiv} 
-This class gives access to the player emotions described in section \ref{part:affectiv} through calls that directly access one of the public instance variables. For example,
+This class gives access to the player emotions described in Section \ref{part:affectiv} through calls that directly access one of the public instance variables. For example,
 
 \begin{Verbatim}[frame=single, framesep=3mm]
 EmoAffectiv.frustrationScore
@@ -30,7 +30,7 @@ EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[6],
 				true);
 \end{Verbatim}
 		
-where 6 represents the index of \textit{right} action. At the end, the list of 4 actions has to be set through a call to 
+where 6 represents the index of the \textit{right} action. At the end, the list of 4 actions has to be set through a call to 
 
 \begin{Verbatim}[frame=single, framesep=3mm]
 EmoCognitiv.EnableCognitivActionsList();
@@ -110,7 +110,7 @@ EmoProfileManagement.Instance.SetUserProfile(selectedPlayer);
 Represents the emotional status of the user at a given time \cite{emotivSDKUserManual}. This class is used by \texttt{EmoAffectiv}, \texttt{EmoExpressiv} and \texttt{EmoCognitiv} mainly. We did not need to call any functions directly from this class.
 
 \subsection{EmoUserManagement}
-Keeps track of the current user, the current number of user profiles and also fires events when a USB dongle is inserted or removed. I did not need to use this class directly apart from obtaining the current user by calling
+Keeps track of the current user, the current number of user profiles and also fires events when a USB dongle is inserted or removed. We did not need to use this class directly apart from obtaining the current user by calling
 
 \begin{Verbatim}[frame=single, framesep=3mm]
 EmoUserManagement.currentUser
@@ -132,7 +132,7 @@ See figure \ref{fig:sceneInteraction} for an example of how the scenes interact 
 \end{figure}
 
 \subsection{CarChoiceScene}
-The purpose of this scene is to allow the player to choose a car model and colour. At the moment, I have only used 2 car models. I had three of them in mind but one of the models did not allow me to modify the grouping of its components. Figure \ref{fig:carchoicescene} shows how this looks like in the game.
+The purpose of this scene is to allow the player to choose a car model and colour. At the moment, we have used only 2 car models. I had three of them in mind but one of the models did not allow modifications to the grouping of its components. Figure \ref{fig:carchoicescene} shows how this looks like in the game.
 
 \begin{figure}
   \centering
