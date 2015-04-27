@@ -23,7 +23,7 @@ returns a value representing how frustrated the user is.
 In CogniDriver, frustration is used to get the rain started once the score is higher than 50\% and the excitement is lower than 50\%. 
 
 \subsection{EmoCognitiv} 
-It is a class containing methods to start or reset the training. It automatically handles events which start, reset, erase, declare successful or failed training. We have added accessor methods to obtain the current action, its power and the trained actions. We have also added a GUI method, \texttt{DoTrainingCompleteAction(int windowID)} which pops up the window asking the user whether the training should be accepted or rejected and it handles the response appropriately. Before starting the training though, the 4 actions (push, pull, left, right) have to be activated through a call such as: 
+It is a class containing methods to start or reset the training. It automatically handles events which start, reset, erase, declare a successful or failed training. We have added accessor methods to obtain the current action, its power and the trained actions. We have also added a GUI method, \texttt{DoTrainingCompleteAction(int windowID)} which pops up the window asking the user whether the training should be accepted or rejected and it handles the response appropriately. Before starting the training though, the 4 actions (push, pull, left, right) have to be activated through a call such as: 
 
 \begin{Verbatim}[frame=single, framesep=3mm]
 EmoCognitiv.EnableCognitivAction(EmoCognitiv.cognitivActionList[6], 
@@ -60,7 +60,7 @@ EmoExpressiv.isLeftWink
 In CogniDriver, left wink is used to change the camera view. Clenching teeth will action the car's handbrake. 
 
 \subsection{EmoGyroData}
-Gives access to the head position in relation to the circle observed in figure. One may also obtain the \texttt{x} and \texttt{y} coordinates of the gyro. However, we could not find the maximum and minimum values, nor are there 2 online references which give the same numbers.
+Gives access to the head position in relation to the circle observed in figure \ref{fig:gyro}. One may also obtain the \texttt{x} and \texttt{y} coordinates of the gyro. However, we could not find the maximum and minimum values, nor are there 2 online references which give the same numbers.
 
 \subsection{EmoProfileManagement}
 This class is useful to handle the player profiles. In CogniDriver, we have limited the number of player profiles to 10 because of the following reasons:
@@ -107,7 +107,7 @@ EmoProfileManagement.Instance.SetUserProfile(selectedPlayer);
 \end{Verbatim}
 
 \subsection{EmoState}
-Represents the emotional status of the user at a given time \cite{emotivSDKUserManual}. This class is used by \texttt{EmoAffectiv}, \texttt{EmoExpressiv} and \texttt{EmoCognitiv} mainly. We did not need to call any functions directly from this class.
+Represents the emotional status of the user at a given time \cite{emotivSDKUserManual}. This class is mainly used by \texttt{EmoAffectiv}, \texttt{EmoExpressiv} and \texttt{EmoCognitiv}. We did not need to call any functions directly from this class.
 
 \subsection{EmoUserManagement}
 Keeps track of the current user, the current number of user profiles and also fires events when a USB dongle is inserted or removed. We did not need to use this class directly apart from obtaining the current user by calling
@@ -152,7 +152,7 @@ This scene allows the player to:
 	\item train a player profile to be played in Cognitiv mode;
 	\item see the highscores for Keyboard and Cognitiv mode in the \textit{Statistics} tab;
 	\item read instructions about training and playing the game;
-	\item adjust the sound effects and music volume, fullscreen enabling and select the play mode;
+	\item adjust the sound effects and music volume, enable fullscreen and select the play mode;
 	\item exit the game.
 \end{itemize}
 

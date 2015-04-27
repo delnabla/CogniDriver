@@ -200,10 +200,15 @@ ViBE, O. (2015).
 \newblock Open vibe.
 \newblock \url{http://openvibe.inria.fr/discover/}.
 
-\bibitem[Wikipedia, 2015]{battlestar}
-Wikipedia (2015).
+\bibitem[Wikipedia, 2015a]{battlestar}
+Wikipedia (2015a).
 \newblock Battlestar galactica online.
 \newblock \url{http://en.wikipedia.org/wiki/Battlestar_Galactica_Online}.
+
+\bibitem[Wikipedia, 2015b]{wikiEEG}
+Wikipedia (2015b).
+\newblock Electroencephalography.
+\newblock \url{http://en.wikipedia.org/wiki/Electroencephalography}.
 
 \bibitem[Xiaorong~Gao, 2003]{remotecontroller}
 Xiaorong~Gao, Dingfeng~{\relax Xu}, M. {\relax Cheng}. S.~{\relax Gao}. (2003).
